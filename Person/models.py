@@ -3,10 +3,14 @@ from django.db import models
 
 
 class Person(models.Model):
+    GENDER_MALE = True
+    GENDER_FEMALE = False
+    GENDER_NOT_SURE = None
+
     GENDER_CHOISES = (
-        (True, 'Male'),
-        (False, 'Female'),
-        (None, 'Not Sure')
+        (GENDER_MALE, 'Male'),
+        (GENDER_FEMALE, 'Female'),
+        (GENDER_NOT_SURE, 'Not Sure')
     )
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
