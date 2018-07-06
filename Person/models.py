@@ -1,5 +1,6 @@
 import datetime
 from django.db import models
+from django.db.models import Q
 
 
 class CustomManagerMales(models.Manager):
@@ -10,6 +11,17 @@ class CustomManagerMales(models.Manager):
 class CustomManagerFemales(models.Manager):
     def get_queryset(self):
         return super(CustomManagerFemales, self).get_queryset().filter(gender=Person.GENDER_FEMALE)
+
+
+class MyQuerySet(models.QuerySet):
+    def males(self):
+        return self.filter(gender=Person.GENDER_MALE)
+
+    def females(self):
+        return self.filter(gender=Person.GENDER_FEMALE)
+
+    def name_starts_with(self, s):
+        return self.filter(Q(first_name__startswith=s) | Q(last_name__startswith=s))
 
 
 class Person(models.Model):
@@ -31,6 +43,7 @@ class Person(models.Model):
     males = CustomManagerMales()
     females = CustomManagerFemales()
     objects = models.Manager()
+    myqs = MyQuerySet.as_manager()
 
     class Meta:
         verbose_name = 'Contact person'
