@@ -2,6 +2,16 @@ import datetime
 from django.db import models
 
 
+class CustomManagerMales(models.Manager):
+    def get_queryset(self):
+        return super(CustomManagerMales, self).get_queryset().filter(gender=Person.GENDER_MALE)
+
+
+class CustomManagerFemales(models.Manager):
+    def get_queryset(self):
+        return super(CustomManagerFemales, self).get_queryset().filter(gender=Person.GENDER_FEMALE)
+
+
 class Person(models.Model):
     GENDER_MALE = True
     GENDER_FEMALE = False
@@ -18,10 +28,15 @@ class Person(models.Model):
     birthdate = models.DateField(default=datetime.datetime.now)
     email = models.EmailField(max_length=70, unique=True, verbose_name='e-mail')
 
+    males = CustomManagerMales()
+    females = CustomManagerFemales()
+    objects = models.Manager()
+
     class Meta:
         verbose_name = 'Contact person'
         verbose_name_plural = 'Contact persons'
         ordering = ('first_name', 'last_name')
+        # get_latest_by = 'birthdate'
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
