@@ -30,4 +30,4 @@ class Shop(models.Model):
         ordering = ('name', 'city')
 
     def __str__(self):
-        return f'{self.name} | {self.shop_type} ({self.city})'
+        return f'{self.name} | {self.shop_type} | {self.city}'
