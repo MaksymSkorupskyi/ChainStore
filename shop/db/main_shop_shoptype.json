@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Department Stores"
+  },
+  {
+    "id": 2,
+    "name": "Discount Stores"
+  },
+  {
+    "id": 3,
+    "name": "Supermarket"
+  },
+  {
+    "id": 4,
+    "name": "Mom and Pop Store"
+  },
+  {
+    "id": 5,
+    "name": "Malls"
+  },
+  {
+    "id": 6,
+    "name": "Merchandise"
+  },
+  {
+    "id": 7,
+    "name": "Car Dealership"
+  }
+]

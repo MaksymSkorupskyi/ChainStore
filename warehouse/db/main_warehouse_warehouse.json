@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "name": "Apple Store Warehouse",
+    "city_id": 4,
+    "address": "6th avenue"
+  },
+  {
+    "id": 2,
+    "name": "Apple Store Warehouse",
+    "city_id": 2,
+    "address": "Rodeo Drive 122"
+  },
+  {
+    "id": 3,
+    "name": "Apple Store Warehouse",
+    "city_id": 3,
+    "address": "Oak street 12"
+  },
+  {
+    "id": 5,
+    "name": "Apple Store Warehouse",
+    "city_id": 24,
+    "address": "10 Downing Street"
+  },
+  {
+    "id": 6,
+    "name": "Apple Store Warehouse",
+    "city_id": 5,
+    "address": "Lincoln str 10"
+  },
+  {
+    "id": 7,
+    "name": "Mothercare Warehouse",
+    "city_id": 1,
+    "address": "Zaliznychna 10"
+  },
+  {
+    "id": 8,
+    "name": "Tesla Warehouse",
+    "city_id": 2,
+    "address": "Rodeo Drive 124"
+  },
+  {
+    "id": 9,
+    "name": "Tesla Warehouse",
+    "city_id": 3,
+    "address": "Oak street 10"
+  },
+  {
+    "id": 10,
+    "name": "Tesla Warehouse",
+    "city_id": 24,
+    "address": "221B Baker Street"
+  },
+  {
+    "id": 11,
+    "name": "Tesla Warehouse",
+    "city_id": 4,
+    "address": "5th avenue 120"
+  },
+  {
+    "id": 12,
+    "name": "Mothercare Warehouse",
+    "city_id": 8,
+    "address": "Khreshchatyk 44"
+  },
+  {
+    "id": 13,
+    "name": "Wallmart Warehouse",
+    "city_id": 3,
+    "address": "Oak street 100"
+  },
+  {
+    "id": 14,
+    "name": "Wallmart Warehouse",
+    "city_id": 2,
+    "address": "Rodeo Drive 1000"
+  },
+  {
+    "id": 15,
+    "name": "Wallmart Warehouse",
+    "city_id": 4,
+    "address": "4th avenue 200"
+  }
+]

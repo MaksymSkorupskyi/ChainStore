@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Person's detail {{ person.pk }}
+{% endblock %}
+
+{% block content %}
+
+    <h3>Person's detail</h3>
+
+    <p>{{ person|upper }}, {{ person.birthdate }}</p>
+    <p>{{ person.hello_person }}</p>
+
+{% endblock %}
+

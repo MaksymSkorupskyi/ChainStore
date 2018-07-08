@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "name": "Wallmart",
+    "address": "Oak street 12",
+    "website": "http://wallmart.com",
+    "city_id": 3,
+    "shop_type_id": 3,
+    "owner_id": 19
+  },
+  {
+    "id": 2,
+    "name": "Tesla Motor Show",
+    "address": "Rodeo Drive 123",
+    "website": "http://tesla.com",
+    "city_id": 2,
+    "shop_type_id": 7,
+    "owner_id": 2
+  },
+  {
+    "id": 3,
+    "name": "Mothercare",
+    "address": "King Cross",
+    "website": "http://mothercare.ua",
+    "city_id": 1,
+    "shop_type_id": 4,
+    "owner_id": 3
+  },
+  {
+    "id": 4,
+    "name": "Apple Store",
+    "address": "5th avenue 128",
+    "website": "http://apple.com",
+    "city_id": 4,
+    "shop_type_id": 1,
+    "owner_id": 8
+  },
+  {
+    "id": 5,
+    "name": "Tesla Motor Show",
+    "address": "Oak street 12",
+    "website": "http://tesla.com",
+    "city_id": 3,
+    "shop_type_id": 7,
+    "owner_id": 2
+  },
+  {
+    "id": 6,
+    "name": "Tesla Motor Show",
+    "address": "221B Baker Street",
+    "website": "http://tesla.com",
+    "city_id": 24,
+    "shop_type_id": 7,
+    "owner_id": 2
+  },
+  {
+    "id": 7,
+    "name": "Tesla Motor Show",
+    "address": "5th avenue 120",
+    "website": "http://tesla.com",
+    "city_id": 4,
+    "shop_type_id": 7,
+    "owner_id": 2
+  },
+  {
+    "id": 8,
+    "name": "Apple Store",
+    "address": "Oak street 12",
+    "website": "http://apple.com",
+    "city_id": 3,
+    "shop_type_id": 1,
+    "owner_id": 8
+  },
+  {
+    "id": 9,
+    "name": "Apple Store",
+    "address": "Rodeo Drive 122",
+    "website": "http://apple.com",
+    "city_id": 2,
+    "shop_type_id": 1,
+    "owner_id": 8
+  },
+  {
+    "id": 10,
+    "name": "Mothercare",
+    "address": "Khreshchatyk 44",
+    "website": "http://mothercare.ua",
+    "city_id": 8,
+    "shop_type_id": 4,
+    "owner_id": 22
+  },
+  {
+    "id": 11,
+    "name": "Wallmart",
+    "address": "Rodeo Drive 1000",
+    "website": "http://wallmart.com",
+    "city_id": 2,
+    "shop_type_id": 3,
+    "owner_id": 17
+  },
+  {
+    "id": 12,
+    "name": "Biedronka",
+    "address": "Kopernika, 8",
+    "website": "",
+    "city_id": 26,
+    "shop_type_id": 2,
+    "owner_id": 3
+  }
+]

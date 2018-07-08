@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "shop_id": 1,
+    "person_id": 18
+  },
+  {
+    "id": 2,
+    "shop_id": 1,
+    "person_id": 3
+  },
+  {
+    "id": 4,
+    "shop_id": 11,
+    "person_id": 18
+  },
+  {
+    "id": 5,
+    "shop_id": 11,
+    "person_id": 11
+  },
+  {
+    "id": 6,
+    "shop_id": 11,
+    "person_id": 4
+  },
+  {
+    "id": 7,
+    "shop_id": 12,
+    "person_id": 17
+  },
+  {
+    "id": 8,
+    "shop_id": 12,
+    "person_id": 18
+  },
+  {
+    "id": 9,
+    "shop_id": 12,
+    "person_id": 11
+  },
+  {
+    "id": 10,
+    "shop_id": 12,
+    "person_id": 7
+  }
+]

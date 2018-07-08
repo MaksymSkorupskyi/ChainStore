@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<p>
+    <h1>ChainStore</h1>
+
+    {% block content %}{% endblock %}
+
+    <p><a href="{% url 'start_page' %}">Start page</a></p>
+    <p><a href="{% url 'main' %}">Main page</a></p>
+    <p><a href="{% url 'person_detail' person.pk %}">Person Detail</a></p>
+
+
+</body>
+</html>
