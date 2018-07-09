@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    List of Countries | ChainStore
+{% endblock %}
+
+{% block content %}
+
+    <h3>List of countries</h3>
+
+    {% if countries %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>id</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for country in countries %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td><a href="{% url 'country' pk=country.pk %}">{{ country.name }}</a></td>
+                        <td><a href="{% url 'country' pk=country.pk %}">{{ country.pk }}</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="text-muted">
+            <i>List of Countries is empty.</i>
+        </p>
+    {% endif %}
+
+
+{% endblock %}

@@ -18,16 +18,19 @@ from django.urls import path, re_path, include
 from ChainStore import views
 
 urlpatterns = [
-    path('', views.start_page, name='start_page'),
+    path('', views.main, name='main'),
     path('main/', views.main, name='main'),
-    re_path('main/(?P<i>\d+)/(?P<j>\d+)/', views.main),
-    re_path('main/(?P<i>\d+)/default/', views.main),
-    re_path('main/(?P<i>\d+)/special/', views.main, kwargs={'j': -1}),
-
-    re_path('post/(?P<slug>[\w\-]+)', views.post, name='news_post'),
-
-    # Experiments with person
     path('', include('person.urls')),
+    path('person/', include('person.urls')),
+    path('place/', include('place.urls')),
+    # path('shop/',include('shop.urls')),
+    # path('warehouse/',include('warehouse.urls')),
+
+    # re_path('main/(?P<i>\d+)/(?P<j>\d+)/', views.main),
+    # re_path('main/(?P<i>\d+)/default/', views.main),
+    # re_path('main/(?P<i>\d+)/special/', views.main, kwargs={'j': -1}),
+    # re_path('post/(?P<slug>[\w\-]+)', views.post, name='news_post'),
+    # Experiments with person
     # path('person/', include('person.urls')),
     # re_path(r'^person/(?P<test>\w+)/', include('person.urls')),
     # re_path(r'^person /(?P<pk>\d+)/', include([

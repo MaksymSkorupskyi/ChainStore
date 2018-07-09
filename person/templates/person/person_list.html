@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Person's detail {{ person.pk }} | ChainStore
+    Persons list | ChainStore
 {% endblock %}
 
 {% block content %}
 
-    <h3>Persons list</h3>
+    <h3>Person's detail</h3>
 
     <p>{{ person|upper }}, {{ person.birthdate }}</p>
     <p>{{ person.hello_person }}</p>

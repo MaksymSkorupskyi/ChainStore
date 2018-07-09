@@ -22,8 +22,16 @@
     <option name="TEMPLATE_FOLDERS">
       <list>
         <option value="$MODULE_DIR$/templates" />
-        <option value="$MODULE_DIR$/Person/templates" />
-        <option value="$MODULE_DIR$/Person/templates/Person" />
+        <option value="$MODULE_DIR$/person/templates" />
+        <option value="$MODULE_DIR$/person/templates/person" />
+        <option value="$MODULE_DIR$/place/templates" />
+        <option value="$MODULE_DIR$/shop/templates" />
+        <option value="$MODULE_DIR$/warehouse/templates" />
+        <option value="$MODULE_DIR$/place/templates/place" />
+        <option value="$MODULE_DIR$/shop/templates/shop" />
+        <option value="$MODULE_DIR$/warehouse/templates/warehouse" />
+        <option value="$MODULE_DIR$/ChainStore/templates" />
+        <option value="$MODULE_DIR$/ChainStore/templates/ChainStore" />
       </list>
     </option>
   </component>
