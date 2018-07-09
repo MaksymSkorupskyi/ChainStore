@@ -21,7 +21,7 @@
             <tbody>
                 {% for country in countries %}
                     <tr>
-                        <td>{{ forloop.counter }}</td>
+                        <td><a href="{% url 'country' pk=country.pk %}">{{ forloop.counter }}</a></td>
                         <td><a href="{% url 'country' pk=country.pk %}">{{ country.name }}</a></td>
                         <td><a href="{% url 'country' pk=country.pk %}">{{ country.pk }}</a></td>
                     </tr>
