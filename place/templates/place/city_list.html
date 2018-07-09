@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    List of Cities | ChainStore
+{% endblock %}
+
+{% block content %}
+
+    <h3>List of Cities</h3>
+
+    {% if cities %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>id</th>
+                <th>Country</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for city in cities %}
+                <tr>
+                    <td><a href="{% url 'city' pk=city.pk %}">{{ forloop.counter }}</a></td>
+                    <td><a href="{% url 'city' pk=city.pk %}">{{ city.name }}</a></td>
+                    <td><a href="{% url 'city' pk=city.pk %}">{{ city.pk }}</a></td>
+                    <td><a href="{% url 'city' pk=city.pk %}">{{ city.country.name }}</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="text-muted">
+            <i>List of Cities is empty.</i>
+        </p>
+    {% endif %}
+
+
+{% endblock %}

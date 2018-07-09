@@ -3,12 +3,35 @@ from django.shortcuts import render, get_object_or_404, render_to_response
 
 
 def main(request):
-    # person = get_object_or_404(Person, pk=person_id)
     return render(request, 'main.html')
 
 
-# def start_page(request):
-#     return HttpResponse(f'<h1>Chain Store</h1>')
+def start_page(request):
+    print(request.scheme)
+    print(request.path)
+    print(request.get_host())
+    print(request.get_full_path())
+    print(request.build_absolute_uri())
+    print(request.build_absolute_uri('main/'))
+    print(request.is_secure())
+    print(request.is_ajax())
+    print(request.method)
+    print(request.GET)
+    print(request.POST)
+    print(request.FILES)
+    print(request.COOKIES)
+    print(request.user)
+    print(request.session)
+    if 'a' not in request.session:
+        request.session['a'] = 1
+    else:
+        request.session['a'] += 1
+    print(request.session['a'])
+    for i in request.META.items():
+        print('{} = {}'.format(*i))
+    print(request.REQUEST)
+    return HttpResponse('<h1>Chain Store<form method="post"><input type="text" name="a"><input type="submit"></form>')
+    return HttpResponse('<h1>Chain Store</h1>')
 
 
 # def main(request, i=0, j=0):
