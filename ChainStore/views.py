@@ -6,6 +6,7 @@ def main(request):
     return render(request, 'main.html')
 
 
+# request methods demonstartion
 def start_page(request):
     print(request.scheme)
     print(request.path)
@@ -22,11 +23,11 @@ def start_page(request):
     print(request.COOKIES)
     print(request.user)
     print(request.session)
-    if 'a' not in request.session:
-        request.session['a'] = 1
+    if 'i' not in request.session:
+        request.session['i'] = 1
     else:
-        request.session['a'] += 1
-    print(request.session['a'])
+        request.session['i'] += 1
+    print(request.session['i'])
     for i in request.META.items():
         print('{} = {}'.format(*i))
     print(request.REQUEST)

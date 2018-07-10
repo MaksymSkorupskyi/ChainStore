@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    List of Warehouses | ChainStore
+{% endblock %}
+
+{% block content %}
+
+    <h3>List of Warehouses</h3>
+
+    {% if warehouses %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>id</th>
+                <th>Country</th>
+                <th>City</th>
+                <th>Address</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for warehouse in warehouses %}
+                <tr>
+                    <td><a href="{% url 'warehouse' pk=warehouse.pk %}">{{ forloop.counter }}</a></td>
+                    <td><a href="{% url 'warehouse' pk=warehouse.pk %}">{{ warehouse.name }}</a></td>
+                    <td><a href="{% url 'warehouse' pk=warehouse.pk %}">{{ warehouse.pk }}</a></td>
+                    <td><a href="{% url 'warehouse' pk=warehouse.pk %}">{{ warehouse.city.country.name }}</a></td>
+                    <td><a href="{% url 'warehouse' pk=warehouse.pk %}">{{ warehouse.city.name }}</a></td>
+                    <td><a href="{% url 'warehouse' pk=warehouse.pk %}">{{ warehouse.address }}</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="text-muted">
+            <i>List of Warehouses is empty.</i>
+        </p>
+    {% endif %}
+
+
+{% endblock %}

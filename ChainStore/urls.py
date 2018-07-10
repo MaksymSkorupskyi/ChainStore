@@ -23,8 +23,10 @@ urlpatterns = [
     path('', include('person.urls')),
     path('person/', include('person.urls')),
     path('place/', include('place.urls')),
+    path('', include('place.urls')),
     # path('shop/',include('shop.urls')),
-    # path('warehouse/',include('warehouse.urls')),
+    path('', include('warehouse.urls')),
+    path('warehouse/',include('warehouse.urls')),
 
     # re_path('main/(?P<i>\d+)/(?P<j>\d+)/', views.main),
     # re_path('main/(?P<i>\d+)/default/', views.main),
