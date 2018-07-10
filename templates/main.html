@@ -7,17 +7,12 @@
 {% block content %}
 
     <ul class="main-list">
-        <li>Shops</li>
-        <li>Shop Types</li>
+        <a href="{% url 'shop' %}"><li>Shops</li></a>
+        <a href="{% url 'shoptype' %}"><li>Shop Types</li></a>
         <li>Persons</li>
-        <li><a href="http://127.0.0.1:8000/warehouse/">Warehouses</a></li>
-        <li><a href="http://127.0.0.1:8000/place/country/">Countries</a></li>
-        <li><a href="http://127.0.0.1:8000/place/city/">Cities</a></li>
-{#        <li><a href="{% url 'shop' %}">Магазины</a></li>#}
-{#        <li><a href="{% url 'shoptype' %}">Типы магазинов</a></li>#}
-{#        <li><a href="{% url 'person' %}">Persons</a></li>#}
-{#        <li><a href="{% url 'stock' %}">Склады</a></li>#}
-{#        <li><a href="{% url 'country' %}">Страны</a></li>#}
-{#        <li><a href="{% url 'city' %}">Города</a></li>#}
+{#        <a href="{% url 'person' %}"><li>Persons</li></a>#}
+        <a href="{% url 'warehouse' %}"><li>Warehouses</li></a>
+        <a href="{% url 'country' %}"><li>Countries</li></a>
+        <a href="{% url 'city' %}"><li>Cities</li></a>
     </ul>
 {% endblock %}

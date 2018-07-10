@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    List of Shop Types | ChainStore
+{% endblock %}
+
+{% block content %}
+
+    <h3>List of Shop Types</h3>
+
+    {% if shoptypes %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>id</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for shoptype in shoptypes %}
+                <tr>
+                    <td><a href="{% url 'shoptype' pk=shoptype.pk %}">{{ forloop.counter }}</a></td>
+                    <td><a href="{% url 'shoptype' pk=shoptype.pk %}">{{ shoptype.name }}</a></td>
+                    <td><a href="{% url 'shoptype' pk=shoptype.pk %}">{{ shoptype.pk }}</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="text-muted">
+            <i>List of Shop Types is empty.</i>
+        </p>
+    {% endif %}
+
+
+{% endblock %}
