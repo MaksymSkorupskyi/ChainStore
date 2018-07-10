@@ -21,7 +21,7 @@ urlpatterns = [
     path('', views.main, name='main'),
     path('main/', views.main, name='main'),
     path('', include('person.urls')),
-    path('person/', include('person.urls')),
+    # path('person/', include('person.urls')),
     path('', include('place.urls')),
     # path('place/', include('place.urls')),
     path('', include('shop.urls')),

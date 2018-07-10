@@ -1,15 +1,50 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Persons list | ChainStore
+    List of Persons | ChainStore
 {% endblock %}
 
 {% block content %}
 
-    <h3>Person's detail</h3>
+    <h3>List of Persons</h3>
 
-    <p>{{ person|upper }}, {{ person.birthdate }}</p>
-    <p>{{ person.hello_person }}</p>
+    {% if persons %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Birthdate</th>
+                <th>Gender</th>
+                <th>e-mail</th>
+                <th>id</th>
+
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for person in persons %}
+                <tr>
+                    <td><a href="{% url 'person' pk=person.pk %}">{{ forloop.counter }}</a></td>
+                    <td><a href="{% url 'person' pk=person.pk %}">{{ person.first_name }}</a></td>
+                    <td><a href="{% url 'person' pk=person.pk %}">{{ person.last_name }}</a></td>
+                    <td><a href="{% url 'person' pk=person.pk %}">{{ person.birthdate }}</a></td>
+                    <td><a href="{% url 'person' pk=person.pk %}">{{ person.get_gender_display }}</a></td>
+                    <td><a href="{% url 'person' pk=person.pk %}">{{ person.email }}</a></td>
+                    <td><a href="{% url 'person' pk=person.pk %}">{{ person.pk }}</a></td>
+                    <td><a href="{% url 'person' pk=person.pk %}">{{ person.city.country.name }}</a></td>
+                    <td><a href="{% url 'person' pk=person.pk %}">{{ person.city.name }}</a></td>
+                    <td><a href="{% url 'person' pk=person.pk %}">{{ person.address }}</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="text-muted">
+            <i>List of Persons is empty.</i>
+        </p>
+    {% endif %}
+
 
 {% endblock %}
-

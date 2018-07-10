@@ -1,7 +1,7 @@
 from django.urls import path, re_path
-from person import views
+from person.views import PersonList, PersonDetail
 
 urlpatterns = [
-    re_path('^person/(?P<person_id>\d+)/', views.person_detail, name='person_detail',)
-
+    path('person/', PersonList.as_view(), name='person'),
+    re_path(r'^person/(?P<pk>\d+)/$', PersonDetail.as_view(), name='person'),
 ]
