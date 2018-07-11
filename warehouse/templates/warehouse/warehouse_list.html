@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    List of Warehouses | ChainStore
+    Warehouses | ChainStore
 {% endblock %}
 
 {% block content %}
@@ -14,10 +14,10 @@
             <tr>
                 <th>#</th>
                 <th>Name</th>
-                <th>id</th>
                 <th>Country</th>
                 <th>City</th>
                 <th>Address</th>
+                <th>id</th>
             </tr>
             </thead>
 
@@ -26,10 +26,10 @@
                 <tr>
                     <td><a href="{% url 'warehouse' pk=warehouse.pk %}">{{ forloop.counter }}</a></td>
                     <td><a href="{% url 'warehouse' pk=warehouse.pk %}">{{ warehouse.name }}</a></td>
+                    <td><a href="{% url 'country' pk=warehouse.city.country.pk %}">{{ warehouse.city.country.name }}</a></td>
+                    <td><a href="{% url 'city' pk=warehouse.city.pk %}">{{ warehouse.city.name }}</a></td>
+                    <td>{{ warehouse.address }}</td>
                     <td><a href="{% url 'warehouse' pk=warehouse.pk %}">{{ warehouse.pk }}</a></td>
-                    <td><a href="{% url 'warehouse' pk=warehouse.pk %}">{{ warehouse.city.country.name }}</a></td>
-                    <td><a href="{% url 'warehouse' pk=warehouse.pk %}">{{ warehouse.city.name }}</a></td>
-                    <td><a href="{% url 'warehouse' pk=warehouse.pk %}">{{ warehouse.address }}</a></td>
                 </tr>
             {% endfor %}
             </tbody>

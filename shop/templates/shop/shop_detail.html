@@ -1,15 +1,39 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Shop Details | ChainStore
+    {{ shop }} | Shops | ChainStore
 {% endblock %}
 
 {% block content %}
+    <h2>Shops: {{ shop }}</h2>
 
-    <h3>Shop Details</h3>
-
-
+    <p>Shop ID: #{{ shop.pk }}</p>
+    <p>Name: {{ shop.name }}</p>
+    <p>Type: <a href="{% url 'shoptype' pk=shop.shop_type.pk %}">{{ shop.shop_type }}</a></p>
+    <p>Owner: <a href="{% url 'person' pk=shop.owner.pk %}">{{ shop.owner }} ({{ shop.owner.email|urlize }})</a></p>
+    <p>Address: {{ shop.address }}</p>
+    <p>City: <a href="{% url 'city' pk=shop.city.pk %}"> {{ shop.city.name }}</a></p>
+    <p>Country: <a href="{% url 'country' pk=shop.city.country.pk %}">{{ shop.city.country.name }}</a></p>
+    {% if shop.sellers.all %}
+        <p>Sellers:</p>
+        {% for seller in shop.sellers.all %}
+            <ul>
+                <li><a href="{% url 'person' pk=seller.pk %}">{{ seller }}</a> ({{ seller.email|urlize }})</li>
+            </ul>
+        {% endfor %}
+    {% endif %}
+    {% if shop.warehouses.all %}
+        <p>Warehouses:</p>
+        {% for warehouse in shop.warehouses.all %}
+            <ul>
+                <li><a href="{% url 'warehouse' pk=warehouse.pk %}">{{ warehouse }}</a></li>
+            </ul>
+        {% endfor %}
+    {% endif %}
+    {% if shop.website %}
+        <p>Website: {{ shop.website|urlize }}</p>
+    {% endif %}
+    <br>
     <a href="{% url 'shop' %}"><<< Back to the List of Shops</a>
 
 {% endblock %}
-

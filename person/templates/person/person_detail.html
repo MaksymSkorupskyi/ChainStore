@@ -1,16 +1,40 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Person's detail {{ person.pk }} | ChainStore
+    {{ person }} | Contact Persons | ChainStore
 {% endblock %}
 
 {% block content %}
 
-    <h3>Persons list</h3>
+    <h2>Contact Persons: {{ person }}</h2>
 
-    <p>{{ person|upper }}, {{ person.birthdate }}</p>
-    <p>{{ person.hello_person }}</p>
-    
+    <p>First Name: {{ person.first_name }}</p>
+    <p>Last Name: {{ person.last_name }}</p>
+    <p>Birthdate: {{ person.birthdate }}</p>
+    <p>Gender: {{ person.get_gender_display }}</p>
+    <p>e-mail: {{ person.email|urlize  }}</p>
+    <p>id: {{ person.pk }}</p>
+    <br>
     <a href="{% url 'person' %}"><<< Back to the List of Persons</a>
 
 {% endblock %}
+
+
+{#{% extends 'base.html' %}#}
+{##}
+{#{% block title %}#}
+{#    Person's detail {{ person.pk }} | ChainStore#}
+{#{% endblock %}#}
+{##}
+{#{% block content %}#}
+{##}
+{#    <h3>Persons list</h3>#}
+{##}
+{#    <p>{{ person|upper }}, {{ person.birthdate }}</p>#}
+{#    <p>{{ person.hello_person }}</p>#}
+{#    #}
+{#    <a href="{% url 'person' %}"><<< Back to the List of Persons</a>#}
+{##}
+{#{% endblock %}#}
+{##}
+{##}

@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Shop Type Details | ChainStore
+    {{ shoptype }} | Shop Types | ChainStore
 {% endblock %}
 
 {% block content %}
 
-    <h3>Shop Type Details</h3>
+    <h2>Shop Types: {{ shoptype }}</h2>
+    <p>Name: {{ shoptype.name }}</p>
+    <p>id: {{ shoptype.pk }}</p>
 
-
-    <a href="{% url 'shoptype' %}"><<< Back to the List of Shop Types</a>
+    <a href="{% url 'shoptype' %}"><<< Back to the Shop Types</a>
 
 {% endblock %}
 

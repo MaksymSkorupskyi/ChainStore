@@ -1,15 +1,18 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Warehouse Details | ChainStore
+    {{ warehouse }} | Warehouses | ChainStore
 {% endblock %}
 
 {% block content %}
 
-    <h3>Warehouse Details</h3>
-
-
+    <h2>Warehouses: {{ warehouse }}</h2>
+    <p>Name: {{ warehouse.name }}</p>
+    <p>Address: {{ warehouse.address }}</p>
+    <p>City: <a href="{% url 'city' pk=warehouse.city.pk %}"> {{ warehouse.city.name }}</a></p>
+    <p>Country: <a href="{% url 'country' pk=warehouse.city.country.pk %}">{{ warehouse.city.country.name }}</a></p>
+    <p>id: {{ warehouse.pk }}</p>
+    <br>
     <a href="{% url 'warehouse' %}"><<< Back to the List of Warehouses</a>
 
 {% endblock %}
-

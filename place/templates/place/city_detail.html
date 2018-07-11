@@ -1,15 +1,18 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    City Details | ChainStore
+    {{ city }} | Cities | ChainStore
 {% endblock %}
 
 {% block content %}
 
-    <h3>City Details</h3>
-
-
+    <h2>Cities: {{ city }}</h2>
+    <p>Name: {{ city.name }}</p>
+    <p>Country: <a href="{% url 'country' pk=city.country.pk %}">{{ city.country.name }}</a></p>
+    <p>id: {{ city.pk }}</p>
+    <br>
     <a href="{% url 'city' %}"><<< Back to the List of Cities</a>
 
 {% endblock %}
+
 

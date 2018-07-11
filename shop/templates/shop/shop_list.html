@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    List of Shops | ChainStore
+    Shops | ChainStore
 {% endblock %}
 
 {% block content %}
@@ -14,10 +14,15 @@
             <tr>
                 <th>#</th>
                 <th>Name</th>
-                <th>id</th>
+                <th>Shop Type</th>
+                <th>Onwer</th>
+
+
                 <th>Country</th>
                 <th>City</th>
                 <th>Address</th>
+                <th>Website</th>
+                <th>id</th>
             </tr>
             </thead>
 
@@ -26,10 +31,14 @@
                 <tr>
                     <td><a href="{% url 'shop' pk=shop.pk %}">{{ forloop.counter }}</a></td>
                     <td><a href="{% url 'shop' pk=shop.pk %}">{{ shop.name }}</a></td>
+                    <td><a href="{% url 'shoptype' pk=shop.shop_type.pk %}">{{ shop.shop_type }}</a></td>
+                    <td><a href="{% url 'person' pk=shop.owner.pk %}">{{ shop.owner }}</a></td>
+                    <td><a href="{% url 'country' pk=shop.city.country.pk %}">{{ shop.city.country.name }}</a></td>
+                    <td><a href="{% url 'city' pk=shop.city.pk %}">{{ shop.city.name }}</a></td>
+                    <td>{{ shop.address }}</td>
+                    <td>{{ shop.website|urlize }}</td>
+
                     <td><a href="{% url 'shop' pk=shop.pk %}">{{ shop.pk }}</a></td>
-                    <td><a href="{% url 'shop' pk=shop.pk %}">{{ shop.city.country.name }}</a></td>
-                    <td><a href="{% url 'shop' pk=shop.pk %}">{{ shop.city.name }}</a></td>
-                    <td><a href="{% url 'shop' pk=shop.pk %}">{{ shop.address }}</a></td>
                 </tr>
             {% endfor %}
             </tbody>
