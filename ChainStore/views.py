@@ -32,7 +32,7 @@ def start_page(request):
         print('{} = {}'.format(*i))
     print(request.REQUEST)
     return HttpResponse('<h1>Chain Store<form method="post"><input type="text" name="a"><input type="submit"></form>')
-    return HttpResponse('<h1>Chain Store</h1>')
+    # return HttpResponse('<h1>Chain Store</h1>')
 
 
 # def main(request, i=0, j=0):

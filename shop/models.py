@@ -14,6 +14,7 @@ class ShopType(models.Model):
     def __str__(self):
         return self.name
 
+
 class Shop(models.Model):
     shop_type = models.ForeignKey(ShopType, verbose_name='shop type', on_delete=models.PROTECT)
     name = models.CharField(max_length=50, verbose_name='name')

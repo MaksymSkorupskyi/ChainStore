@@ -31,6 +31,13 @@ urlpatterns = [
     path('', include('warehouse.urls')),
     # path('warehouse/',include('warehouse.urls')),
 
+    path('admin/', admin.site.urls),
+]
+
+# handler404 = 'ChainStore.views.http404'
+handler404 = views.http404
+
+"""
     # re_path('main/(?P<i>\d+)/(?P<j>\d+)/', views.main),
     # re_path('main/(?P<i>\d+)/default/', views.main),
     # re_path('main/(?P<i>\d+)/special/', views.main, kwargs={'j': -1}),
@@ -43,9 +50,4 @@ urlpatterns = [
     #     path('edit',edit),
     #     path('remove', remove )
     # ])),
-
-    path('admin/', admin.site.urls),
-]
-
-# handler404 = 'ChainStore.views.http404'
-handler404 = views.http404
+"""
