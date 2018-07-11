@@ -7,9 +7,11 @@
 {% block content %}
 
     <h2>Shop Types: {{ shoptype }}</h2>
+
     <p>Name: {{ shoptype.name }}</p>
     <p>id: {{ shoptype.pk }}</p>
 
+    <br>
     <a href="{% url 'shoptype' %}"><<< Back to the Shop Types</a>
 
 {% endblock %}

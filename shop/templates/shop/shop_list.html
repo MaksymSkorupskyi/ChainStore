@@ -6,7 +6,7 @@
 
 {% block content %}
 
-    <h3>List of Shops</h3>
+    <h2>List of Shops</h2>
 
     {% if shops %}
         <table class="table">
@@ -43,11 +43,12 @@
             {% endfor %}
             </tbody>
         </table>
+
     {% else %}
         <p class="text-muted">
             <i>List of Shops is empty.</i>
         </p>
-    {% endif %}
 
+    {% endif %}
 
 {% endblock %}

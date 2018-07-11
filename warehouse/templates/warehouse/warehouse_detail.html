@@ -7,6 +7,7 @@
 {% block content %}
 
     <h2>Warehouses: {{ warehouse }}</h2>
+
     <p>Name: {{ warehouse.name }}</p>
     <p>Address: {{ warehouse.address }}</p>
     <p>City: <a href="{% url 'city' pk=warehouse.city.pk %}"> {{ warehouse.city.name }}</a></p>

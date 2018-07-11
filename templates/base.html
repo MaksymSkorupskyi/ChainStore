@@ -18,21 +18,17 @@
         <a href="{% url 'warehouse' %}">Warehouses</a> |
         <a href="{% url 'city' %}">Cities</a> |
         <a href="{% url 'country' %}">Countries</a>
-{#        <hr>#}
     </header>
 
     {% block content %}{% endblock %}
 
-{#    <p><a href="{% url 'start_page' %}">Start page</a></p>#}
-    <p><a href="{% url 'main' %}">Main page</a></p>
-{#    <p><a href="{% url 'person_detail' person.pk %}">Person Detail</a></p>#}
-
 
     <footer>
             {% block footer %}
+                <p><a href="{% url 'main' %}">Main page</a></p>
                 <br>
                 <hr>
-                    {% now 'Y' %} &copy; ChainStore - The best chain store in the world
+                {% now 'Y' %} &copy; ChainStore - The best chain store in the world
             {% endblock %}
     </footer>
 
