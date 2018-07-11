@@ -6,6 +6,7 @@ from place.models import City
 
 class ShopType(models.Model):
     name = models.CharField(max_length=50, verbose_name='shop type', unique=True)
+    description = models.TextField()
 
     class Meta:
         ordering = ('name',)
