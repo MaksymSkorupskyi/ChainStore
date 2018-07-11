@@ -22,14 +22,16 @@
 
     {% block content %}{% endblock %}
 
-
     <footer>
             {% block footer %}
                 <p><a href="{% url 'main' %}">Main page</a></p>
                 <br>
                 <hr>
-                {% now 'Y' %} &copy; ChainStore - The best chain store in the world
+                {% now 'Y' %} &copy; {{ website }} by {{ author }}.
             {% endblock %}
+
+
+
     </footer>
 
 

@@ -3,7 +3,8 @@ from django.shortcuts import render, get_object_or_404, render_to_response
 
 
 def main(request):
-    return render(request, 'main.html')
+    # return render(request, 'main.html')
+    return render(request, 'main.html', {'a': 1})
 
 
 # request methods demonstartion

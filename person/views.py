@@ -6,8 +6,7 @@ from person.models import Person
 
 def person_list(request):
     return render(request, 'person/person_list.html', {
-        'persons': Person.objects.all()
-        ,
+        'persons': Person.objects.all(),
         'main_menu_key': 'persons',
     })
 

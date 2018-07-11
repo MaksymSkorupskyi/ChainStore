@@ -1,7 +1,7 @@
 # coding=utf-8
 from django.urls import reverse_lazy
 
-
+"""
 MAIN_MENU = (
     ('shops', {'url': reverse_lazy('shop'), 'title': 'Shops'}),
     ('shop_types', {'url': reverse_lazy('shop_type'), 'title': 'Shop Types'}),
@@ -16,4 +16,17 @@ def main(request):
     return {
         'DEFAULT_TITLE': 'ChainStore',
         'MAIN_MENU': MAIN_MENU,
+    }
+"""
+
+
+def get_data():
+    return [1, 2, 3]
+
+
+def chainstore(request):
+    return {
+        'author': 'Maksym Skorupskyi',
+        'website': 'ChainStore',
+        'data': get_data,
     }
