@@ -99,4 +99,3 @@ PS: для того, чтобы получить человеко-понятно
 https://docs.djangoproject.com/en/1.7/ref/models/instances/#django.db.models.Model.get_FOO_display, 
 
 например person.get_sex_display()
--лшш
