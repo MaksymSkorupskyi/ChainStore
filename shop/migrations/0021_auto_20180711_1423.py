@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='shoptype',
             name='description',
-            field=models.TextField(default='More information is available on official chainstore website'),
+            field=models.TextField(default='More information is available on official chainstoreBAK website'),
             preserve_default=False,
         ),
         migrations.AlterField(

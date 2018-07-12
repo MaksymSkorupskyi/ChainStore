@@ -1,4 +1,4 @@
-"""chainstore URL Configuration
+"""chainstoreBAK URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, re_path, include
 # from django.templatetags.static import static
 from django.views.generic import TemplateView, RedirectView
-from chainstore import views
+from chainstoreBAK import views
 
 urlpatterns = [
     path('', views.main, name='main'),
@@ -33,12 +33,12 @@ urlpatterns = [
     path('', include('warehouse.urls')),
     # path('warehouse/',include('warehouse.urls')),
 
-    # re_path(r'^favicon\.ico$', RedirectView.as_view(url=static('chainstore/favicon.ico'))),
+    # re_path(r'^favicon\.ico$', RedirectView.as_view(url=static('chainstoreBAK/favicon.ico'))),
 
     path('admin/', admin.site.urls),
 ]
 
-# handler404 = 'chainstore.views.http404'
+# handler404 = 'chainstoreBAK.views.http404'
 handler404 = views.http404
 
 """
