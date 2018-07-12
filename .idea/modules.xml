@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ChainStore.iml" filepath="$PROJECT_DIR$/.idea/ChainStore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/chainstore.iml" filepath="$PROJECT_DIR$/.idea/chainstore.iml" />
     </modules>
   </component>
 </project>

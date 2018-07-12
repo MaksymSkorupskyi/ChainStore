@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Shops | ChainStore
+    Shops | {{ WEBSITE }}
 {% endblock %}
 
 {% block content %}
@@ -16,8 +16,6 @@
                 <th>Name</th>
                 <th>Shop Type</th>
                 <th>Onwer</th>
-
-
                 <th>Country</th>
                 <th>City</th>
                 <th>Address</th>
@@ -37,7 +35,6 @@
                     <td><a href="{% url 'city' pk=shop.city.pk %}">{{ shop.city.name }}</a></td>
                     <td>{{ shop.address }}</td>
                     <td>{{ shop.website|urlize }}</td>
-
                     <td><a href="{% url 'shop' pk=shop.pk %}">{{ shop.pk }}</a></td>
                 </tr>
             {% endfor %}

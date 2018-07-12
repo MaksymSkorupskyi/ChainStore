@@ -20,13 +20,14 @@ def main(request):
 """
 
 
-def get_data():
-    return [1, 2, 3]
-
-
-def chainstore(request):
+def chainstore_constants(request):
     return {
-        'author': 'Maksym Skorupskyi',
-        'website': 'ChainStore',
-        'data': get_data,
+        'AUTHOR': 'Maksym Skorupskyi',
+        'WEBSITE': 'ChainStore',
+
+        # 'data': get_data,
+
     }
+
+# def get_data():
+#     return [1, 2, 3]

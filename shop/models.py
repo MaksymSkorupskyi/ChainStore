@@ -32,3 +32,10 @@ class Shop(models.Model):
 
     def __str__(self):
         return f'{self.name} | {self.shop_type} | {self.city}'
+
+    # def get_absolute_url(self):
+    #     return reverse('shop_detail', kwargs={'pk': self.pk})
+
+    @models.permalink
+    def get_absolute_url(self):
+        return 'shop', (), {'pk': self.pk}
