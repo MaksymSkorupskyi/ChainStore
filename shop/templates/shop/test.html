@@ -5,6 +5,77 @@
 {% block content %}
 
     {{ block.super }}
-    <h3>Hello!</h3>
+    <h2>html tags experiments</h2>
+
+    < &lt; <br>
+    > &gt;<br>
+    ' &#39;<br>
+    " &quot;<br>
+    & &amp;<br>
+    <br>
+    {{ a }}<br>
+    {{ a|safe }}<br>
+    {{ b }}<br>
+    {{ b|safe }}<br>
+    {{ b|safe|join:' ' }}<br>
+    {{ b|safeseq|join:' ' }}<br>
+    <br>
+
+    {% autoescape off %}
+        <>'"&<br>
+        {{ a }}<br>
+        {{ a.0 }} {{ a.1 }} {{ a.2 }}<br>
+        {{ b }}<br>
+        {{ b|join:' ' }}<br>
+        {{ b.0 }} {{ b.1 }} {{ b.0|escape }} {{ b.1|escape }}<br>
+    {% endautoescape %}
+
+    {{ d.a }} <br>
+    {{ d.b.z }} <br>
+    {{ obj }} <br>
+    {{ obj.shop_type }} <br>
+    {{ obj.get_absolute_url }} <br>
+    {{ b|slice:'1:3' }}<br>
+
+    {#    todo learn it#}
+    {%  comment 'todo smth' %}
+
+    {% endcomment %}
+    {% csrf_token %}
+
+    {% for i in r %}
+        {% cycle '1' '2' '3' x as c silent %}
+        {{ c }}
+    {% endfor %}
+    <br>
+    {#    {%  debug %}#}
+    {% filter lower|capfirst %}
+        {{ t1 }} {{ t2 }}
+    {% endfilter %}
+    <br>
+    {% firstof t0 t1 t2 'empty' %}
+    <br>
+
+    {% for i in items %}
+
+        {% for item in items %}
+            <li>
+                {{ forloop.parentloop.counter }}
+                {{ forloop.counter }}
+                {{ forloop.first }}
+                {{ forloop.last }}
+                {{ item.name }}
+            </li>
+        {% endfor %}
+    {% empty %}
+        Lits is empty. Please add some elements.
+    {% endfor %}
+
+
+
+
+
+
+
 
 {% endblock %}

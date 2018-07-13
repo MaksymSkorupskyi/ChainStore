@@ -20,6 +20,7 @@ class ShopList(ListView):
         context['main_menu_key'] = 'shops'
         return context
 
+
 """
 def shop_detail(request, pk):
     return render(request, 'shop_detail.html', {
@@ -83,6 +84,7 @@ class ShopTypeList(ListView):
         context['main_menu_key'] = 'shoptypes'
         return context
 
+
 """
 def shoptype_detail(request, pk):
     return render(request, 'shoptype_detail.html', {
@@ -102,6 +104,7 @@ class ShopTypeDetail(DetailView):
         return context
 """
 
+
 class CustomShopTypeDetailView(TemplateView):
     template_name = 'shop/shoptype_detail.html'
 
@@ -111,8 +114,16 @@ class CustomShopTypeDetailView(TemplateView):
         return context
 
 
-
 def test(request):
     return render(request, 'shop/test.html', {
-
+        'a': '<b>hello</b>',
+        'b': ['<b>hello</b>', '<i>world</i>', ],
+        'd': {'a': 1, 'b': {'z': 4}, 'c': 3},
+        'obj': Shop.objects.first(),
+        'x': 4,
+        'r': range(20),
+        't0': '',
+        't1': 'Hello',
+        't2': 'World',
+        'items': Shop.objects.all(),
     })

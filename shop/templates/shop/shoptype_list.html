@@ -25,6 +25,8 @@
                     <td><a href="{% url 'shoptype' pk=shoptype.pk %}">{{ shoptype.name }}</a></td>
                     <td><a href="{% url 'shoptype' pk=shoptype.pk %}">{{ shoptype.pk }}</a></td>
                 </tr>
+            {% empty %}
+                Lits is empty. Please add some elements.
             {% endfor %}
             </tbody>
         </table>

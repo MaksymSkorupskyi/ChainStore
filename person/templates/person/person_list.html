@@ -31,12 +31,14 @@
                     <td><a href="{% url 'person' pk=person.pk %}">{{ person.last_name }}</a></td>
                     <td>{{ person.birthdate }}</td>
                     <td>{{ person.get_gender_display }}</td>
-                    <td>{{ person.email|urlize  }}</td>
+                    <td>{{ person.email|urlize }}</td>
                     <td><a href="{% url 'person' pk=person.pk %}">{{ person.pk }}</a></td>
                     <td><a href="{% url 'person' pk=person.pk %}">{{ person.city.country.name }}</a></td>
                     <td><a href="{% url 'person' pk=person.pk %}">{{ person.city.name }}</a></td>
                     <td><a href="{% url 'person' pk=person.pk %}">{{ person.address }}</a></td>
                 </tr>
+            {% empty %}
+                Lits is empty. Please add some elements.
             {% endfor %}
             </tbody>
         </table>
