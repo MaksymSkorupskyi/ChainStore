@@ -1,6 +1,6 @@
 from django.urls import path, re_path, reverse_lazy
 from shop.views import ShopList, ShopCreate, ShopDelete, ShopUpdate, CustomShopDetailView
-from shop.views import ShopTypeList, CustomShopTypeDetailView
+from shop.views import ShopTypeList, CustomShopTypeDetailView, test
 
 urlpatterns = [
     path('shop/', ShopList.as_view(), name='shop'),
@@ -11,7 +11,8 @@ urlpatterns = [
     re_path(r'^shop/(?P<pk>\d+)/delete$', ShopDelete.as_view(), name='shop_delete'),
 
     path('shoptype/', ShopTypeList.as_view(), name='shoptype'),
-
     re_path(r'^shoptype/(?P<pk>\d+)/$', CustomShopTypeDetailView.as_view(), name='shoptype'),
     # re_path(r'^shoptype/(?P<pk>\d+)/$', ShopTypeDetail.as_view(), name='shoptype'),
+
+    path('shop/test', test),
 ]

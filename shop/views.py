@@ -109,3 +109,10 @@ class CustomShopTypeDetailView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['shoptype'] = get_object_or_404(ShopType, pk=kwargs['pk'])
         return context
+
+
+
+def test(request):
+    return render(request, 'shop/test.html', {
+
+    })
