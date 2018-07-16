@@ -33,7 +33,7 @@ urlpatterns = [
     path('', include('warehouse.urls')),
     # path('warehouse/',include('warehouse.urls')),
 
-    # re_path(r'^favicon\.ico$', RedirectView.as_view(url=static('chainstore/favicon.ico'))),
+    path('message-form', views.message_form, name='message-form'),
 
     path('admin/', admin.site.urls),
 ]

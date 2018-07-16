@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'place',
     'shop',
     'warehouse',
+
+    'chainstore',
 ]
 
 MIDDLEWARE = [
