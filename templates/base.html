@@ -29,11 +29,11 @@
 <footer>
     {% block footer %}
         <p><a href="{% url 'main' %}">Main page</a></p>
-        <br>
         <hr>
-        {{ COPYRIGHT_YEAR }} &copy; {{ WEBSITE }} by {{ AUTHOR }}.
+        <p>{{ COPYRIGHT_YEAR }} &copy; {{ WEBSITE }} by {{ AUTHOR }}.</p>
 
-        {{ sql_queries }}
+        <p><i>SQL Queries:</i></p>
+        <p>{{ sql_queries }}</p>
 
     {% endblock %}
 

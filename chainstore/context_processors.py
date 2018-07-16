@@ -1,5 +1,6 @@
 from django.urls import reverse_lazy
 from datetime import datetime
+from django.db import connection
 
 """
 MAIN_MENU = (
@@ -33,6 +34,7 @@ def chainstore_constants(request):
         'AUTHOR': 'Maksym Skorupskyi',
         'WEBSITE': 'ChainStore',
         'COPYRIGHT_YEAR': copyright_year(),
+        'sql_queries': connection.queries,
         # 'data': get_data,
     }
 

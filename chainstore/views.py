@@ -2,21 +2,25 @@ from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404, render_to_response
 
+from chainstore.forms import SendMessageForm
+
 
 def main(request):
-    # return render(request, 'main.html')
-    return render(request, 'main.html', {'a': 1})
+    return render(request, 'main.html')
+    # return render(request, 'main.html', {'a': 1})
 
 
 def message_form(request):
-    if request.method == 'POST':
-        print(request.POST)
-        messages.success(request, 'OK')
-        return redirect('message-form')
-    return render(request, 'chainstore/message_form.html')
+    # if request.method == 'POST':
+    #     print(request.POST)
+    #     messages.success(request, 'OK')
+    #     return redirect('message-form')
+    form = SendMessageForm
+    return render(request, 'chainstore/message_form.html', {'form': form})
 
 
-# request methods demonstartion
+#############################################################
+# request methods demonstration
 def start_page(request):
     print(request.scheme)
     print(request.path)
