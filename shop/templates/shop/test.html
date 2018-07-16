@@ -1,11 +1,53 @@
 {% extends 'base.html' %}
 
+{% load shoptags %}
+
 {% load cache %}
 
 {% block content %}
 
+    <h2>simple tags experiments</h2>
+
+    {{ t1 }}<br>
+    {% current_time f='%Y.%m.%d' prefix='date: '|upper %}<br>
+    {{ t1 }}<br>
+
+    {% very_simple_tag 1 2 a=3 b=6 %}<br>
+
+
+
+    {% get_user as u %}<br>
+    {{ u }}<br>
+
+
+
+    {% upper %}
+        {% menu %}
+        User: {% get_user %}<br>
+        {% get_shop 1 as shop %}<br>
+        {{ shop }}<br>
+    {% endupper %}
+
+
+
+    <h2>templatetags experiments</h2>
+
+    {{ test|mc }} <br>
+    {{ test|mc:'b' }} <br>
+    {{ test|add_italic_tags }} <br>
+    {{ time_now }} <br>
+
+
+
+
+
     {{ block.super }}
+
+
+
     <h2>html tags experiments</h2>
+
+    {% include 'shop/x.html' with a=a|join:' ' only %}
 
     < &lt; <br>
     > &gt;<br>
@@ -68,14 +110,85 @@
             </li>
         {% endfor %}
     {% empty %}
-        Lits is empty. Please add some elements.
+        List is empty. Please add some elements.
     {% endfor %}
 
+    {% for i in items2 %}
+        {% ifchanged i.name %}
+            <h3>{{ i.name }}</h3>
+        {% endifchanged %}
+        <p>n: {{ i.n }}</p>
+    {% endfor %}
 
+    {% now 'Y.m.d H:i:s' %}
 
+    {% spaceless %}
+        <p> 123 </p>
+        <div> 456</div>
+    {% endspaceless %}
 
+    {% templatetag openblock %}
+    {% templatetag closeblock %}
+    {% templatetag openvariable %}
+    {% templatetag closevariable %}
+    {% templatetag openbrace %}
+    {% templatetag opencomment %}
 
+    {%  verbatim %}
+    {%   %}
+    {%  endverbatim %}<br>
 
+    {% url 'shop_edit' pk=1 as url_shop_edit %}
+    {{ url_shop_edit }}<br>
 
+    {% with g=a|join:'' z=a %}
+        {{ g|safe }}
+        {{ z }}
+    {% endwith %}<br>
+
+    {#    {% static 'admin/js/actions.js' %}#}
+    {{ STATIC_URL }}admin/js/actions.js
+    {#    {%  get_static_prefix %}#}
+    {#    {%  get_media_prefix as m%}#}<br>
+
+    {{ STATIC_URL }}
+    {{ MEDIA_URL }}<br>
+
+    {{ y|add:1 }}<br>
+    {{ y|add:-1 }}<br>
+    {{ list1|add:list2 }}<br>
+    {{ yy|addslashes }}<br>
+    {{ zz|capfirst }}<br>
+    ~{{ zz|rjust:80 }}~<br>
+    {{ xx|date:'d.m.Y H:i:s' }}<br>
+
+    {#    <script>alert('{{ aa|escapejs }}')</script>#}
+    {{ bb|filesizeformat }}<br>
+    {{ items|first }} {{ items|length }}<br>
+    {{ items2|last }} {{ items2|length }}<br>
+    {{ cc|floatformat:'-1' }}<br>
+    {{ dd|iriencode }}<br>
+    {{ dd|length }}<br>
+
+    {{ ee|linebreaks }}
+
+    {{ ee|linenumbers }}}<br>
+    {{ ee|make_list }}}<br>
+    {{ ee|make_list }}}<br>
+    {{ ee|pprint }}}<br>
+    {{ items|random }}<br>
+
+    {{ aa|slugify }}<br>
+
+    {{ bb|stringformat:'E' }}<br>
+    {{ a|striptags }}<br>
+
+    {{ ff|timesince }}}<br>
+    New year in {{ gg|timeuntil }}<br>
+
+    {{ t|title|truncatechars_html:63|safe }}<br>
+    {{ t|title|truncatewords_html:10|safe }}<br>
+
+    {{ test|yesno:'да, нет, не знаю' }}
 
 {% endblock %}

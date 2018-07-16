@@ -1,5 +1,9 @@
+from datetime import datetime
+from django.utils import timezone
+from django.utils.html import mark_safe
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView, TemplateView
+
 from shop.models import Shop, ShopType
 
 
@@ -126,4 +130,31 @@ def test(request):
         't1': 'Hello',
         't2': 'World',
         'items': Shop.objects.all(),
+        'items2': [
+            {'name': 'Aaa', 'n': 1},
+            {'name': 'Aaa', 'n': 2},
+            {'name': 'Bbb', 'n': 3},
+        ],
+        'y': 5,
+        'list1': [1, 2],
+        'list2': [3, 4],
+        'yy': "'hello'",
+        'zz': 'hello',
+        'xx': datetime.now(),
+        'aa': 'Hello Person!',
+        'bb': 123213423542,
+        'cc': 1.28,
+        'dd': '?q=поиск',
+        'ee': (
+            'Text Текст\n'
+            'text текст\n\n'
+            'New Paragraph'
+        ),
+        'ff': datetime(2013, 1, 1),
+        'gg': datetime(2019, 1, 1),
+        't': '<b>very</b> interesting page' * 100,
+        'test': '<b> t e s t </b>',
+        'time_now': timezone.now(),
+        'date_prefix': 'Date: ',
+        'selected_menu': 0,
     })
