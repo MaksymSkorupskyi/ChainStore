@@ -56,7 +56,7 @@ Task #1: - Complete
 
 _________________________________________________________________________________________________________
 
-Task #2 - Complete, To Do - Bootstrap
+Task #2 - Complete (9/10), To Do - Bootstrap (10)
 
 1. Нужно разобраться с HTTP (например тут http://ru.wikipedia.org/wiki/HTTP).
 
@@ -102,7 +102,7 @@ https://docs.djangoproject.com/en/1.7/ref/models/instances/#django.db.models.Mod
 
 _________________________________________________________________________________________________________
 
-Task #3 - in progress
+Task #3 - in progress (2/7)
 
 1. Написать и подключить Middleware, который будет сохранять: 
 - дату, 
