@@ -6,10 +6,18 @@
 
     <form method="post" action="{% url 'message-form' %}">
         {% csrf_token %}
-        {{ form.as_p }}
+
         {#        <p>Name: <input type="text" name="name"></p>#}
         {#        <p>e-mail: <input type="email" name="email"></p>#}
         {#        <p>Message: <textarea name="message"></textarea></p>#}
+
+{#        {{ form.as_p }}#}
+
+        {{ form.name.error }}
+        {{ form.name.label_tag }}{{ form.name }}{{ form.name.field }}
+        {{ form.email }}
+        {{ form.message }}
+
         <p><input type="submit" value="Send"></p>
 
     </form>

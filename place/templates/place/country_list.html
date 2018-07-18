@@ -6,27 +6,29 @@
 
 {% block content %}
 
-    <h2>List of Countries</h2>
+    <h1>Countries</h1>
+
+    <p><a href="add"><input type="submit" value="Add"></a></p>
 
     {% if countries %}
 
         <table class="table">
             <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>id</th>
-                </tr>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>id</th>
+            </tr>
             </thead>
 
             <tbody>
-                {% for country in countries %}
-                    <tr>
-                        <td><a href="{% url 'country' pk=country.pk %}">{{ forloop.counter }}</a></td>
-                        <td><a href="{% url 'country' pk=country.pk %}">{{ country.name }}</a></td>
-                        <td><a href="{% url 'country' pk=country.pk %}">{{ country.pk }}</a></td>
-                    </tr>
-                {% endfor %}
+            {% for country in countries %}
+                <tr>
+                    <td><a href="{% url 'country' pk=country.pk %}">{{ forloop.counter }}</a></td>
+                    <td><a href="{% url 'country' pk=country.pk %}">{{ country.name }}</a></td>
+                    <td><a href="{% url 'country' pk=country.pk %}">{{ country.pk }}</a></td>
+                </tr>
+            {% endfor %}
             </tbody>
         </table>
 
@@ -36,5 +38,7 @@
         </p>
 
     {% endif %}
+
+    <p><a href="add"><input type="submit" value="Add"></a></p>
 
 {% endblock %}

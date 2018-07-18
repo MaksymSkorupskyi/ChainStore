@@ -6,14 +6,18 @@
 
 {% block content %}
 
-    <h2>Shop Types: {{ shoptype }}</h2>
+    <h1>Shop Types: {{ shoptype }}</h1>
 
     <p>Name: {{ shoptype.name }}</p>
     <p>id: {{ shoptype.pk }}</p>
     <p>{{ shoptype.description }}</p>
-
     <br>
-    <a href="{% url 'shoptype' %}"><<< Back to the Shop Types</a>
+    <a href="edit"><input type="submit" value="Edit"></a>
+    <a href="delete"><input type="submit" value="Delete"></a>
+    <a href="{% url 'shoptype' %}"><input type="submit" value="< Back to the List"></a>
+
+{#    <br>#}
+{#    <a href="{% url 'shoptype' %}"><<< Back to the Shop Types</a>#}
 
 {% endblock %}
 

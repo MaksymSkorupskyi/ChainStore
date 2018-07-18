@@ -6,7 +6,10 @@
 
 {% block content %}
 
-    <h2>List of Cities</h2>
+    <h1>Cities</h1>
+
+    <p><a href="add"><input type="submit" value="Add"></a></p>
+
 
     {% if cities %}
 
@@ -38,5 +41,7 @@
         </p>
 
     {% endif %}
+
+    <p><a href="add"><input type="submit" value="Add"></a></p>
 
 {% endblock %}

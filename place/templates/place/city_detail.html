@@ -6,7 +6,7 @@
 
 {% block content %}
 
-    <h2>Cities: {{ city }}</h2>
+    <h1>Cities: {{ city }}</h1>
 
     <p>Name: {{ city.name }}</p>
     <p>Country: <a href="{% url 'country' pk=city.country.pk %}">{{ city.country.name }}</a></p>

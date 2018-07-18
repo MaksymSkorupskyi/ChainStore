@@ -15,7 +15,17 @@ def message_form(request):
     #     print(request.POST)
     #     messages.success(request, 'OK')
     #     return redirect('message-form')
-    form = SendMessageForm
+    form = SendMessageForm(
+        request.POST or None,
+        initial={'name':'your name'},
+    )
+    if form.is_valid():
+        print(form.cleaned_data)
+        print(form.cleaned_data['name'])
+        print(form.cleaned_data['email'])
+        print(form.cleaned_data['message'])
+        messages.success(request, 'OK')
+        return redirect('message-form')
     return render(request, 'chainstore/message_form.html', {'form': form})
 
 
@@ -37,6 +47,7 @@ def start_page(request):
     print(request.COOKIES)
     print(request.user)
     print(request.session)
+    print(request.REQUEST)
     if 'i' not in request.session:
         request.session['i'] = 1
     else:
@@ -44,7 +55,7 @@ def start_page(request):
     print(request.session['i'])
     for i in request.META.items():
         print('{} = {}'.format(*i))
-    print(request.REQUEST)
+
     return HttpResponse('<h1>Chain Store<form method="post"><input type="text" name="a"><input type="submit"></form>')
     # return HttpResponse('<h1>Chain Store</h1>')
 

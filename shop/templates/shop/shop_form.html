@@ -6,13 +6,17 @@
 
 {% block content %}
 
-    <h2>Shops: {{ shop }}</h2>
+    <h1>Shops: {{ shop }}</h1>
 
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit">
+
+        <a href="{% url 'shop' %}"></a>
+
     </form>
+{#    <input type="submit" value="Back to the List of Shops">#}
 
     <br>
     <a href="{% url 'shop' %}"><<< Back to the List of Shops</a>

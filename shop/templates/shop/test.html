@@ -6,7 +6,7 @@
 
 {% block content %}
 
-    <h2>simple tags experiments</h2>
+    <h1>simple tags experiments</h1>
 
     {{ t1 }}<br>
     {% current_time f='%Y.%m.%d' prefix='date: '|upper %}<br>
@@ -14,12 +14,8 @@
 
     {% very_simple_tag 1 2 a=3 b=6 %}<br>
 
-
-
     {% get_user as u %}<br>
     {{ u }}<br>
-
-
 
     {% upper %}
         {% menu %}
@@ -30,22 +26,18 @@
 
 
 
-    <h2>templatetags experiments</h2>
+    <h1>templatetags experiments</h1>
 
     {{ test|mc }} <br>
     {{ test|mc:'b' }} <br>
     {{ test|add_italic_tags }} <br>
     {{ time_now }} <br>
 
-
-
-
-
     {{ block.super }}
 
 
 
-    <h2>html tags experiments</h2>
+    <h1>html tags experiments</h1>
 
     {% include 'shop/x.html' with a=a|join:' ' only %}
 

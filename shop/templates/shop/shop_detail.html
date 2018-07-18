@@ -6,7 +6,7 @@
 
 {% block content %}
 
-    <h2>Shops: {{ shop }}</h2>
+    <h1>Shops: {{ shop }}</h1>
 
     <p>Shop ID: #{{ shop.pk }}</p>
     <p>Name: {{ shop.name }}</p>
@@ -38,7 +38,12 @@
         <p>Website: {{ shop.website|urlize }}</p>
     {% endif %}
 
-    <br>
-    <a href="{% url 'shop' %}"><<< Back to the List of Shops</a>
+    <a href="edit"><input type="submit" value="Edit"></a>
+    <a href="delete"><input type="submit" value="Delete"></a>
+    <a href="{% url 'shop' %}"><input type="submit" value="< Back to the List"></a>
+
+{#    <p><a href="edit">Edit Shop</a></p>#}
+{#    <p><a href="">Delete Shop</a></p>#}
+{#    <a href="{% url 'shop' %}"><<< Back to the List of Shops</a>#}
 
 {% endblock %}

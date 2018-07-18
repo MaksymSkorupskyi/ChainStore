@@ -6,7 +6,9 @@
 
 {% block content %}
 
-    <h2>Contact Persons</h2>
+    <h1>Contact Persons</h1>
+
+    <p><a href="add"><input type="submit" value="Add"></a></p>
 
     {% if persons %}
         <table class="table">
@@ -48,5 +50,6 @@
         </p>
     {% endif %}
 
+    <p><a href="add"><input type="submit" value="Add"></a></p>
 
 {% endblock %}

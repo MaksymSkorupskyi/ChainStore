@@ -6,7 +6,9 @@
 
 {% block content %}
 
-    <h2>List of Warehouses</h2>
+    <h1>Warehouses</h1>
+
+    <p><a href="add"><input type="submit" value="Add"></a></p>
 
     {% if warehouses %}
         <table class="table">
@@ -44,5 +46,7 @@
         </p>
 
     {% endif %}
+
+    <p><a href="add"><input type="submit" value="Add"></a></p>
 
 {% endblock %}
