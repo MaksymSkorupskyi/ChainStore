@@ -8,7 +8,9 @@
 
     <h1>Warehouses</h1>
 
-    <p><a href="add"><input type="submit" value="Add"></a></p>
+    <p><a href="add">
+        <button type="button" class="btn btn-outline-secondary">Add</button>
+    </a></p>
 
     {% if warehouses %}
         <table class="table">
@@ -33,6 +35,11 @@
                     <td><a href="{% url 'city' pk=warehouse.city.pk %}">{{ warehouse.city.name }}</a></td>
                     <td>{{ warehouse.address }}</td>
                     <td><a href="{% url 'warehouse' pk=warehouse.pk %}">{{ warehouse.pk }}</a></td>
+                    <td>
+                        <a href="{% url 'warehouse' pk=warehouse.pk %}edit">
+                            <button type="button" class="btn btn-outline-secondary">Edit</button>
+                        </a>
+                    </td>
                 </tr>
             {% empty %}
                 List is empty. Please add some elements.
@@ -47,6 +54,8 @@
 
     {% endif %}
 
-    <p><a href="add"><input type="submit" value="Add"></a></p>
+    <p><a href="add">
+        <button type="button" class="btn btn-outline-secondary">Add</button>
+    </a></p>
 
 {% endblock %}

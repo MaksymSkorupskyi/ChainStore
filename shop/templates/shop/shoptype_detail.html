@@ -12,9 +12,9 @@
     <p>id: {{ shoptype.pk }}</p>
     <p>{{ shoptype.description }}</p>
     <br>
-    <a href="edit"><input type="submit" value="Edit"></a>
-    <a href="delete"><input type="submit" value="Delete"></a>
-    <a href="{% url 'shoptype' %}"><input type="submit" value="< Back to the List"></a>
+    <a href="edit"><button type="button" class="btn btn-outline-primary">Edit</button></a>
+    <a href="delete"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+    <a href="{% url 'shoptype' %}"><button type="button" class="btn btn-outline-secondary">Back to the List</button></a>
 
 {#    <br>#}
 {#    <a href="{% url 'shoptype' %}"><<< Back to the Shop Types</a>#}

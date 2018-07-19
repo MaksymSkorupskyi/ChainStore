@@ -14,8 +14,11 @@
     <p>Gender: {{ person.get_gender_display }}</p>
     <p>e-mail: {{ person.email|urlize  }}</p>
     <p>id: {{ person.pk }}</p>
-    <br>
-    <a href="{% url 'person' %}"><<< Back to the List of Persons</a>
+
+    <a href="edit"><button type="button" class="btn btn-outline-primary">Edit</button></a>
+    <a href="delete"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+    <a href="{% url 'person' %}"><button type="button" class="btn btn-outline-secondary">Back to the List</button></a>
+{#    <a href="{% url 'person' %}"><<< Back to the List of Persons</a>#}
 
 {% endblock %}
 

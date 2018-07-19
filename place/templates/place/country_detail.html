@@ -11,7 +11,10 @@
     <p>Name: {{ country.name }}</p>
     <p>id: {{ country.pk }}</p>
 
-    <a href="{% url 'country' %}"><<< Back to the List of Countries</a>
+    <a href="edit"><button type="button" class="btn btn-outline-primary">Edit</button></a>
+    <a href="delete"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+    <a href="{% url 'country' %}"><button type="button" class="btn btn-outline-secondary">Back to the List</button></a>
+{#    <a href="{% url 'country' %}"><<< Back to the List of Countries</a>#}
 
 {% endblock %}
 

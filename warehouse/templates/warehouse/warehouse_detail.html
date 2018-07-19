@@ -13,7 +13,9 @@
     <p>City: <a href="{% url 'city' pk=warehouse.city.pk %}"> {{ warehouse.city.name }}</a></p>
     <p>Country: <a href="{% url 'country' pk=warehouse.city.country.pk %}">{{ warehouse.city.country.name }}</a></p>
     <p>id: {{ warehouse.pk }}</p>
-    <br>
-    <a href="{% url 'warehouse' %}"><<< Back to the List of Warehouses</a>
+    <a href="edit"><button type="button" class="btn btn-outline-primary">Edit</button></a>
+    <a href="delete"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+    <a href="{% url 'warehouse' %}"><button type="button" class="btn btn-outline-secondary">Back to the List</button></a>
+{#    <a href="{% url 'warehouse' %}"><<< Back to the List of Warehouses</a>#}
 
 {% endblock %}

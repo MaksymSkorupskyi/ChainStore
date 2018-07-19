@@ -2,23 +2,14 @@ from django.urls import reverse_lazy
 from datetime import datetime
 from django.db import connection
 
-"""
 MAIN_MENU = (
     ('shops', {'url': reverse_lazy('shop'), 'title': 'Shops'}),
-    ('shop_types', {'url': reverse_lazy('shop_type'), 'title': 'Shop Types'}),
+    ('shoptypes', {'url': reverse_lazy('shoptype'), 'title': 'Shop Types'}),
     ('persons', {'url': reverse_lazy('person'), 'title': 'Contact Persons'}),
-    ('stocks', {'url': reverse_lazy('stock'), 'title': 'Warehouses'}),
+    ('warehouses', {'url': reverse_lazy('warehouse'), 'title': 'Warehouses'}),
     ('countries', {'url': reverse_lazy('country'), 'title': 'Countries'}),
     ('cities', {'url': reverse_lazy('city'), 'title': 'Cities'}),
 )
-
-
-def main(request):
-    return {
-        'DEFAULT_TITLE': 'ChainStore',
-        'MAIN_MENU': MAIN_MENU,
-    }
-"""
 
 
 def copyright_year():
@@ -34,6 +25,7 @@ def chainstore_constants(request):
         'AUTHOR': 'Maksym Skorupskyi',
         'WEBSITE': 'ChainStore',
         'COPYRIGHT_YEAR': copyright_year(),
+        'MAIN_MENU': MAIN_MENU,
         'sql_queries': connection.queries,
         # 'data': get_data,
     }

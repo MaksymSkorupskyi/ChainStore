@@ -38,12 +38,8 @@
         <p>Website: {{ shop.website|urlize }}</p>
     {% endif %}
 
-    <a href="edit"><input type="submit" value="Edit"></a>
-    <a href="delete"><input type="submit" value="Delete"></a>
-    <a href="{% url 'shop' %}"><input type="submit" value="< Back to the List"></a>
-
-{#    <p><a href="edit">Edit Shop</a></p>#}
-{#    <p><a href="">Delete Shop</a></p>#}
-{#    <a href="{% url 'shop' %}"><<< Back to the List of Shops</a>#}
+    <a href="edit"><button type="button" class="btn btn-outline-primary">Edit</button></a>
+    <a href="delete"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+    <a href="{% url 'shop' %}"><button type="button" class="btn btn-outline-secondary">Back to the List</button></a>
 
 {% endblock %}
