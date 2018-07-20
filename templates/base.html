@@ -26,10 +26,8 @@
     {% endblock %}
 </header>
 
-<div class="container-fluid">
-
+<div class="container">
     {% block content %}{% endblock %}
-
     <p><a href="{% url 'main' %}">Main page</a></p>
     <hr>
     <p class="text-muted">{{ sql_queries }}</p>
@@ -38,14 +36,14 @@
 <footer class="base">
     <div class="container-fluid">
         {% block footer %}
-            <p class="text-muted text-left margin">
-                {{ COPYRIGHT_YEAR }} &copy; {{ WEBSITE }} | created by {{ AUTHOR }}.
-            </p>
+            <div class="container">
+                <p class="text-muted text-left margin">
+                    {{ COPYRIGHT_YEAR }} &copy; {{ WEBSITE }} | created by {{ AUTHOR }}.
+                </p>
+            </div>
         {% endblock %}
     </div>
 </footer>
-
-
 
 {% block js %}
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
@@ -55,9 +53,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
             integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
             crossorigin="anonymous"></script>
-    {#    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"#}
-    {#            integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"#}
-    {#            crossorigin="anonymous"></script>#}
 {% endblock %}
 
 </body>
