@@ -11,12 +11,16 @@
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit">
 
         <a href="{% url 'shop' %}"></a>
 
+        <div class="col-sm-offset-3 col-sm-9">
+            <button type="submit" class="btn btn-primary btn-custom">Submit</button>
+            <button type="button" class="btn btn-default btn-custom" onclick="history.back(-1)">Cancel</button>
+        </div>
+
     </form>
-{#    <input type="submit" value="Back to the List of Shops">#}
+    {#    <input type="submit" value="Back to the List of Shops">#}
 
     <br>
     <a href="{% url 'shop' %}"><<< Back to the List of Shops</a>

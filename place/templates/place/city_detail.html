@@ -8,6 +8,34 @@
 
     <h1>Cities: {{ city }}</h1>
 
+    <form>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Name: </label>
+            <div class="col-sm-10 form-control-plaintext">
+                {{ city.name }}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Country: </label>
+            <div class="col-sm-10 form-control-plaintext">
+                <a href="{% url 'country' pk=city.country.pk %}">{{ city.country.name }}</a>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">id: </label>
+            <div class="col-sm-10 form-control-plaintext">
+                {{ city.pk }}
+            </div>
+        </div>
+
+        {% include 'chainstore/buttons_edit_delete_goback.html' %}
+
+    </form>
+
+    {%  comment %} City Detail View v1
     <p>Name: {{ city.name }}</p>
     <p>Country: <a href="{% url 'country' pk=city.country.pk %}">{{ city.country.name }}</a></p>
     <p>id: {{ city.pk }}</p>
@@ -18,7 +46,7 @@
 
 {#    <br>#}
 {#    <a href="{% url 'city' %}"><<< Back to the List of Cities</a>#}
-
+{% endcomment %}
 {% endblock %}
 
 

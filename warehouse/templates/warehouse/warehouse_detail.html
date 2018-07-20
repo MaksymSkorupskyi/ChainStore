@@ -8,14 +8,59 @@
 
     <h1>Warehouses: {{ warehouse }}</h1>
 
+    <form>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Name: </label>
+            <div class="col-sm-10 form-control-plaintext">
+                {{ warehouse.name }}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Address: </label>
+            <div class="col-sm-10 form-control-plaintext">
+                {{ warehouse.address }}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">City: </label>
+            <div class="col-sm-10 form-control-plaintext">
+                <a href="{% url 'city' pk=warehouse.city.pk %}"> {{ warehouse.city.name }}</a>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Country: </label>
+            <div class="col-sm-10 form-control-plaintext">
+                <a href="{% url 'country' pk=warehouse.city.country.pk %}">{{ warehouse.city.country.name }}</a>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">id: </label>
+            <div class="col-sm-10 form-control-plaintext">
+                {{ warehouse.pk }}
+            </div>
+        </div>
+
+        {% include 'chainstore/buttons_edit_delete_goback.html' %}
+
+
+    </form>
+
+    {% comment %} Detail v1
     <p>Name: {{ warehouse.name }}</p>
     <p>Address: {{ warehouse.address }}</p>
     <p>City: <a href="{% url 'city' pk=warehouse.city.pk %}"> {{ warehouse.city.name }}</a></p>
     <p>Country: <a href="{% url 'country' pk=warehouse.city.country.pk %}">{{ warehouse.city.country.name }}</a></p>
     <p>id: {{ warehouse.pk }}</p>
-    <a href="edit"><button type="button" class="btn btn-outline-primary">Edit</button></a>
-    <a href="delete"><button type="button" class="btn btn-outline-danger">Delete</button></a>
-    <a href="{% url 'warehouse' %}"><button type="button" class="btn btn-outline-secondary">Back to the List</button></a>
-{#    <a href="{% url 'warehouse' %}"><<< Back to the List of Warehouses</a>#}
+        <a href="{% url 'warehouse' %}">
+            <button type="button" class="btn btn-outline-secondary">Back to the List</button>
+        </a>
+        <a href="{% url 'warehouse' %}"><<< Back to the List of Warehouses</a>
+    {% endcomment %}
+
 
 {% endblock %}

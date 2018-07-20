@@ -8,16 +8,51 @@
 
     <h1>Shop Types: {{ shoptype }}</h1>
 
+    <form>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Name:</label>
+            <div class="col-sm-10 form-control-plaintext">
+                {{ shoptype.name }}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">id:</label>
+            <div class="col-sm-10 form-control-plaintext">
+                {{ shoptype.pk }}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Description:</label>
+            <div class="col-sm-10 form-control-plaintext">
+                {{ shoptype.description }}
+            </div>
+        </div>
+
+        {% include 'chainstore/buttons_edit_delete_goback.html' %}
+
+    </form>
+
+{% comment %} v1
     <p>Name: {{ shoptype.name }}</p>
     <p>id: {{ shoptype.pk }}</p>
     <p>{{ shoptype.description }}</p>
     <br>
-    <a href="edit"><button type="button" class="btn btn-outline-primary">Edit</button></a>
-    <a href="delete"><button type="button" class="btn btn-outline-danger">Delete</button></a>
-    <a href="{% url 'shoptype' %}"><button type="button" class="btn btn-outline-secondary">Back to the List</button></a>
+    <a href="edit">
+        <button type="button" class="btn btn-outline-primary">Edit</button>
+    </a>
+    <a href="delete">
+        <button type="button" class="btn btn-outline-danger">Delete</button>
+    </a>
+    <a href="{% url 'shoptype' %}">
+        <button type="button" class="btn btn-outline-secondary">Back to the List</button>
+    </a>
 
-{#    <br>#}
-{#    <a href="{% url 'shoptype' %}"><<< Back to the Shop Types</a>#}
+    {#    <br>#}
+    {#    <a href="{% url 'shoptype' %}"><<< Back to the Shop Types</a>#}
+{%  endcomment %}
 
 {% endblock %}
 
