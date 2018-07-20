@@ -1,13 +1,15 @@
-from django.shortcuts import render, get_object_or_404
+# from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from place.models import Country, City
 
-
+# Country
+"""
 def country_list(request):
     return render(request, 'place/country_list.html', {
         'countries': Country.objects.all(),
         'main_menu_key': 'countries',
     })
+"""
 
 
 class CountryList(ListView):
@@ -21,11 +23,13 @@ class CountryList(ListView):
         return context
 
 
+"""
 def country_detail(request, pk):
     return render(request, 'place/country_detail.html', {
         'country': get_object_or_404(Country, pk=pk),
         'main_menu_key': 'countries',
     })
+"""
 
 
 class CountryDetail(DetailView):
@@ -39,11 +43,14 @@ class CountryDetail(DetailView):
         return context
 
 
+# City
+"""
 def city_list(request):
     return render(request, 'place/city_list.html', {
         'cities': City.objects.select_related('country'),
         'main_menu_key': 'cities',
     })
+"""
 
 
 class CityList(ListView):
@@ -57,11 +64,13 @@ class CityList(ListView):
         return context
 
 
+"""
 def city_detail(request, pk):
     return render(request, 'place/city_detail.html', {
         'city': get_object_or_404(City.objects.select_related('country'), pk=pk),
         'main_menu_key': 'cities',
     })
+"""
 
 
 class CityDetail(DetailView):

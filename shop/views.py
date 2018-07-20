@@ -6,12 +6,18 @@ from django.views.generic import ListView, DetailView, UpdateView, CreateView, D
 
 from shop.models import Shop, ShopType
 
-
+# Shop views
+"""
 def shop_list(request):
-    return render(request, 'shop_list.html', {
-        'shops': Shop.objects.all(),
-        'main_menu_key': 'shops',
-    })
+    return render(
+        request,
+        'shop_list.html',
+        {
+            'shops': Shop.objects.all(),
+            'main_menu_key': 'shops',
+        },
+    )
+"""
 
 
 class ShopList(ListView):
@@ -51,6 +57,7 @@ class CustomShopDetailView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['shop'] = get_object_or_404(Shop, pk=kwargs['pk'])
+        context['main_menu_key'] = 'shops'
         return context
 
 
@@ -71,11 +78,14 @@ class ShopDelete(DeleteView):
     success_url = "/shop"
 
 
+# ShopType views
+"""
 def shoptype_list(request):
     return render(request, 'shoptype_list.html', {
         'shoptypes': ShopType.objects.all(),
         'main_menu_key': 'shoptypes',
     })
+"""
 
 
 class ShopTypeList(ListView):
@@ -115,9 +125,11 @@ class CustomShopTypeDetailView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['shoptype'] = get_object_or_404(ShopType, pk=kwargs['pk'])
+        context['main_menu_key'] = 'shoptypes'
         return context
 
 
+# experiments
 def test(request):
     return render(request, 'shop/test.html', {
         'a': '<b>hello</b>',

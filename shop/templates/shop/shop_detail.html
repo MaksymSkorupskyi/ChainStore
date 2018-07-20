@@ -38,8 +38,21 @@
         <p>Website: {{ shop.website|urlize }}</p>
     {% endif %}
 
-    <a href="edit"><button type="button" class="btn btn-outline-primary">Edit</button></a>
-    <a href="delete"><button type="button" class="btn btn-outline-danger">Delete</button></a>
-    <a href="{% url 'shop' %}"><button type="button" class="btn btn-outline-secondary">Back to the List</button></a>
+
+    <a href="edit">
+        <button type="button" class="btn btn-outline-primary">Edit</button>
+    </a>
+    <a href="delete">
+        <button type="button" class="btn btn-outline-danger">Delete</button>
+    </a>
+    <a href="{% url 'shop' %}">
+        <button type="button" class="btn btn-outline-secondary">Back to the List</button>
+    </a>
+
+    {#    <div class="btn-group" role="group" aria-label="Basic example">#}
+    {#        <a href="edit"><button type="button" class="btn btn-outline-primary">Edit</button></a>#}
+    {#        <a href="delete"><button type="button" class="btn btn-outline-danger">Delete</button></a>#}
+    {#        <a href="{% url 'shop' %}"><button type="button" class="btn btn-outline-secondary">Back to the List</button></a>#}
+    {#    </div>#}
 
 {% endblock %}

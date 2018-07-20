@@ -7,8 +7,8 @@ MAIN_MENU = (
     ('shoptypes', {'url': reverse_lazy('shoptype'), 'title': 'Shop Types'}),
     ('persons', {'url': reverse_lazy('person'), 'title': 'Contact Persons'}),
     ('warehouses', {'url': reverse_lazy('warehouse'), 'title': 'Warehouses'}),
-    ('countries', {'url': reverse_lazy('country'), 'title': 'Countries'}),
     ('cities', {'url': reverse_lazy('city'), 'title': 'Cities'}),
+    ('countries', {'url': reverse_lazy('country'), 'title': 'Countries'}),
 )
 
 

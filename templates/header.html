@@ -1,3 +1,5 @@
+{#Menu v3#}
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
     <a class="navbar-brand" href="{% url 'main' %}">{{ WEBSITE }}</a>
@@ -6,6 +8,25 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            {% for key, item in MAIN_MENU %}
+                <li {% if main_menu_key == key %} class="active"{% endif %}>
+                    <a class="nav-link" href="{{ item.url }}">{{ item.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav>
+
+{%  comment %} Menu v2
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="{% url 'main' %}">{{ WEBSITE }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
 
@@ -39,30 +60,32 @@
         {#        </form>#}
     </div>
 </nav>
+{% endcomment %}
 
-
-{#<nav class="navbar navbar-default">#}
-{#    <div class="navbar-header">#}
-{#        <a href="{% url 'main' %}">#}
-{#            <button type="button" class="btn btn-link btn-lg ">{{ WEBSITE }}</button>#}
-{#        </a>#}
-{#        <a href="{% url 'shop' %}">#}
-{#            <button type="button" class="btn btn-link">Shops</button>#}
-{#        </a>#}
-{#        <a href="{% url 'shoptype' %}">#}
-{#            <button type="button" class="btn btn-link">Shop Types</button>#}
-{#        </a>#}
-{#        <a href="{% url 'person' %}">#}
-{#            <button type="button" class="btn btn-link">Contact Persons</button>#}
-{#        </a>#}
-{#        <a href="{% url 'warehouse' %}">#}
-{#            <button type="button" class="btn btn-link">Warehouses</button>#}
-{#        </a>#}
-{#        <a href="{% url 'city' %}">#}
-{#            <button type="button" class="btn btn-link">Cities</button>#}
-{#        </a>#}
-{#        <a href="{% url 'country' %}">#}
-{#            <button type="button" class="btn btn-link">Countries</button>#}
-{#        </a>#}
-{#    </div>#}
-{#</nav>#}
+{%  comment %} Menu v1
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <a href="{% url 'main' %}">
+            <button type="button" class="btn btn-link btn-lg ">{{ WEBSITE }}</button>
+        </a>
+        <a href="{% url 'shop' %}">
+            <button type="button" class="btn btn-link">Shops</button>
+        </a>
+        <a href="{% url 'shoptype' %}">
+            <button type="button" class="btn btn-link">Shop Types</button>
+        </a>
+        <a href="{% url 'person' %}">
+            <button type="button" class="btn btn-link">Contact Persons</button>
+        </a>
+        <a href="{% url 'warehouse' %}">
+            <button type="button" class="btn btn-link">Warehouses</button>
+        </a>
+        <a href="{% url 'city' %}">
+            <button type="button" class="btn btn-link">Cities</button>
+        </a>
+        <a href="{% url 'country' %}">
+            <button type="button" class="btn btn-link">Countries</button>
+        </a>
+    </div>
+</nav>
+{% endcomment %}

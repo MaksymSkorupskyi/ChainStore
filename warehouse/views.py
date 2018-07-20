@@ -1,13 +1,14 @@
-from django.shortcuts import render, get_object_or_404
+# from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from warehouse.models import Warehouse
 
-
+"""
 def warehouse_list(request):
     return render(request, 'warehouse_list.html', {
         'warehouses': Warehouse.objects.all(),
         'main_menu_key': 'warehouses',
     })
+"""
 
 
 class WarehouseList(ListView):
@@ -21,11 +22,13 @@ class WarehouseList(ListView):
         return context
 
 
+"""
 def warehouse_detail(request, pk):
     return render(request, 'warehouse_detail.html', {
         'warehouse': get_object_or_404(Warehouse, pk=pk),
         'main_menu_key': 'warehouses',
     })
+"""
 
 
 class WarehouseDetail(DetailView):

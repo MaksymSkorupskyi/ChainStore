@@ -11,6 +11,7 @@
     <title>{% block title %} {{ WEBSITE }} {% endblock %}</title>
 
     <link rel="shortcut icon" href="{% static '/chainstore/img/favicon.ico' %}" type="image/x-icon">
+
     {% block css %}
         <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
         <link href="{% static 'chainstore/css/style.css' %}" rel="stylesheet">
@@ -20,12 +21,9 @@
 <body>
 
 <header>
-{#    {% block header %}#}
-    {% include "header.html" %}
-{#    {% endblock %}#}
-
-
-
+    {% block header %}
+        {% include "header.html" %}
+    {% endblock %}
 </header>
 
 <div class="container-fluid">

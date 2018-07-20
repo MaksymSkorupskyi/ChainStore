@@ -1,8 +1,7 @@
 from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404, render_to_response
-
-from chainstore.forms import SendMessageForm
+from chainstore.forms import SendMessageForm, DivErrorList
 
 
 def main(request):
@@ -10,6 +9,7 @@ def main(request):
     # return render(request, 'main.html', {'a': 1})
 
 
+# Forms experiments
 def message_form(request):
     # if request.method == 'POST':
     #     print(request.POST)
@@ -17,7 +17,11 @@ def message_form(request):
     #     return redirect('message-form')
     form = SendMessageForm(
         request.POST or None,
-        initial={'name':'your name'},
+        initial={'name': 'your name'},
+        # auto_id=True,
+        # label_suffix=' ->',
+        # prefix='test',
+        error_class=DivErrorList,
     )
     if form.is_valid():
         print(form.cleaned_data)
@@ -29,7 +33,6 @@ def message_form(request):
     return render(request, 'chainstore/message_form.html', {'form': form})
 
 
-#############################################################
 # request methods demonstration
 def start_page(request):
     print(request.scheme)

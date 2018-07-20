@@ -1,13 +1,14 @@
-from django.shortcuts import render, get_object_or_404
+# from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from person.models import Person
 
-
+"""
 def person_list(request):
     return render(request, 'person/person_list.html', {
         'persons': Person.objects.all(),
         'main_menu_key': 'persons',
     })
+"""
 
 
 class PersonList(ListView):
@@ -21,11 +22,13 @@ class PersonList(ListView):
         return context
 
 
+"""
 def person_detail(request, pk):
     return render(request, 'person_detail.html', {
         'person': get_object_or_404(Person, pk=pk),
         'main_menu_key': 'persons',
     })
+"""
 
 
 class PersonDetail(DetailView):

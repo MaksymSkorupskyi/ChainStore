@@ -93,7 +93,7 @@ https://docs.djangoproject.com/en/1.7/ref/templates/builtins/#url).
 
 В результате получиться простенький сайт-каталог "сеть магазинов".
 
-PS: для того, чтобы получить человеко-понятное отображение числового поля с choices, 
+PS: для того, чтобы получить понятное отображение числового поля с choices, 
 нужно использовать метод get_FOO_display() 
 
 https://docs.djangoproject.com/en/1.7/ref/models/instances/#django.db.models.Model.get_FOO_display, 
