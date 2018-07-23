@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Delete: {{ shop }} | Shops | {{ WEBSITE }}
+    Delete: {{ warehouse }} | Warehouses | {{ WEBSITE }}
 {% endblock %}
 
 {% block content %}
 
-    <h1>Shops: {{ shop }}<span class="badge badge-secondary">Delete?</span></h1>
+    <h1>Warehouses: {{ warehouse }}<span class="badge badge-secondary">Delete?</span></h1>
 
     <div class="alert alert-danger" role="alert">
         Are you sure to delete this item?
@@ -14,10 +14,6 @@
 
     <form method="post">
         {% csrf_token %}
-        {#        <input type="submit" value="Confirm delete">#}
-        {#        <input type="submit" class="btn btn-outline-danger" value="Confirm delete">#}
-        {#        <input type="submit" class="btn btn-danger" value="Confirm delete">#}
-
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-9">
                 <button type="submit" class="btn btn-danger">Confirm delete</button>

@@ -8,9 +8,7 @@
 
     <h1>Shop Types</h1>
 
-    <p><a href="add">
-        <button type="button" class="btn btn-outline-secondary">Add</button>
-    </a></p>
+    {% include "chainstore/button_add.html" %}
 
     {% if shoptypes %}
         <table class="table">
@@ -47,8 +45,6 @@
 
     {% endif %}
 
-    <p><a href="add">
-        <button type="button" class="btn btn-outline-secondary">Add</button>
-    </a></p>
+    {% include "chainstore/button_add.html" %}
 
 {% endblock %}

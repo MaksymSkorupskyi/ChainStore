@@ -29,7 +29,7 @@ class RequestsLogMiddleware:
         response = self.get_response(request)
 
         # Code to be executed for each request/response after the view is called.
-        datetime_now = datetime.now().strftime('%Y.%m.%d %H:%M:%S')
+        datetime_now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         response_time = round((time.perf_counter_ns() - request_time) * 1e-6, 2)
         # write Requests Log to file:
         with open(self.requests_log_filename, 'a') as f:

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'shop',
     'warehouse',
     'chainstore',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

@@ -8,13 +8,37 @@
 
     <h1>{{ WEBSITE }}</h1>
 
+    {#    <ul class="main ">#}
+    {% for key, item in MAIN_MENU %}
+        <a class="nav-link" href="{{ item.url }}">
+            <li>{{ item.title }}</li>
+        </a>
+    {% endfor %}
+    {#    </ul>#}
+
+    {%  comment %} Menu v1
     <ul class="main-list">
-        <a href="{% url 'shop' %}"><li>Shops</li></a>
-        <a href="{% url 'shoptype' %}"><li>Shop Types</li></a>
-        <a href="{% url 'person' %}"><li>Contact Persons</li></a>
-        <a href="{% url 'warehouse' %}"><li>Warehouses</li></a>
-        <a href="{% url 'city' %}"><li>Cities</li></a>
-        <a href="{% url 'country' %}"><li>Countries</li></a>
+        <a href="{% url 'shop' %}">
+            <li>Shops</li>
+        </a>
+        <a href="{% url 'shoptype' %}">
+            <li>Shop Types</li>
+        </a>
+        <a href="{% url 'person' %}">
+            <li>Contact Persons</li>
+        </a>
+        <a href="{% url 'warehouse' %}">
+            <li>Warehouses</li>
+        </a>
+        <a href="{% url 'city' %}">
+            <li>Cities</li>
+        </a>
+        <a href="{% url 'country' %}">
+            <li>Countries</li>
+        </a>
     </ul>
+{%  endcomment %}
+
+
 
 {% endblock %}

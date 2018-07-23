@@ -4,8 +4,9 @@ from place.models import City
 
 class Warehouse(models.Model):
     name = models.CharField(max_length=50)
-    city = models.ForeignKey(City, on_delete=models.PROTECT)
     address = models.CharField(max_length=250)
+    city = models.ForeignKey(City, on_delete=models.PROTECT)
+
 
     class Meta:
         verbose_name = 'warehouse'

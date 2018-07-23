@@ -8,16 +8,15 @@
 
     <h1>Shops: {{ shop }}</h1>
 
+    {%  include 'chainstore/show_messages.html' %}
+
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
 
         <a href="{% url 'shop' %}"></a>
 
-        <div class="col-sm-offset-3 col-sm-9">
-            <button type="submit" class="btn btn-primary btn-custom">Submit</button>
-            <button type="button" class="btn btn-default btn-custom" onclick="history.back(-1)">Cancel</button>
-        </div>
+        {% include 'chainstore/buttons_save_cancel.html' %}
 
     </form>
     {#    <input type="submit" value="Back to the List of Shops">#}

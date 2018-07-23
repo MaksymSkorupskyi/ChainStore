@@ -40,7 +40,7 @@ def very_simple_tag(*args, **kwargs):
     return args, kwargs
 
 
-@register.inclusion_tag('shop/menu.html', takes_context=True)
+@register.inclusion_tag('shop/test/menu.html', takes_context=True)
 def menu(context, selected=None):
     return {
         'items': [

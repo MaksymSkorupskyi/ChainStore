@@ -1,9 +1,14 @@
 {% if messages %}
-    <ul>
-        {% for message in messages %}
-            <li class="{{ messages.tags }}">
-                {{ message }}
-            </li>
-        {% endfor %}
-    </ul>
+    {#    <ul>#}
+    {% for message in messages %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+
+{% comment %}       <li class="{{ messages.tags }}">
+                        {{ message }}
+                    </li>
+{% endcomment %}
+    {% endfor %}
+    {#    </ul>#}
 {% endif %}

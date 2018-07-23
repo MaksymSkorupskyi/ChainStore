@@ -1,5 +1,8 @@
-# from django.shortcuts import render, get_object_or_404
+from django.contrib import messages
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
+
+from warehouse.forms import WarehouseForm
 from warehouse.models import Warehouse
 
 """
@@ -40,3 +43,27 @@ class WarehouseDetail(DetailView):
         context = super().get_context_data(**kwargs)
         context['main_menu_key'] = 'warehouses'
         return context
+    
+class WarehouseDelete(DeleteView):
+    model = Warehouse
+    success_url = "/warehouse"
+
+
+def warehouse_edit(request, pk):
+    if pk == 'new':
+        instance = None
+    else:
+        instance = get_object_or_404(Warehouse, pk=pk)
+    form = WarehouseForm(request.POST or None, instance=instance)
+    if form.is_valid():
+        warehouse = form.save()
+        messages.success(request, 'Successfully saved!')
+        return redirect('warehouse_edit', pk=warehouse.pk)
+    return render(
+        request,
+        'warehouse/warehouse_edit.html',
+        {
+            'main_menu_key': 'warehouses',
+            'form': form,
+        },
+    )

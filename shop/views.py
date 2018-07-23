@@ -131,7 +131,7 @@ class CustomShopTypeDetailView(TemplateView):
 
 # experiments
 def test(request):
-    return render(request, 'shop/test.html', {
+    return render(request, 'shop/test/test.html', {
         'a': '<b>hello</b>',
         'b': ['<b>hello</b>', '<i>world</i>', ],
         'd': {'a': 1, 'b': {'z': 4}, 'c': 3},

@@ -8,10 +8,7 @@
 
     <h1>Contact Persons</h1>
 
-    <p><a href="add">
-        <button type="button" class="btn btn-outline-secondary">Add</button>
-    </a></p>
-
+    {% include "chainstore/button_add.html" %}
     {% if persons %}
         <table class="table">
             <thead>
@@ -56,8 +53,6 @@
         </p>
     {% endif %}
 
-    <p><a href="add">
-        <button type="button" class="btn btn-outline-secondary">Add</button>
-    </a></p>
+    {% include "chainstore/button_add.html" %}
 
 {% endblock %}
