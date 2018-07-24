@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if form.instance.pk %}Edit: {{ form.instance }}{% else %}Add New{% endif %} | {{ page_title }} |
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+    <h1>{{ page_title }}:
+        {% if form.instance.pk %}{{ form.instance }}
+            <span class="badge badge-secondary">Edit</span>
+        {% else %}
+            <span class="badge badge-secondary">Add New</span>
+        {% endif %}
+
+    </h1>
+
+    {% include 'chainstore/show_messages.html' %}
+    {% load i18n widget_tweaks %}
+
+    <form class="form-horizontal" role="form" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+
+            {% if field.errors %}
+
+                <div class="form-group has-error row">
+                    <label class="col-sm-2 control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                    <div class="col-sm-10">
+                        {{ field|attr:"class:form-control" }}
+                        <div class="alert alert-danger help-block" role="alert">
+                            {% for error in  field.errors %}{{ error }}{% endfor %}
+                        </div>
+{% comment %}                        <span class="help-block">
+                            {% for error in  field.errors %}{{ error }}{% endfor %}
+                        </span>{% endcomment %}
+                    </div>
+                </div>
+
+            {% else %}
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                    <div class="col-sm-10">
+                        {{ field|attr:"class:form-control" }}
+                        {% if field.help_text %}
+                            <p class="help-block">
+                                <small>{{ field.help_text }}</small>
+                            </p>
+                        {% endif %}
+                    </div>
+                </div>
+
+            {% endif %}
+
+        {% endfor %}
+
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-6">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a href="{% url back_button_page %}" class="btn btn-default">Back</a>
+            </div>
+        </div>
+
+    </form>
+
+{% endblock %}

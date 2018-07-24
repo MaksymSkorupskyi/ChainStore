@@ -5,7 +5,7 @@ from django.db import connection
 MAIN_MENU = (
     ('shops', {'url': reverse_lazy('shop'), 'title': 'Shops'}),
     ('shoptypes', {'url': reverse_lazy('shoptype'), 'title': 'Shop Types'}),
-    ('persons', {'url': reverse_lazy('person'), 'title': 'Contact Persons'}),
+    ('persons', {'url': reverse_lazy('person'), 'title': 'Persons'}),
     ('warehouses', {'url': reverse_lazy('warehouse'), 'title': 'Warehouses'}),
     ('cities', {'url': reverse_lazy('city'), 'title': 'Cities'}),
     ('countries', {'url': reverse_lazy('country'), 'title': 'Countries'}),

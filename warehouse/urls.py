@@ -1,7 +1,6 @@
 from django.urls import path, re_path
 
-from warehouse.views import warehouse_edit
-from warehouse.views import WarehouseList, WarehouseDetail, WarehouseDelete
+from warehouse.views import WarehouseList, WarehouseDetail, WarehouseDelete, warehouse_edit
 
 urlpatterns = [
     path('warehouse/', WarehouseList.as_view(), name='warehouse'),

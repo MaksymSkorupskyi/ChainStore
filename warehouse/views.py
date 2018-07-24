@@ -1,7 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
-
 from warehouse.forms import WarehouseForm
 from warehouse.models import Warehouse
 
@@ -43,7 +42,8 @@ class WarehouseDetail(DetailView):
         context = super().get_context_data(**kwargs)
         context['main_menu_key'] = 'warehouses'
         return context
-    
+
+
 class WarehouseDelete(DeleteView):
     model = Warehouse
     success_url = "/warehouse"

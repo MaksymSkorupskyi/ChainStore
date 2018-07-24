@@ -13,15 +13,15 @@ class Person(models.Model):
         (GENDER_FEMALE, 'Female'),
         (GENDER_NOT_SURE, 'Not Sure')
     )
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    gender = models.NullBooleanField(choices=GENDER_CHOISES)
+    first_name = models.CharField(max_length=50, verbose_name='First Name')
+    last_name = models.CharField(max_length=50, verbose_name='Last Name')
     birthdate = models.DateField(default=datetime.datetime.now)
+    gender = models.NullBooleanField(choices=GENDER_CHOISES)
     email = models.EmailField(max_length=70, unique=True, verbose_name='e-mail')
 
     class Meta:
-        verbose_name = 'Contact person'
-        verbose_name_plural = 'Contact persons'
+        verbose_name = 'Person'
+        verbose_name_plural = 'Persons'
         ordering = ('first_name', 'last_name')
         # get_latest_by = 'birthdate'
 

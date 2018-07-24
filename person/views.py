@@ -1,5 +1,7 @@
-# from django.shortcuts import render, get_object_or_404
+from django.contrib import messages
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
+from person.forms import PersonForm
 from person.models import Person
 
 """
@@ -60,3 +62,28 @@ def person_detail(request, person_id):
 #         raise Http404
 #     return HttpResponse(f'person: {person} ({test})')
 """
+
+
+class PersonDelete(DeleteView):
+    model = Person
+    success_url = "/person"
+
+
+def person_edit(request, pk):
+    if pk == 'new':
+        instance = None
+    else:
+        instance = get_object_or_404(Person, pk=pk)
+    form = PersonForm(request.POST or None, instance=instance)
+    if form.is_valid():
+        person = form.save()
+        messages.success(request, 'Successfully saved!')
+        return redirect('person_edit', pk=person.pk)
+    return render(
+        request,
+        'person/person_edit.html',
+        {
+            'main_menu_key': 'persons',
+            'form': form,
+        },
+    )
