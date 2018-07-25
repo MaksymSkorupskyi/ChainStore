@@ -1,17 +1,12 @@
-{% include 'chainstore/_confirm_delete.html' with page_title='Warehouses' item_name=warehouse %}
-
-{% comment %}
-
-
 {% extends 'base.html' %}
 
 {% block title %}
-    Delete: {{ warehouse }} | Warehouses | {{ WEBSITE }}
+    Delete: {{ item_name }} | {{ page_title }} | {{ WEBSITE }}
 {% endblock %}
 
 {% block content %}
 
-    <h1>Warehouses: {{ warehouse }}<span class="badge badge-secondary">Delete?</span></h1>
+    <h1>{{ page_title }}: {{ item_name }} <span class="badge badge-secondary">Delete?</span></h1>
 
     <div class="alert alert-danger" role="alert">
         This operation cannot be undone. Are you sure to delete this item?
@@ -28,4 +23,4 @@
 
     </form>
 
-{% endblock %}{% endcomment %}
+{% endblock %}

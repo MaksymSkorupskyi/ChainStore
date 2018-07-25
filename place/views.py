@@ -1,6 +1,9 @@
 # from django.shortcuts import render, get_object_or_404
+from django.contrib import messages
+from django.urls import reverse
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
-from place.models import Country, City
+from place.forms import CountryForm, CityForm
+from place.models import City, Country
 
 # ___ Country views _________________________________________________________________
 """
@@ -43,6 +46,47 @@ class CountryDetail(DetailView):
         return context
 
 
+class CountryEdit(UpdateView):
+    form_class = CountryForm
+    model = Country
+    template_name = 'place/country_edit.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['main_menu_key'] = 'countries'
+        return context
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Successfully saved!')
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('country_edit', kwargs={'pk': self.object.pk})
+
+
+class CountryCreate(CreateView):
+    form_class = CountryForm
+    model = Country
+    template_name = 'place/country_edit.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['main_menu_key'] = 'countries'
+        return context
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Successfully added!')
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('country_edit', kwargs={'pk': self.object.pk})
+
+
+class CountryDelete(DeleteView):
+    model = Country
+    success_url = "/country"
+
+
 # ___ City views _________________________________________________________________
 """
 def city_list(request):
@@ -82,3 +126,45 @@ class CityDetail(DetailView):
         context = super().get_context_data(**kwargs)
         context['main_menu_key'] = 'cities'
         return context
+
+
+
+class CityEdit(UpdateView):
+    form_class = CityForm
+    model = City
+    template_name = 'place/city_edit.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['main_menu_key'] = 'countries'
+        return context
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Successfully saved!')
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('city_edit', kwargs={'pk': self.object.pk})
+
+
+class CityCreate(CreateView):
+    form_class = CityForm
+    model = City
+    template_name = 'place/city_edit.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['main_menu_key'] = 'countries'
+        return context
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Successfully added!')
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('city_edit', kwargs={'pk': self.object.pk})
+
+
+class CityDelete(DeleteView):
+    model = City
+    success_url = "/city"

@@ -19,13 +19,21 @@ Including another URLconf
 """
 
 from django.urls import path, re_path
-from place.views import CountryList, CountryDetail, CityList, CityDetail
+from place.views import CountryList, CountryDetail, CountryEdit, CountryCreate, CountryDelete
+from place.views import CityList, CityDetail, CityEdit, CityCreate, CityDelete
 
 urlpatterns = [
     path('country/', CountryList.as_view(), name='country'),
     re_path(r'^country/(?P<pk>\d+)/$', CountryDetail.as_view(), name='country'),
+    re_path(r'^country/(?P<pk>\d+)/edit$', CountryEdit.as_view(), name='country_edit'),
+    re_path(r'^country/(new|add)/edit$', CountryCreate.as_view(), name='country_edit'),
+    re_path(r'^country/(?P<pk>\d+)/delete$', CountryDelete.as_view(), name='country_delete'),
+
     path('city/', CityList.as_view(), name='city'),
     re_path(r'^city/(?P<pk>\d+)/$', CityDetail.as_view(), name='city'),
+    re_path(r'^city/(?P<pk>\d+)/edit$', CityEdit.as_view(), name='city_edit'),
+    re_path(r'^city/(new|add)/edit$', CityCreate.as_view(), name='city_edit'),
+    re_path(r'^city/(?P<pk>\d+)/delete$', CityDelete.as_view(), name='city_delete'),
 ]
 
 # urlpatterns = [
