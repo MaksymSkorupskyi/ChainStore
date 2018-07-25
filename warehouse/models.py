@@ -7,7 +7,6 @@ class Warehouse(models.Model):
     address = models.CharField(max_length=250)
     city = models.ForeignKey(City, on_delete=models.PROTECT)
 
-
     class Meta:
         verbose_name = 'warehouse'
         verbose_name_plural = 'warehouses'

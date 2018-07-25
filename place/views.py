@@ -2,7 +2,7 @@
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from place.models import Country, City
 
-# Country
+# ___ Country views _________________________________________________________________
 """
 def country_list(request):
     return render(request, 'place/country_list.html', {
@@ -43,7 +43,7 @@ class CountryDetail(DetailView):
         return context
 
 
-# City
+# ___ City views _________________________________________________________________
 """
 def city_list(request):
     return render(request, 'place/city_list.html', {

@@ -1,12 +1,16 @@
 from datetime import datetime
+from django.db.models import Prefetch
+from django.forms import inlineformset_factory
 from django.utils import timezone
 from django.utils.html import mark_safe
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView, TemplateView
 
 from shop.models import Shop, ShopType
+from person.models import Person
+from warehouse.models import Warehouse
 
-# Shop views
+# __ Shop views _________________________________________________________________
 """
 def shop_list(request):
     return render(
@@ -21,7 +25,8 @@ def shop_list(request):
 
 
 class ShopList(ListView):
-    model = Shop
+    # model = Shop
+    queryset = Shop.objects.select_related('shop_type', 'owner', 'city', 'city__country')
     context_object_name = 'shops'
     template_name = 'shop/shop_list.html'
 
@@ -37,10 +42,17 @@ def shop_detail(request, pk):
         'shop': get_object_or_404(Shop, pk=pk),
         'main_menu_key': 'shops',
     })
+"""
 
 
 class ShopDetail(DetailView):
-    model = Shop
+    queryset = Shop.objects.select_related(
+        'shop_type', 'owner', 'city', 'city__country',
+    ).prefetch_related(
+        Prefetch('sellers', Person.objects.order_by()),
+        Prefetch('warehouses', Warehouse.objects.select_related('city', 'city__country'))
+    )
+    # model = Shop
     context_object_name = 'shop'
     template_name = 'shop/shop_detail.html'
 
@@ -48,7 +60,6 @@ class ShopDetail(DetailView):
         context = super().get_context_data(**kwargs)
         context['main_menu_key'] = 'shops'
         return context
-"""
 
 
 class CustomShopDetailView(TemplateView):
@@ -78,7 +89,7 @@ class ShopDelete(DeleteView):
     success_url = "/shop"
 
 
-# ShopType views
+# __ ShopType views _________________________________________________________________
 """
 def shoptype_list(request):
     return render(request, 'shoptype_list.html', {
@@ -129,7 +140,7 @@ class CustomShopTypeDetailView(TemplateView):
         return context
 
 
-# experiments
+# __ experiments _________________________________________________________________
 def test(request):
     return render(request, 'shop/test/test.html', {
         'a': '<b>hello</b>',

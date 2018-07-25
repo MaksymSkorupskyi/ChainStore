@@ -14,7 +14,8 @@ def warehouse_list(request):
 
 
 class WarehouseList(ListView):
-    model = Warehouse
+    queryset = Warehouse.objects.select_related('city', 'city__country')
+    # model = Warehouse
     context_object_name = 'warehouses'
     template_name = 'warehouse/warehouse_list.html'
 
@@ -34,7 +35,8 @@ def warehouse_detail(request, pk):
 
 
 class WarehouseDetail(DetailView):
-    model = Warehouse
+    queryset = Warehouse.objects.select_related('city', 'city__country')
+    # model = Warehouse
     context_object_name = 'warehouse'
     template_name = 'warehouse/warehouse_detail.html'
 
