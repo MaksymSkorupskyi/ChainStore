@@ -11,7 +11,6 @@ from shop.models import Shop, ShopType
 from person.models import Person
 from warehouse.models import Warehouse
 
-
 # __ Shop views _________________________________________________________________
 """
 def shop_list(request):
@@ -73,8 +72,33 @@ class CustomShopDetailView(TemplateView):
         context['main_menu_key'] = 'shops'
         return context
 
+
 class ShopEdit(TemplateView):
-    pass
+    template_name = 'shop/shop_edit.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        if kwargs['pk'] != 'new':
+            self.instance = get_object_or_404(Shop, pk=kwargs['pk'])
+        else:
+            self.instance = None
+        self.form = ShopForm(request.POST or None, instance=self.instance)
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['main_menu_key'] = 'Shops'
+        context['form'] = self.form
+        return context
+
+    def post(self, request, *args, **kwargs):
+        if self.form.is_valid():
+            saved_instance = self.form.save()
+            if not self.instance:
+                messages.success(request, 'Successfully created!')
+            else:
+                messages.success(request, 'Successfully saved!')
+            return redirect('shop_edit', pk=saved_instance.pk)
+        return self.get(request, *args, **kwargs)
 
 
 class ShopUpdate(UpdateView):
@@ -153,7 +177,7 @@ class ShopTypeEdit(TemplateView):
         else:
             self.instance = None
         self.form = ShopTypeForm(request.POST or None, instance=self.instance)
-        return super(ShopTypeEdit, self).dispatch(request, *args, **kwargs)
+        return super().dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super(ShopTypeEdit, self).get_context_data(**kwargs)
@@ -165,9 +189,9 @@ class ShopTypeEdit(TemplateView):
         if self.form.is_valid():
             saved_instance = self.form.save()
             if not self.instance:
-                messages.success(request, u'Тип магазина успешно создан.')
+                messages.success(request, 'Successfully created!')
             else:
-                messages.success(request, u'Тип магазина успешно сохранен.')
+                messages.success(request, 'Successfully saved!')
             return redirect('shoptype_edit', pk=saved_instance.pk)
         return self.get(request, *args, **kwargs)
 
@@ -175,6 +199,7 @@ class ShopTypeEdit(TemplateView):
 class ShopTypeDelete(DeleteView):
     model = ShopType
     success_url = "/shoptype"
+
 
 # __ experiments ____________________________________________________________________
 def test(request):

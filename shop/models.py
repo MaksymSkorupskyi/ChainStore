@@ -16,14 +16,14 @@ class ShopType(models.Model):
 
 
 class Shop(models.Model):
-    shop_type = models.ForeignKey(ShopType, verbose_name='shop type', on_delete=models.PROTECT)
     name = models.CharField(max_length=50, verbose_name='name')
-    owner = models.ForeignKey(Person, verbose_name='shop owner', related_name='shop_owner', on_delete=models.PROTECT)
+    shop_type = models.ForeignKey(ShopType, verbose_name='type', on_delete=models.PROTECT)
+    owner = models.ForeignKey(Person, verbose_name='owner', related_name='shop_owner', on_delete=models.PROTECT)
+    address = models.CharField(max_length=250, verbose_name='address', blank=True)
+    city = models.ForeignKey(City, verbose_name='city', on_delete=models.PROTECT)
+    website = models.URLField(verbose_name='website', blank=True)
     sellers = models.ManyToManyField(Person, verbose_name='sellers', related_name='sellers')
     warehouses = models.ManyToManyField(Warehouse, verbose_name='warehouses')
-    city = models.ForeignKey(City, verbose_name='city', on_delete=models.PROTECT)
-    address = models.CharField(max_length=250, verbose_name='address', blank=True)
-    website = models.URLField(verbose_name='web site', blank=True)
 
     class Meta:
         verbose_name = 'shop'

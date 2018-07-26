@@ -8,20 +8,12 @@
 
     <h1>Shops</h1>
 
-    {#    <p><a href="add"><button type="button" class="btn btn-light">Add</button></a></p>#}
-    {##}
-    {#    <p><a href="add">#}
-    {#    <button type="button" class="btn btn-outline-secondary">Add</button>#}
-    {#    </a></p>#}
-
-    <p><a href="add">
-        <button type="button" class="btn btn-outline-secondary">Add</button>
-    </a></p>
-
     {% include "chainstore/button_add.html" %}
 
     {% if shops %}
+
         <table class="table">
+
             <thead>
             <tr>
                 <th>#</th>
@@ -33,6 +25,7 @@
                 <th>Address</th>
                 <th>Website</th>
                 <th>id</th>
+                <th></th>
             </tr>
             </thead>
 
@@ -59,6 +52,7 @@
             {% endfor %}
 
             </tbody>
+
         </table>
 
     {% else %}
@@ -67,10 +61,6 @@
         </p>
 
     {% endif %}
-
-    <p><a href="add">
-        <button type="button" class="btn btn-outline-secondary">Add</button>
-    </a></p>
 
     {% include "chainstore/button_add.html" %}
 

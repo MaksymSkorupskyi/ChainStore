@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=50, verbose_name='name')),
                 ('address', models.CharField(blank=True, max_length=250, verbose_name='address')),
-                ('website', models.URLField(blank=True, verbose_name='web site')),
+                ('website', models.URLField(blank=True, verbose_name='website')),
                 ('city', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='place.City', verbose_name='city')),
                 ('owner', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='shop_owner', to='person.Person', verbose_name='shop owner')),
                 ('sellers', models.ManyToManyField(related_name='sellers', to='person.Person', verbose_name='sellers')),

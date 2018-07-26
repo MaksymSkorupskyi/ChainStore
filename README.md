@@ -102,7 +102,7 @@ https://docs.djangoproject.com/en/1.7/ref/models/instances/#django.db.models.Mod
 
 _________________________________________________________________________________________________________
 
-Task #3 - in progress (3/7)
+Task #3 - in progress (5/7)
 
 1. Написать и подключить Middleware, который будет сохранять: 
 - дату, 
