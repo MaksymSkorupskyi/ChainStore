@@ -6731,3 +6731,5 @@
 2018-07-26 20:30:33 GET http://127.0.0.1:8000/warehouse/5/delete 9.85 ms
 2018-07-26 20:30:34 GET http://127.0.0.1:8000/warehouse/5/delete 9.94 ms
 2018-07-26 20:30:40 GET http://127.0.0.1:8000/shop/ 24.74 ms
+2018-07-26 20:32:18 GET http://127.0.0.1:8000/warehouse/5/ 15.35 ms
+2018-07-26 20:32:19 GET http://127.0.0.1:8000/warehouse/5/delete 14.08 ms
