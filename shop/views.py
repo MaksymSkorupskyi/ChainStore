@@ -1,14 +1,16 @@
 from datetime import datetime
+
+from django.contrib import messages
 from django.db.models import Prefetch
-from django.forms import inlineformset_factory
 from django.utils import timezone
-from django.utils.html import mark_safe
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView, TemplateView
 
+from shop.forms import ShopForm, ShopTypeForm
 from shop.models import Shop, ShopType
 from person.models import Person
 from warehouse.models import Warehouse
+
 
 # __ Shop views _________________________________________________________________
 """
@@ -71,12 +73,14 @@ class CustomShopDetailView(TemplateView):
         context['main_menu_key'] = 'shops'
         return context
 
+class ShopEdit(TemplateView):
+    pass
+
 
 class ShopUpdate(UpdateView):
     model = Shop
     fields = ('name', 'shop_type', 'owner', 'address', 'city', 'sellers', 'warehouses', 'website')
-    # context_object_name = 'shop_edit'
-    # template_name = 'shop/shop_form.html'
+    # template_name = 'shop/shop_edit.html'
 
 
 class ShopCreate(CreateView):
@@ -140,7 +144,39 @@ class CustomShopTypeDetailView(TemplateView):
         return context
 
 
-# __ experiments _________________________________________________________________
+class ShopTypeEdit(TemplateView):
+    template_name = 'shop/shoptype_edit.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        if kwargs['pk'] != 'new':
+            self.instance = get_object_or_404(ShopType, pk=kwargs['pk'])
+        else:
+            self.instance = None
+        self.form = ShopTypeForm(request.POST or None, instance=self.instance)
+        return super(ShopTypeEdit, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(ShopTypeEdit, self).get_context_data(**kwargs)
+        context['main_menu_key'] = 'shoptypes'
+        context['form'] = self.form
+        return context
+
+    def post(self, request, *args, **kwargs):
+        if self.form.is_valid():
+            saved_instance = self.form.save()
+            if not self.instance:
+                messages.success(request, u'Тип магазина успешно создан.')
+            else:
+                messages.success(request, u'Тип магазина успешно сохранен.')
+            return redirect('shoptype_edit', pk=saved_instance.pk)
+        return self.get(request, *args, **kwargs)
+
+
+class ShopTypeDelete(DeleteView):
+    model = ShopType
+    success_url = "/shoptype"
+
+# __ experiments ____________________________________________________________________
 def test(request):
     return render(request, 'shop/test/test.html', {
         'a': '<b>hello</b>',

@@ -128,7 +128,6 @@ class CityDetail(DetailView):
         return context
 
 
-
 class CityEdit(UpdateView):
     form_class = CityForm
     model = City
