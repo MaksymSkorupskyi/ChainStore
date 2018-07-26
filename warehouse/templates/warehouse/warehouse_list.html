@@ -29,7 +29,8 @@
                 <tr>
                     <td><a href="{% url 'warehouse' pk=warehouse.pk %}">{{ forloop.counter }}</a></td>
                     <td><a href="{% url 'warehouse' pk=warehouse.pk %}">{{ warehouse.name }}</a></td>
-                    <td><a href="{% url 'country' pk=warehouse.city.country.pk %}">{{ warehouse.city.country.name }}</a>
+                    <td>
+                        <a href="{% url 'country' pk=warehouse.city.country.pk %}">{{ warehouse.city.country.name }}</a>
                     </td>
                     <td><a href="{% url 'city' pk=warehouse.city.pk %}">{{ warehouse.city.name }}</a></td>
                     <td>{{ warehouse.address }}</td>
@@ -40,8 +41,6 @@
                         </a>
                     </td>
                 </tr>
-            {% empty %}
-                List is empty. Please add some elements.
             {% endfor %}
             </tbody>
         </table>

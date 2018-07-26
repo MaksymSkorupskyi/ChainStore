@@ -38,8 +38,9 @@
         <option value="$MODULE_DIR$/place/templates/place" />
         <option value="$MODULE_DIR$/shop/templates/shop" />
         <option value="$MODULE_DIR$/warehouse/templates/warehouse" />
-        <option value="$MODULE_DIR$/ChainStore/templates" />
-        <option value="$MODULE_DIR$/ChainStore/templates/ChainStore" />
+        <option value="$MODULE_DIR$/chainstore/templates" />
+        <option value="$MODULE_DIR$/chainstore/templates/chainstore" />
+        <option value="$MODULE_DIR$/chainstore/templatetags" />
       </list>
     </option>
   </component>

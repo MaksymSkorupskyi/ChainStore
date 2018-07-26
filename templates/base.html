@@ -1,7 +1,7 @@
-{% load static %}
+{% load static chainstore_template_tags %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE }}">
 
 <head>
     <meta charset="UTF-8">
@@ -20,40 +20,45 @@
 
 <body>
 
-<header>
-    {% block header %}
-        {% include "header.html" %}
-    {% endblock %}
-</header>
-
-<div class="container">
-    {% block content %}{% endblock %}
-    <p><a href="{% url 'main' %}">Main page</a></p>
-    <hr>
-    <p class="text-muted">{{ sql_queries }}</p>
-</div>
-
-<footer class="base">
-    <div class="container-fluid">
-        {% block footer %}
-            <div class="container">
-                <p class="text-muted text-left margin">
-                    {{ COPYRIGHT_YEAR }} &copy; {{ WEBSITE }} | created by {{ AUTHOR }}.
-                </p>
-            </div>
+    <header>
+        {% block header %}
+            {% include "header.html" %}
         {% endblock %}
-    </div>
-</footer>
+    </header>
 
-{% block js %}
-    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"></script>
-{% endblock %}
+    <div class="container">
+
+        {% show_messages %}
+
+        {% block content %}{% endblock %}
+
+        <p><a href="{% url 'main' %}">Main page</a></p>
+        <hr>
+        <p class="text-muted">{{ sql_queries }}</p>
+    </div>
+
+    <footer class="base">
+        <div class="container-fluid">
+            {% block footer %}
+                <div class="container">
+                    <p class="text-muted text-left margin">
+                        {{ COPYRIGHT_YEAR }} &copy; {{ WEBSITE }} | created by {{ AUTHOR }}.
+                    </p>
+                </div>
+            {% endblock %}
+        </div>
+    </footer>
+
+    {% block js %}
+        <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+                integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+                crossorigin="anonymous"></script>
+    {% endblock %}
 
 </body>
+
 </html>

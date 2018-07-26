@@ -68,6 +68,11 @@ class PersonDelete(DeleteView):
     model = Person
     success_url = "/person"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['main_menu_key'] = 'persons'
+        return context
+
 
 def person_edit(request, pk):
     if pk == 'new':

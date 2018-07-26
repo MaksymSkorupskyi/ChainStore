@@ -86,6 +86,12 @@ class CountryDelete(DeleteView):
     model = Country
     success_url = "/country"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['main_menu_key'] = 'countries'
+        return context
+
+
 
 # ___ City views _________________________________________________________________
 """
@@ -135,7 +141,7 @@ class CityEdit(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['main_menu_key'] = 'countries'
+        context['main_menu_key'] = 'cities'
         return context
 
     def form_valid(self, form):
@@ -167,3 +173,9 @@ class CityCreate(CreateView):
 class CityDelete(DeleteView):
     model = City
     success_url = "/city"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['main_menu_key'] = 'cities'
+        return context
+

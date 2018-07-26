@@ -9,15 +9,17 @@
     <h1>{{ page_title }}: {{ item_name }} <span class="badge badge-secondary">Delete?</span></h1>
 
     <div class="alert alert-danger" role="alert">
-        This operation cannot be undone. Are you sure to delete this item?
+        <strong>Warning!</strong> This operation cannot be undone. Are you sure to delete this item?
     </div>
 
     <form method="post">
+
         {% csrf_token %}
+
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-9">
                 <button type="submit" class="btn btn-danger">Confirm delete</button>
-                <button type="button" class="btn btn-default btn-custom" onclick="history.back(-1)">Cancel</button>
+                <button type="button" class="btn btn-outline-secondary"" onclick="history.back(-1)">Cancel</button>
             </div>
         </div>
 

@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 
+{% load chainstore_template_tags %}
+
+
 {% block title %}
     {% if form.instance.pk %}Edit: {{ form.instance }}{% else %}Add New{% endif %} | {{ page_title }} |
     {{ block.super }}
 {% endblock %}
+
 
 {% block content %}
 
@@ -16,12 +20,17 @@
 
     </h1>
 
-    {% include 'chainstore/show_messages.html' %}
+{#        {% show_messages %}#}
+{#    {% include 'chainstore/show_messages.html' %}#}
+
     {% load i18n widget_tweaks %}
 
-    <form class="form-horizontal" role="form" method="post">
+    <form class="form-horizontal" role="form" method="post" novalidate>
         {% csrf_token %}
+
         {% for field in form %}
+
+{% comment %} error messages v1
 
             {% if field.errors %}
 
@@ -32,13 +41,11 @@
                         <div class="alert alert-danger help-block" role="alert">
                             {% for error in  field.errors %}{{ error }}{% endfor %}
                         </div>
-{% comment %}                        <span class="help-block">
-                            {% for error in  field.errors %}{{ error }}{% endfor %}
-                        </span>{% endcomment %}
                     </div>
                 </div>
 
             {% else %}
+{% endcomment %}
 
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label" for="id_{{ field.name }}">{{ field.label }}</label>
@@ -49,10 +56,14 @@
                                 <small>{{ field.help_text }}</small>
                             </p>
                         {% endif %}
+
+{#                    @inclusion_tag show_form_field_errors #}
+                    {% show_form_field_errors field.errors %}
+
                     </div>
                 </div>
 
-            {% endif %}
+{#            {% endif %}#}
 
         {% endfor %}
 

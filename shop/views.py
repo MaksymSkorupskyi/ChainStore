@@ -86,7 +86,7 @@ class ShopEdit(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['main_menu_key'] = 'Shops'
+        context['main_menu_key'] = 'shops'
         context['form'] = self.form
         return context
 
@@ -115,6 +115,11 @@ class ShopCreate(CreateView):
 class ShopDelete(DeleteView):
     model = Shop
     success_url = "/shop"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['main_menu_key'] = 'shops'
+        return context
 
 
 # __ ShopType views _________________________________________________________________
@@ -180,7 +185,7 @@ class ShopTypeEdit(TemplateView):
         return super().dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
-        context = super(ShopTypeEdit, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['main_menu_key'] = 'shoptypes'
         context['form'] = self.form
         return context
@@ -199,6 +204,11 @@ class ShopTypeEdit(TemplateView):
 class ShopTypeDelete(DeleteView):
     model = ShopType
     success_url = "/shoptype"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['main_menu_key'] = 'shoptypes'
+        return context
 
 
 # __ experiments ____________________________________________________________________

@@ -30,6 +30,7 @@
             </thead>
 
             <tbody>
+
             {% for shop in shops %}
                 <tr>
                     <td><a href="{% url 'shop' pk=shop.pk %}">{{ forloop.counter }}</a></td>
@@ -47,8 +48,6 @@
                         </a>
                     </td>
                 </tr>
-            {% empty %}
-                List is empty. Please add some elements.
             {% endfor %}
 
             </tbody>

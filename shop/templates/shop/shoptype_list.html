@@ -11,6 +11,7 @@
     {% include "chainstore/button_add.html" %}
 
     {% if shoptypes %}
+
         <table class="table">
             <thead>
             <tr>
@@ -33,13 +34,12 @@
                         </a>
                     </td>
                 </tr>
-            {% empty %}
-                List is empty. Please add some elements.
             {% endfor %}
             </tbody>
         </table>
 
     {% else %}
+
         <p class="text-muted">
             <i>List of Shop Types is empty.</i>
         </p>
