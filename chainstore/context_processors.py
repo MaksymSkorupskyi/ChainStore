@@ -1,14 +1,15 @@
 from django.urls import reverse_lazy
 from datetime import datetime
 from django.db import connection
+from django.utils.translation import ugettext_lazy as _
 
 MAIN_MENU = (
-    ('shops', {'url': reverse_lazy('shop'), 'title': 'Shops'}),
-    ('shoptypes', {'url': reverse_lazy('shoptype'), 'title': 'Shop Types'}),
-    ('persons', {'url': reverse_lazy('person'), 'title': 'Persons'}),
-    ('warehouses', {'url': reverse_lazy('warehouse'), 'title': 'Warehouses'}),
-    ('cities', {'url': reverse_lazy('city'), 'title': 'Cities'}),
-    ('countries', {'url': reverse_lazy('country'), 'title': 'Countries'}),
+    ('shops', {'url': reverse_lazy('shop'), 'title': _('Shops')}),
+    ('shoptypes', {'url': reverse_lazy('shoptype'), 'title': _('Shop Types')}),
+    ('persons', {'url': reverse_lazy('person'), 'title': _('Persons')}),
+    ('warehouses', {'url': reverse_lazy('warehouse'), 'title': _('Warehouses')}),
+    ('cities', {'url': reverse_lazy('city'), 'title': _('Cities')}),
+    ('countries', {'url': reverse_lazy('country'), 'title': _('Countries')}),
 )
 
 

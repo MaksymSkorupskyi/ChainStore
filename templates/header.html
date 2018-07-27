@@ -1,5 +1,7 @@
 {#Menu v3#}
 
+{% load i18n %}
+
 <nav class="navbar navbar-expand navbar-light bg-light flex-column flex-md-row bd-navbar">
 
     <div class="container">
@@ -20,6 +22,45 @@
                 {% endfor %}
             </ul>
         </div>
+
+        {#    language menu#}
+
+        <div class="nav navbar-right" style="padding: 14px;">
+
+            <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}">
+                <input id="set_lang_code" name="language" type="hidden" value="">
+
+                {% get_language_info_list for LANGUAGES as languages %}
+
+                {% for language in languages %}
+
+                    <a href="#" title="{{ language.name_local }}" class="text-secondary"
+                       {% if language.code == LANGUAGE_CODE %}style="font-weight: bold;"{% endif %}
+                       onclick="$('#set_lang_code').val('{{ language.code }}').closest('form').submit(); return false;">
+                        {{ language.code }} </a>
+
+                {% endfor %}
+
+            </form>
+        </div>
+
+        {% comment %}
+        <form action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to }}"/>
+            <select name="language">
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                            selected="selected"{% endif %}>
+                        {{ language.name_local }} ({{ language.code }})
+                    </option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Go"/>
+        </form>{% endcomment %}
     </div>
 </nav>
 

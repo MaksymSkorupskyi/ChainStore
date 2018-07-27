@@ -15,8 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path, include
-# from django.templatetags.static import static
-from django.views.generic import TemplateView, RedirectView
 from chainstore import views
 
 urlpatterns = [
@@ -27,31 +25,35 @@ urlpatterns = [
     path('', include('place.urls')),
     # path('place/', include('place.urls')),
     path('', include('shop.urls')),
-    path('shop/',include('shop.urls')),
+    path('shop/', include('shop.urls')),
     path('', include('shop.urls')),
     # path('shoptype/', include('shop.urls')),
     path('', include('warehouse.urls')),
     # path('warehouse/',include('warehouse.urls')),
 
-    path('message-form', views.message_form, name='message-form'),
+    path('i18n/', include('django.conf.urls.i18n')),
+
+    # path('message-form', views.message_form, name='message-form'),
 
     path('admin/', admin.site.urls),
 ]
 
 # handler404 = 'chainstore.views.http404'
-handler404 = views.http404
+# handler404 = views.http404
 
 """
-    # re_path('main/(?P<i>\d+)/(?P<j>\d+)/', views.main),
-    # re_path('main/(?P<i>\d+)/default/', views.main),
-    # re_path('main/(?P<i>\d+)/special/', views.main, kwargs={'j': -1}),
-    # re_path('post/(?P<slug>[\w\-]+)', views.post, name='news_post'),
-    # Experiments with person
-    # path('person/', include('person.urls')),
-    # re_path(r'^person/(?P<test>\w+)/', include('person.urls')),
-    # re_path(r'^person /(?P<pk>\d+)/', include([
-    #     path('add',add, name='person_add'),
-    #     path('edit',edit),
-    #     path('remove', remove )
-    # ])),
+# experiments
+
+    re_path('main/(?P<i>\d+)/(?P<j>\d+)/', views.main),
+    re_path('main/(?P<i>\d+)/default/', views.main),
+    re_path('main/(?P<i>\d+)/special/', views.main, kwargs={'j': -1}),
+    re_path('post/(?P<slug>[\w\-]+)', views.post, name='news_post'),
+    Experiments with person
+    path('person/', include('person.urls')),
+    re_path(r'^person/(?P<test>\w+)/', include('person.urls')),
+    re_path(r'^person /(?P<pk>\d+)/', include([
+        path('add',add, name='person_add'),
+        path('edit',edit),
+        path('remove', remove )
+    ])),
 """
