@@ -1,5 +1,6 @@
 from datetime import datetime
 from django import forms
+from django.utils.translation import ugettext_lazy as _
 from django.contrib.admin.widgets import AdminDateWidget
 from django.forms import SelectDateWidget, DateInput
 
@@ -19,6 +20,7 @@ class PersonForm(forms.ModelForm):
     birthdate = forms.DateField(
         widget=forms.SelectDateWidget(years=range(datetime.now().year - 100, datetime.now().year + 1)),
         initial=datetime.now(),
+        label=_('Birthdate'),
         # input_formats=('%d.%m.%Y', '%d/%m/%Y', '%d-%m-%Y'),
     )
 

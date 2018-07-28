@@ -1,17 +1,19 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+
 {% block title %}
-    {{ country.name }} | Countries | {{ WEBSITE }}
+    {{ country.name }} | {%  trans 'Countries' %} | {{ WEBSITE }}
 {% endblock %}
 
 {% block content %}
 
-    <h1>Countries: {{ country }}</h1>
+    <h1>{%  trans 'Countries' %}: {{ country }}</h1>
 
     <form>
 
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Name: </label>
+            <label class="col-sm-2 col-form-label">{%  trans 'Name' %}: </label>
             <div class="col-sm-10 form-control-plaintext">
                 {{ country.name }}
             </div>
@@ -33,7 +35,7 @@
     <p>id: {{ country.pk }}</p>
 
     <a href="edit">
-        <button type="button" class="btn btn-outline-primary">Edit</button>
+        <button type="button" class="btn btn-outline-primary">{% trans 'Edit' %}</button>
     </a>
     <a href="delete">
         <button type="button" class="btn btn-outline-danger">Delete</button>

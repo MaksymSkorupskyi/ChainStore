@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+
 {% block title %}
-    Shops | {{ WEBSITE }}
+    {% trans 'shops'|capfirst %} | {{ WEBSITE }}
 {% endblock %}
 
 {% block content %}
 
-    <h1>Shops</h1>
+    <h1>{% trans 'shops'|capfirst %}</h1>
 
     {% include "chainstore/button_add.html" %}
 
@@ -17,13 +19,13 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>Name</th>
-                <th>Shop Type</th>
-                <th>Onwer</th>
-                <th>Country</th>
-                <th>City</th>
-                <th>Address</th>
-                <th>Website</th>
+                <th>{% trans 'Name'|capfirst %}</th>
+                <th>{% trans 'Type'|capfirst %}</th>
+                <th>{% trans 'Onwer'|capfirst %}</th>
+                <th>{% trans 'Country'|capfirst %}</th>
+                <th>{% trans 'City'|capfirst %}</th>
+                <th>{% trans 'Address'|capfirst %}</th>
+                <th>{% trans 'Website'|capfirst %}</th>
                 <th>id</th>
                 <th></th>
             </tr>
@@ -44,7 +46,7 @@
                     <td><a href="{% url 'shop' pk=shop.pk %}">{{ shop.pk }}</a></td>
                     <td>
                         <a href="{% url 'shop' pk=shop.pk %}edit">
-                            <button type="button" class="btn btn-outline-secondary">Edit</button>
+                            <button type="button" class="btn btn-outline-secondary">{% trans 'Edit' %}</button>
                         </a>
                     </td>
                 </tr>

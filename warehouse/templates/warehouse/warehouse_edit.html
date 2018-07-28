@@ -13,7 +13,7 @@
 
     <h1>Warehouses:
         {% if form.instance.pk %}{{ form.instance }}
-            <span class="badge badge-secondary">Edit</span>
+            <span class="badge badge-secondary">{% trans 'Edit' %}</span>
         {% else %}
             <span class="badge badge-secondary">Add New</span>
         {% endif %}

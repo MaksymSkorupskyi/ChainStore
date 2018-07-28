@@ -1,6 +1,8 @@
+{% load i18n %}
+
 <p>
 <div class="col-sm-offset-3 col-sm-9">
-    <button type="submit" class="btn btn-primary btn-custom">Save</button>
-    <button type="button" class="btn btn-default btn-custom" onclick="history.back(-1)">Cancel</button>
+    <button type="submit" class="btn btn-primary btn-custom">{% trans 'Save' %}</button>
+    <button type="button" class="btn btn-default btn-custom" onclick="history.back(-1)">{% trans 'Cancel' %}</button>
 </div>
 </p>

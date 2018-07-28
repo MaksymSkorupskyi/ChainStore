@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+
 {% block title %}
-    Persons | {{ WEBSITE }}
+    {% trans 'Persons'|capfirst %} | {{ WEBSITE }}
 {% endblock %}
 
 {% block content %}
 
-    <h1>Persons</h1>
+    <h1>{% trans 'Persons'|capfirst %}</h1>
 
     {% include "chainstore/button_add.html" %}
 
@@ -17,10 +19,10 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Birthdate</th>
-                <th>Gender</th>
+                <th>{% trans 'First Name'|capfirst %}</th>
+                <th>{% trans 'Last Name'|capfirst %}</th>
+                <th>{% trans 'Birthdate'|capfirst %}</th>
+                <th>{% trans 'gender'|capfirst %}</th>
                 <th>e-mail</th>
                 <th>id</th>
                 <th></th>
@@ -42,7 +44,7 @@
                     <td><a href="{% url 'person' pk=person.pk %}">{{ person.address }}</a></td>
                     <td>
                         <a href="{% url 'person' pk=person.pk %}edit">
-                            <button type="button" class="btn btn-outline-secondary">Edit</button>
+                            <button type="button" class="btn btn-outline-secondary">{% trans 'Edit' %}</button>
                         </a>
                     </td>
                 </tr>

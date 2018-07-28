@@ -1,4 +1,4 @@
-{% load static chainstore_template_tags %}
+{% load static i18n chainstore_template_tags %}
 
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
@@ -32,7 +32,7 @@
 
         {% block content %}{% endblock %}
 
-        <p><a href="{% url 'main' %}">Main page</a></p>
+        <p><a href="{% url 'main' %}">{% trans 'Main page' %}</a></p>
         <hr>
         <p class="text-muted">{{ sql_queries }}</p>
     </div>

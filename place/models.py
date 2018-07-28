@@ -1,12 +1,13 @@
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 
 class Country(models.Model):
-    name = models.CharField(max_length=50, verbose_name='name', unique=True)
+    name = models.CharField(max_length=50, verbose_name=_('name'), unique=True)
 
     class Meta:
-        verbose_name = 'Country'
-        verbose_name_plural = 'Countries'
+        verbose_name = _('Country')
+        verbose_name_plural = _('Countries')
         ordering = ('name',)
 
     def __str__(self):
@@ -14,12 +15,12 @@ class Country(models.Model):
 
 
 class City(models.Model):
-    name = models.CharField(max_length=50, verbose_name='Name')
-    country = models.ForeignKey(Country, verbose_name='Country', on_delete=models.PROTECT)
+    name = models.CharField(max_length=50, verbose_name=_('Name'))
+    country = models.ForeignKey(Country, verbose_name=_('Country'), on_delete=models.PROTECT)
 
     class Meta:
-        verbose_name = 'City'
-        verbose_name_plural = 'Cities'
+        verbose_name = _('City')
+        verbose_name_plural = _('Cities')
         ordering = ('name',)
 
     def __str__(self):

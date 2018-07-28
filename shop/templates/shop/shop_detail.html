@@ -1,52 +1,54 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+
 {% block title %}
-    {{ shop }} | Shops | {{ WEBSITE }}
+    {{ shop }} | {% trans 'shops'|capfirst %} | {{ WEBSITE }}
 {% endblock %}
 
 {% block content %}
 
-    <h1>Shops: {{ shop }}</h1>
+    <h1>{% trans 'shops'|capfirst %}: {{ shop }}</h1>
 
     <form>
 
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Name:</label>
+            <label class="col-sm-2 col-form-label">{% trans 'name'|capfirst %}:</label>
             <div class="col-sm-10 form-control-plaintext">
                 {{ shop.name }}
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Type:</label>
+            <label class="col-sm-2 col-form-label">{% trans 'type'|capfirst %}:</label>
             <div class="col-sm-10 form-control-plaintext">
                 <a href="{% url 'shoptype' pk=shop.shop_type.pk %}">{{ shop.shop_type }}</a>
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Owner:</label>
+            <label class="col-sm-2 col-form-label">{% trans 'owner'|capfirst %}:</label>
             <div class="col-sm-10 form-control-plaintext">
                 <a href="{% url 'person' pk=shop.owner.pk %}">{{ shop.owner }} ({{ shop.owner.email|urlize }})</a>
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Address:</label>
+            <label class="col-sm-2 col-form-label">{% trans 'address'|capfirst %}:</label>
             <div class="col-sm-10 form-control-plaintext">
                 {{ shop.address }}
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">City:</label>
+            <label class="col-sm-2 col-form-label">{% trans 'city'|capfirst %}:</label>
             <div class="col-sm-10 form-control-plaintext">
                 <a href="{% url 'city' pk=shop.city.pk %}"> {{ shop.city.name }}</a>
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Country:</label>
+            <label class="col-sm-2 col-form-label">{% trans 'country'|capfirst %}:</label>
             <div class="col-sm-10 form-control-plaintext">
                 <a href="{% url 'country' pk=shop.city.country.pk %}">{{ shop.city.country.name }}</a>
             </div>
@@ -54,7 +56,7 @@
 
         {% if shop.website %}
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Website:</label>
+                <label class="col-sm-2 col-form-label">{% trans 'website'|capfirst %}:</label>
                 <div class="col-sm-10 form-control-plaintext">
                     {{ shop.website|urlize }}
                 </div>
@@ -63,7 +65,7 @@
 
         {% if shop.sellers.all %}
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Sellers:</label>
+                <label class="col-sm-2 col-form-label">{% trans 'sellers'|capfirst %}:</label>
                 <div class="col-sm-10 form-control-plaintext">
                     {% for seller in shop.sellers.all %}
                         <p>{{ forloop.counter }}) <a href="{% url 'person' pk=seller.pk %}">{{ seller }}</a>
@@ -75,7 +77,7 @@
 
         {% if shop.warehouses.all %}
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Warehouses:</label>
+                <label class="col-sm-2 col-form-label">{% trans 'warehouses'|capfirst %}:</label>
                 <div class="col-sm-10 form-control-plaintext">
                     {% for warehouse in shop.warehouses.all %}
                         <p>{{ forloop.counter }}) <a href="{% url 'warehouse' pk=warehouse.pk %}">{{ warehouse }}</a>
@@ -131,7 +133,7 @@
     {% include 'chainstore/buttons_edit_delete_goback.html' %}
 
     {#    <div class="btn-group" role="group" aria-label="Basic example">#}
-    {#        <a href="edit"><button type="button" class="btn btn-outline-primary">Edit</button></a>#}
+    {#        <a href="edit"><button type="button" class="btn btn-outline-primary">{% trans 'Edit' %}</button></a>#}
     {#        <a href="delete"><button type="button" class="btn btn-outline-danger">Delete</button></a>#}
     {#        <a href="{% url 'shop' %}"><button type="button" class="btn btn-outline-secondary">Back to the List</button></a>#}
     {#    </div>#}

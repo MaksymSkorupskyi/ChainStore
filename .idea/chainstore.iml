@@ -41,6 +41,7 @@
         <option value="$MODULE_DIR$/chainstore/templates" />
         <option value="$MODULE_DIR$/chainstore/templates/chainstore" />
         <option value="$MODULE_DIR$/chainstore/templatetags" />
+        <option value="$MODULE_DIR$/shop/templatetags" />
       </list>
     </option>
   </component>

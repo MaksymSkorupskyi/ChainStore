@@ -1,6 +1,7 @@
 import datetime
 from django.db import models
 from django.db.models import Q
+from django.utils.translation import ugettext_lazy as _
 
 
 class Person(models.Model):
@@ -9,19 +10,20 @@ class Person(models.Model):
     GENDER_NOT_SURE = None
 
     GENDER_CHOISES = (
-        (GENDER_MALE, 'Male'),
-        (GENDER_FEMALE, 'Female'),
-        (GENDER_NOT_SURE, 'Not Sure')
+        (GENDER_MALE, _('Male')),
+        (GENDER_FEMALE, _('Female')),
+        (GENDER_NOT_SURE, _('Not Sure')),
     )
-    first_name = models.CharField(max_length=50, verbose_name='First Name')
-    last_name = models.CharField(max_length=50, verbose_name='Last Name')
-    birthdate = models.DateField(default=datetime.datetime.now)
-    gender = models.NullBooleanField(choices=GENDER_CHOISES)
+
+    first_name = models.CharField(max_length=50, verbose_name=_('First Name'))
+    last_name = models.CharField(max_length=50, verbose_name=_('Last Name'))
+    birthdate = models.DateField(default=datetime.datetime.now, verbose_name=_('birthdate'))
+    gender = models.NullBooleanField(choices=GENDER_CHOISES, verbose_name=_('gender'))
     email = models.EmailField(max_length=70, unique=True, verbose_name='e-mail')
 
     class Meta:
-        verbose_name = 'Person'
-        verbose_name_plural = 'Persons'
+        verbose_name = _('Person')
+        verbose_name_plural = _('Persons')
         ordering = ('first_name', 'last_name')
         # get_latest_by = 'birthdate'
 
@@ -39,12 +41,12 @@ class Person(models.Model):
 
 class CustomManagerMales(models.Manager):
     def get_queryset(self):
-        return super(CustomManagerMales, self).get_queryset().filter(gender=Person.GENDER_MALE)
+        return super().get_queryset().filter(gender=Person.GENDER_MALE)
 
 
 class CustomManagerFemales(models.Manager):
     def get_queryset(self):
-        return super(CustomManagerFemales, self).get_queryset().filter(gender=Person.GENDER_FEMALE)
+        return super().get_queryset().filter(gender=Person.GENDER_FEMALE)
 
 
 class MyQuerySet(models.QuerySet):
