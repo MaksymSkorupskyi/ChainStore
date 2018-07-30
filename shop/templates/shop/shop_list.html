@@ -8,7 +8,7 @@
 
 {% block content %}
 
-    <h1>{% trans 'shops'|capfirst %}</h1>
+    <h1>{% trans 'shops'|capfirst %} <span class="badge badge-pill badge-primary">{{ shops|length }}</span></h1>
 
     {% include "chainstore/button_add.html" %}
 

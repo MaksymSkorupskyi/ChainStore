@@ -8,7 +8,7 @@
 
 {% block content %}
 
-    <h1>{%  trans 'Countries' %}</h1>
+    <h1>{%  trans 'Countries' %} <span class="badge badge-pill badge-primary">{{ countries|length }}</span></h1>
 
     {% include "chainstore/button_add.html" %}
 
