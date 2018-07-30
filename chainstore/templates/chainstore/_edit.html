@@ -10,7 +10,8 @@
 
 {% block content %}
 
-    <h1>{{ page_title }}:
+    <h1>
+        {% trans page_title %}:
         {% if form.instance.pk %}{{ form.instance }}
             <span class="badge badge-secondary">{% trans 'Edit' %}</span>
         {% else %}
