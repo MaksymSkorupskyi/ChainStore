@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required, permission_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from warehouse.forms import WarehouseForm
@@ -56,6 +57,8 @@ class WarehouseDelete(DeleteView):
         return context
 
 
+@login_required
+@permission_required('warehouse.add_warehouse')
 def warehouse_edit(request, pk):
     if pk == 'new':
         instance = None

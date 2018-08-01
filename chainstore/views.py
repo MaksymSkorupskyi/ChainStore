@@ -10,15 +10,6 @@ def main(request):
     # return render(request, 'main.html', {'a': 1})
 
 
-# class UserLoginView(LoginView):
-#     pass
-
-
-# def login_view(request):
-#     if request.user.is_authenticated():
-#         return redirect('main')
-
-
 # Forms experiments
 def message_form(request):
     # if request.method == 'POST':

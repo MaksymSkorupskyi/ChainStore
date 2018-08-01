@@ -29,7 +29,7 @@
 
         <div class="nav navbar-right text-secondary" style="padding: 14px;">
             {% if user.is_authenticated %}
-                user: &nbsp<a href="{% url 'login' %}" style="font-weight: bold;">{{ user.username }}</a>
+                User: &nbsp<a href="{% url 'login' %}" style="font-weight: bold;">{{ user.username }}</a>
                  &nbsp|&nbsp <a href="{% url 'logout' %}">Sign out</a>&nbsp
             {% else %}
                 You are not logged in: &nbsp

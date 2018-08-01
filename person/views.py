@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
+from django.contrib.auth.decorators import login_required, permission_required
 from person.forms import PersonForm
 from person.models import Person
 
@@ -74,6 +75,8 @@ class PersonDelete(DeleteView):
         return context
 
 
+@login_required
+@permission_required('person.add_person')
 def person_edit(request, pk):
     if pk == 'new':
         instance = None
