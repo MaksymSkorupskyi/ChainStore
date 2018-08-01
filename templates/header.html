@@ -1,3 +1,5 @@
+<!-- templates/header.html -->
+
 {#Menu v3#}
 
 {% load i18n %}
@@ -25,6 +27,16 @@
 
         {#    language menu#}
 
+        <div class="nav navbar-right text-secondary" style="padding: 14px;">
+            {% if user.is_authenticated %}
+                user: &nbsp<a href="{% url 'login' %}" style="font-weight: bold;">{{ user.username }}</a>
+                 &nbsp|&nbsp <a href="{% url 'logout' %}">Sign out</a>&nbsp
+            {% else %}
+                You are not logged in: &nbsp
+                <a href="{% url 'login' %}">Sign in</a>
+            {% endif %}
+        </div>
+
         <div class="nav navbar-right" style="padding: 14px;">
 
             <form action="{% url 'set_language' %}" method="post">
@@ -33,7 +45,7 @@
                 <input id="set_lang_code" name="language" type="hidden" value="">
 
                 {% get_language_info_list for LANGUAGES as languages %}
-
+{#                language: &nbsp#}
                 {% for language in languages %}
 
                     <a href="#" title="{{ language.name_local }}" class="text-secondary"

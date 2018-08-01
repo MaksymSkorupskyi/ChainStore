@@ -35,14 +35,17 @@ urlpatterns = [
 
     # path('message-form', views.message_form, name='message-form'),
 
+    # authentication
+    path('accounts/', include('django.contrib.auth.urls')),
+
     path('admin/', admin.site.urls),
 ]
 
-# handler404 = 'chainstore.views.http404'
-# handler404 = views.http404
-
 """
 # experiments
+
+# handler404 = 'chainstore.views.http404'
+# handler404 = views.http404
 
     re_path('main/(?P<i>\d+)/(?P<j>\d+)/', views.main),
     re_path('main/(?P<i>\d+)/default/', views.main),

@@ -21,6 +21,7 @@
       <sourceFolder url="file://$MODULE_DIR$/place" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/shop" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/warehouse" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/chainstore" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -42,6 +43,7 @@
         <option value="$MODULE_DIR$/chainstore/templates/chainstore" />
         <option value="$MODULE_DIR$/chainstore/templatetags" />
         <option value="$MODULE_DIR$/shop/templatetags" />
+        <option value="$MODULE_DIR$/templates/registration" />
       </list>
     </option>
   </component>

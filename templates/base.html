@@ -1,3 +1,5 @@
+<!-- templates/base.html -->
+
 {% load static i18n chainstore_template_tags %}
 
 <!DOCTYPE html>
@@ -23,14 +25,14 @@
     <header>
         {% block header %}
             {% include "header.html" %}
-        {% endblock %}
+        {% endblock header %}
     </header>
 
     <div class="container">
 
         {% show_messages %}
 
-        {% block content %}{% endblock %}
+        {% block content %}{% endblock content %}
 
         <p><a href="{% url 'main' %}">{% trans 'Main page' %}</a></p>
         <hr>
@@ -45,7 +47,7 @@
                         {{ COPYRIGHT_YEAR }} &copy; {{ WEBSITE }} | created by {{ AUTHOR }}.
                     </p>
                 </div>
-            {% endblock %}
+            {% endblock footer %}
         </div>
     </footer>
 

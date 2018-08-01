@@ -1,3 +1,5 @@
+<!-- templates/main.html -->
+
 {% extends 'base.html' %}
 
 {% block title %}
@@ -6,7 +8,14 @@
 
 {% block content %}
 
-    <h1>{{ WEBSITE }}</h1>
+<h1>{{ WEBSITE }}</h1>
+
+{% comment %}    {% if user.is_authenticated %}
+        Hi {{ user.username }}!
+    {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}">login</a>
+    {% endif %}{% endcomment %}
 
     {#    <ul class="main ">#}
     {% for key, item in MAIN_MENU %}

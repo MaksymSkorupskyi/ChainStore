@@ -1,3 +1,5 @@
+<!-- chainstore/templates/chainstore/_confirm_delete.html -->
+
 {% extends 'base.html' %}
 
 {% load i18n %}
@@ -21,7 +23,7 @@
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-9">
                 <button type="submit" class="btn btn-danger" disabled>{% trans 'Confirm delete' %}</button>
-                <button type="button" class="btn btn-outline-secondary"" onclick="history.back(-1)">{% trans 'Cancel' %}</button>
+                <button type="button" class="btn btn-outline-secondary" onclick="history.back(-1)">{% trans 'Cancel' %}</button>
             </div>
         </div>
 
