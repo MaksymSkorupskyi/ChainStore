@@ -6,8 +6,8 @@ from shop.views import ShopTypeList, CustomShopTypeDetailView, ShopTypeEdit, Sho
 urlpatterns = [
 
     # Shops
-    path('shop/', ShopList.as_view(), name='shop'),
-    re_path(r'^shop/(?P<pk>\d+)/$', CustomShopDetailView.as_view(), name='shop'),
+    path('shop/', login_required(ShopList.as_view()), name='shop'),
+    re_path(r'^shop/(?P<pk>\d+)/$', login_required(CustomShopDetailView.as_view()), name='shop'),
     # re_path(r'^shop/(?P<pk>\d+)/$', ShopDetail.as_view(), name='shop'),
     # re_path(r'^shop/add$', ShopCreate.as_view(), name='shop_add'),
     re_path(r'^shop/(?P<pk>\d+|new)/edit$', login_required(ShopEdit.as_view()), name='shop_edit'),
