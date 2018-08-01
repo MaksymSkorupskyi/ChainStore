@@ -3,14 +3,16 @@
 {% load i18n %}
 
 {% block title %}
-    {%  trans 'Countries' %} | {{ WEBSITE }}
+    {% trans 'Countries' %} | {{ WEBSITE }}
 {% endblock %}
 
 {% block content %}
 
-    <h1>{%  trans 'Countries' %} <span class="badge badge-pill badge-primary">{{ countries|length }}</span></h1>
+    <h1>{% trans 'Countries' %} <span class="badge badge-pill badge-primary">{{ countries|length }}</span></h1>
 
-    {% include "chainstore/button_add.html" %}
+    {% if perms.place.add_country %}
+        {% include "chainstore/button_add.html" %}
+    {% endif %}
 
     {% if countries %}
 
@@ -18,9 +20,11 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>{%  trans 'Name' %}</th>
+                <th>{% trans 'Name' %}</th>
                 <th>id</th>
-                <th></th>
+                {% if perms.place.add_country %}
+                    <th></th>
+                {% endif %}
             </tr>
             </thead>
 
@@ -30,11 +34,11 @@
                     <td><a href="{% url 'country' pk=country.pk %}">{{ forloop.counter }}</a></td>
                     <td><a href="{% url 'country' pk=country.pk %}">{{ country.name }}</a></td>
                     <td><a href="{% url 'country' pk=country.pk %}">{{ country.pk }}</a></td>
-                    <td>
-                        <a href="{% url 'country' pk=country.pk %}edit">
-                            <button type="button" class="btn btn-outline-secondary">{% trans 'Edit' %}</button>
-                        </a>
-                    </td>
+                    {% if perms.place.add_country %}
+                        <td><a href="{% url 'country' pk=country.pk %}edit">
+                            <button type="button" class="btn btn-outline-secondary">{% trans 'Edit' %}</button></a>
+                        </td>
+                    {% endif %}
                 </tr>
             {% endfor %}
             </tbody>
@@ -47,6 +51,8 @@
 
     {% endif %}
 
-    {% include "chainstore/button_add.html" %}
+    {% if perms.place.add_country %}
+        {% include "chainstore/button_add.html" %}
+    {% endif %}
 
 {% endblock %}

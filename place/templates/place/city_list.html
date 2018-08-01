@@ -10,7 +10,9 @@
 
     <h1>{% trans 'Cities' %} <span class="badge badge-pill badge-primary">{{ cities|length }}</span></h1>
 
-    {% include "chainstore/button_add.html" %}
+    {% if perms.place.add_city %}
+        {% include "chainstore/button_add.html" %}
+    {% endif %}
 
     {% if cities %}
 
@@ -21,7 +23,9 @@
                 <th>{% trans 'Name' %}</th>
                 <th>{% trans 'Country' %}</th>
                 <th>id</th>
-                <th></th>
+                {% if perms.place.add_city %}
+                    <th></th>
+                {% endif %}
             </tr>
             </thead>
 
@@ -32,11 +36,12 @@
                     <td><a href="{% url 'city' pk=city.pk %}">{{ city.name }}</a></td>
                     <td><a href="{% url 'city' pk=city.pk %}">{{ city.country.name }}</a></td>
                     <td><a href="{% url 'city' pk=city.pk %}">{{ city.pk }}</a></td>
-                    <td>
-                        <a href="{% url 'city' pk=city.pk %}edit">
+                    {% if perms.place.add_city %}
+                        <td><a href="{% url 'city' pk=city.pk %}edit">
                             <button type="button" class="btn btn-outline-secondary">{% trans 'Edit' %}</button>
                         </a>
-                    </td>
+                        </td>
+                    {% endif %}
                 </tr>
             {% endfor %}
             </tbody>
@@ -49,6 +54,8 @@
 
     {% endif %}
 
-    {% include "chainstore/button_add.html" %}
+    {% if perms.place.add_city %}
+        {% include "chainstore/button_add.html" %}
+    {% endif %}
 
 {% endblock %}

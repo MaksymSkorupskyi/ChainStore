@@ -10,7 +10,9 @@
 
     <h1>{% trans 'shops'|capfirst %} <span class="badge badge-pill badge-primary">{{ shops|length }}</span></h1>
 
-    {% include "chainstore/button_add.html" %}
+    {% if perms.shop.add_shop %}
+        {% include "chainstore/button_add.html" %}
+    {% endif %}
 
     {% if shops %}
 
@@ -27,7 +29,10 @@
                 <th>{% trans 'Address'|capfirst %}</th>
                 <th>{% trans 'Website'|capfirst %}</th>
                 <th>id</th>
-                <th></th>
+                {% if perms.shop.add_shop %}
+                    <th></th>
+                {% endif %}
+
             </tr>
             </thead>
 
@@ -44,11 +49,12 @@
                     <td>{{ shop.address }}</td>
                     <td>{{ shop.website|urlize }}</td>
                     <td><a href="{% url 'shop' pk=shop.pk %}">{{ shop.pk }}</a></td>
-                    <td>
-                        <a href="{% url 'shop' pk=shop.pk %}edit">
-                            <button type="button" class="btn btn-outline-secondary">{% trans 'Edit' %}</button>
-                        </a>
-                    </td>
+                    {% if perms.shop.add_shop %}
+                        <td><a href="{% url 'shop' pk=shop.pk %}edit">
+                            <button type="button" class="btn btn-outline-secondary">{% trans 'Edit' %}</button></a>
+                        </td>
+                    {% endif %}
+
                 </tr>
             {% endfor %}
 
@@ -63,6 +69,8 @@
 
     {% endif %}
 
-    {% include "chainstore/button_add.html" %}
+    {% if perms.shop.add_shop %}
+        {% include "chainstore/button_add.html" %}
+    {% endif %}
 
 {% endblock %}

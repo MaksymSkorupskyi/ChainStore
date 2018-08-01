@@ -10,7 +10,9 @@
 
     <h1>{% trans 'Persons'|capfirst %} <span class="badge badge-pill badge-primary">{{ persons|length }}</span></h1>
 
-    {% include "chainstore/button_add.html" %}
+    {% if perms.person.add_person %}
+        {% include "chainstore/button_add.html" %}
+    {% endif %}
 
     {% if persons %}
 
@@ -26,6 +28,9 @@
                 <th>e-mail</th>
                 <th>id</th>
                 <th></th>
+                {% if perms.person.add_person %}
+                    <th></th>
+                {% endif %}
             </tr>
             </thead>
 
@@ -39,14 +44,12 @@
                     <td>{{ person.get_gender_display }}</td>
                     <td>{{ person.email|urlize }}</td>
                     <td><a href="{% url 'person' pk=person.pk %}">{{ person.pk }}</a></td>
-                    <td><a href="{% url 'person' pk=person.pk %}">{{ person.city.country.name }}</a></td>
-                    <td><a href="{% url 'person' pk=person.pk %}">{{ person.city.name }}</a></td>
-                    <td><a href="{% url 'person' pk=person.pk %}">{{ person.address }}</a></td>
-                    <td>
-                        <a href="{% url 'person' pk=person.pk %}edit">
+                    {% if perms.person.add_person %}
+                        <td><a href="{% url 'person' pk=person.pk %}edit">
                             <button type="button" class="btn btn-outline-secondary">{% trans 'Edit' %}</button>
                         </a>
-                    </td>
+                        </td>
+                    {% endif %}
                 </tr>
             {% endfor %}
             </tbody>
@@ -61,6 +64,8 @@
 
     {% endif %}
 
-    {% include "chainstore/button_add.html" %}
+    {% if perms.person.add_person %}
+        {% include "chainstore/button_add.html" %}
+    {% endif %}
 
 {% endblock %}

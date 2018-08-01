@@ -10,7 +10,9 @@
 
     <h1>{% trans 'Warehouses' %} <span class="badge badge-pill badge-primary">{{ warehouses|length }}</span></h1>
 
-    {% include "chainstore/button_add.html" %}
+    {% if perms.warehouse.add_warehouse %}
+        {% include "chainstore/button_add.html" %}
+    {% endif %}
 
     {% if warehouses %}
         <table class="table">
@@ -22,7 +24,10 @@
                 <th>{% trans 'City' %}</th>
                 <th>{% trans 'Address' %}</th>
                 <th>id</th>
-                <th></th>
+                {% if perms.warehouse.add_warehouse %}
+                    <th></th>
+                {% endif %}
+
             </tr>
             </thead>
 
@@ -37,11 +42,13 @@
                     <td><a href="{% url 'city' pk=warehouse.city.pk %}">{{ warehouse.city.name }}</a></td>
                     <td>{{ warehouse.address }}</td>
                     <td><a href="{% url 'warehouse' pk=warehouse.pk %}">{{ warehouse.pk }}</a></td>
-                    <td>
-                        <a href="{% url 'warehouse' pk=warehouse.pk %}edit">
+                    {% if perms.warehouse.add_warehouse %}
+                        <td><a href="{% url 'warehouse' pk=warehouse.pk %}edit">
                             <button type="button" class="btn btn-outline-secondary">{% trans 'Edit' %}</button>
                         </a>
-                    </td>
+                        </td>
+                    {% endif %}
+
                 </tr>
             {% endfor %}
             </tbody>
@@ -54,6 +61,8 @@
 
     {% endif %}
 
-    {% include "chainstore/button_add.html" %}
+    {% if perms.warehouse.add_warehouse %}
+        {% include "chainstore/button_add.html" %}
+    {% endif %}
 
 {% endblock %}

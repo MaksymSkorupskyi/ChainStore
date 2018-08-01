@@ -8,9 +8,12 @@
 
 {% block content %}
 
-    <h1>{% trans 'Shop Types'|capfirst %} <span class="badge badge-pill badge-primary">{{ shoptypes|length }}</span></h1>
+    <h1>{% trans 'Shop Types'|capfirst %} <span class="badge badge-pill badge-primary">{{ shoptypes|length }}</span>
+    </h1>
 
-    {% include "chainstore/button_add.html" %}
+    {% if perms.shop.add_shoptype %}
+        {% include "chainstore/button_add.html" %}
+    {% endif %}
 
     {% if shoptypes %}
 
@@ -20,7 +23,9 @@
                 <th>#</th>
                 <th>{% trans 'Name'|capfirst %}</th>
                 <th>id</th>
-                <th></th>
+                {% if perms.shop.add_shoptype %}
+                    <th></th>
+                {% endif %}
             </tr>
             </thead>
 
@@ -30,11 +35,13 @@
                     <td><a href="{% url 'shoptype' pk=shoptype.pk %}">{{ forloop.counter }}</a></td>
                     <td><a href="{% url 'shoptype' pk=shoptype.pk %}">{{ shoptype.name }}</a></td>
                     <td><a href="{% url 'shoptype' pk=shoptype.pk %}">{{ shoptype.pk }}</a></td>
-                    <td>
-                        <a href="{% url 'shoptype' pk=shoptype.pk %}edit">
-                            <button type="button" class="btn btn-outline-secondary">{% trans 'Edit' %}</button>
-                        </a>
-                    </td>
+                    {% if perms.shop.add_shoptype %}
+                        <td>
+                            <a href="{% url 'shoptype' pk=shoptype.pk %}edit">
+                                <button type="button" class="btn btn-outline-secondary">{% trans 'Edit' %}</button>
+                            </a>
+                        </td>
+                    {% endif %}
                 </tr>
             {% endfor %}
             </tbody>
@@ -48,6 +55,8 @@
 
     {% endif %}
 
-    {% include "chainstore/button_add.html" %}
+    {% if perms.shop.add_shoptype %}
+        {% include "chainstore/button_add.html" %}
+    {% endif %}
 
 {% endblock %}
