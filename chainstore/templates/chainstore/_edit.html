@@ -2,10 +2,11 @@
 
 {% extends 'base.html' %}
 
-{% load i18n chainstore_template_tags widget_tweaks%}
+{% load i18n chainstore_template_tags widget_tweaks %}
 
 {% block title %}
-    {% if form.instance.pk %}{% trans 'Edit' %}: {{ form.instance }}{% else %}{% trans 'Add New' %}{% endif %} | {{ page_title }} |
+    {% if form.instance.pk %}{% trans 'Edit' %}: {{ form.instance }}{% else %}{% trans 'Add New' %}{% endif %} |
+    {{ page_title }} |
     {{ block.super }}
 {% endblock %}
 
@@ -22,15 +23,15 @@
 
     </h1>
 
-{#        {% show_messages %}#}
-{#    {% include 'chainstore/show_messages.html' %}#}
+    {#        {% show_messages %}#}
+    {#    {% include 'chainstore/show_messages.html' %}#}
 
     <form class="form-horizontal" role="form" method="post" novalidate>
         {% csrf_token %}
 
         {% for field in form %}
 
-{% comment %} error messages v1
+            {% comment %} error messages v1
 
             {% if field.errors %}
 
@@ -47,30 +48,33 @@
             {% else %}
 {% endcomment %}
 
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label" for="id_{{ field.name }}">{{ field.label }}</label>
-                    <div class="col-sm-10">
-                        {{ field|attr:"class:form-control" }}
-                        {% if field.help_text %}
-                            <p class="help-block">
-                                <small>{{ field.help_text }}</small>
-                            </p>
-                        {% endif %}
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                <div class="col-sm-10">
+                    {{ field|attr:"class:form-control" }}
+                    {% if field.help_text %}
+                        <p class="help-block">
+                            <small>{{ field.help_text }}</small>
+                        </p>
+                    {% endif %}
 
-{#                    @inclusion_tag show_form_field_errors #}
+                    {#                    @inclusion_tag show_form_field_errors #}
                     {% show_form_field_errors field.errors %}
 
-                    </div>
                 </div>
+            </div>
 
-{#            {% endif %}#}
+            {#            {% endif %}#}
 
         {% endfor %}
 
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-6">
                 <button type="submit" class="btn btn-primary">{% trans 'Save' %}</button>
-                <a href="{% url page_back_button_url %}" class="btn btn-default">{% trans 'Go back' %}</a>
+                <a href="delete">
+                    <button type="button" class="btn btn-outline-danger">{% trans 'Delete' %}</button>
+                </a>
+                <a href="{% url page_back_button_url %}" class="btn btn-outline-secondary">{% trans 'Go back' %}</a>
             </div>
         </div>
 

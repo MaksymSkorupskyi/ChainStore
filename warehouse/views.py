@@ -57,7 +57,7 @@ class WarehouseDelete(DeleteView):
         return context
 
 
-@login_required
+# @login_required
 @permission_required('warehouse.add_warehouse')
 def warehouse_edit(request, pk):
     if pk == 'new':

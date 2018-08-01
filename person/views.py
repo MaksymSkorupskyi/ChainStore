@@ -75,7 +75,7 @@ class PersonDelete(DeleteView):
         return context
 
 
-@login_required
+# @login_required
 @permission_required('person.add_person')
 def person_edit(request, pk):
     if pk == 'new':
