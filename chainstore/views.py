@@ -1,16 +1,18 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404, render_to_response
 from chainstore.forms import SendMessageForm, DivErrorList
 from django.contrib.auth.views import LoginView
 
 
+# @login_required
 def main(request):
     return render(request, 'main.html')
     # return render(request, 'main.html', {'a': 1})
 
 
-# Forms experiments
+# Forms experiments _____________________________________________
 def message_form(request):
     # if request.method == 'POST':
     #     print(request.POST)

@@ -17,7 +17,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-
+from django.contrib.auth.decorators import login_required
 from django.urls import path, re_path
 from place.views import CountryList, CountryDetail, CountryEdit, CountryCreate, CountryDelete
 from place.views import CityList, CityDetail, CityEdit, CityCreate, CityDelete
@@ -25,15 +25,15 @@ from place.views import CityList, CityDetail, CityEdit, CityCreate, CityDelete
 urlpatterns = [
     path('country/', CountryList.as_view(), name='country'),
     re_path(r'^country/(?P<pk>\d+)/$', CountryDetail.as_view(), name='country'),
-    re_path(r'^country/(?P<pk>\d+)/edit$', CountryEdit.as_view(), name='country_edit'),
-    re_path(r'^country/(new|add)/edit$', CountryCreate.as_view(), name='country_edit'),
-    re_path(r'^country/(?P<pk>\d+)/delete$', CountryDelete.as_view(), name='country_delete'),
+    re_path(r'^country/(?P<pk>\d+)/edit$', login_required(CountryEdit.as_view()), name='country_edit'),
+    re_path(r'^country/(new|add)/edit$', login_required(CountryCreate.as_view()), name='country_edit'),
+    re_path(r'^country/(?P<pk>\d+)/delete$', login_required(CountryDelete.as_view()), name='country_delete'),
 
     path('city/', CityList.as_view(), name='city'),
     re_path(r'^city/(?P<pk>\d+)/$', CityDetail.as_view(), name='city'),
-    re_path(r'^city/(?P<pk>\d+)/edit$', CityEdit.as_view(), name='city_edit'),
-    re_path(r'^city/(new|add)/edit$', CityCreate.as_view(), name='city_edit'),
-    re_path(r'^city/(?P<pk>\d+)/delete$', CityDelete.as_view(), name='city_delete'),
+    re_path(r'^city/(?P<pk>\d+)/edit$', login_required(CityEdit.as_view()), name='city_edit'),
+    re_path(r'^city/(new|add)/edit$', login_required(CityCreate.as_view()), name='city_edit'),
+    re_path(r'^city/(?P<pk>\d+)/delete$', login_required(CityDelete.as_view()), name='city_delete'),
 ]
 
 # urlpatterns = [

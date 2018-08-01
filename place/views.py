@@ -1,6 +1,6 @@
-# from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.urls import reverse
+from django.utils.decorators import method_decorator
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from place.forms import CountryForm, CityForm
 from place.models import City, Country
@@ -45,7 +45,7 @@ class CountryDetail(DetailView):
         context['main_menu_key'] = 'countries'
         return context
 
-
+# @method_decorator(login_required, name='dispatch')
 class CountryEdit(UpdateView):
     form_class = CountryForm
     model = Country
