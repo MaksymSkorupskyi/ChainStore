@@ -1,6 +1,8 @@
 from django.contrib import messages
+from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.auth.views import redirect_to_login
+from django.core.exceptions import PermissionDenied
 from django.urls import reverse, reverse_lazy
-from django.utils.decorators import method_decorator
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from place.forms import CountryForm, CityForm
 from place.models import City, Country
@@ -47,7 +49,7 @@ class CountryDetail(DetailView):
 
 
 # @method_decorator(login_required, name='dispatch')
-class CountryEdit(UpdateView):
+class CountryEdit(PermissionRequiredMixin, UpdateView):
     form_class = CountryForm
     model = Country
     template_name = 'place/country_edit.html'
@@ -65,7 +67,7 @@ class CountryEdit(UpdateView):
         return reverse('country_edit', kwargs={'pk': self.object.pk})
 
 
-class CountryCreate(CreateView):
+class CountryCreate(PermissionRequiredMixin, CreateView):
     form_class = CountryForm
     model = Country
     template_name = 'place/country_edit.html'
@@ -83,9 +85,15 @@ class CountryCreate(CreateView):
         return reverse('country_edit', kwargs={'pk': self.object.pk})
 
 
-class CountryDelete(DeleteView):
+class CountryDelete(PermissionRequiredMixin, DeleteView):
     model = Country
     success_url = reverse_lazy('country')
+    permission_required = 'country.delete_country'
+
+    def handle_no_permission(self):
+        if self.raise_exception:
+            raise PermissionDenied(self.get_permission_denied_message())
+        return redirect_to_login(self.request.get_full_path(), self.get_login_url(), self.get_redirect_field_name())
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -134,7 +142,7 @@ class CityDetail(DetailView):
         return context
 
 
-class CityEdit(UpdateView):
+class CityEdit(PermissionRequiredMixin, UpdateView):
     form_class = CityForm
     model = City
     template_name = 'place/city_edit.html'
@@ -152,7 +160,7 @@ class CityEdit(UpdateView):
         return reverse('city_edit', kwargs={'pk': self.object.pk})
 
 
-class CityCreate(CreateView):
+class CityCreate(PermissionRequiredMixin, CreateView):
     form_class = CityForm
     model = City
     template_name = 'place/city_edit.html'
@@ -170,9 +178,15 @@ class CityCreate(CreateView):
         return reverse('city_edit', kwargs={'pk': self.object.pk})
 
 
-class CityDelete(DeleteView):
+class CityDelete(PermissionRequiredMixin, DeleteView):
     model = City
     success_url = reverse_lazy('city')
+    permission_required = 'city.delete_city'
+
+    def handle_no_permission(self):
+        if self.raise_exception:
+            raise PermissionDenied(self.get_permission_denied_message())
+        return redirect_to_login(self.request.get_full_path(), self.get_login_url(), self.get_redirect_field_name())
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

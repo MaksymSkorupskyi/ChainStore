@@ -1,6 +1,8 @@
 from datetime import datetime
-
 from django.contrib import messages
+from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.auth.views import redirect_to_login
+from django.core.exceptions import PermissionDenied
 from django.db.models import Prefetch
 from django.urls import reverse_lazy
 from django.utils import timezone
@@ -102,20 +104,26 @@ class ShopEdit(TemplateView):
         return self.get(request, *args, **kwargs)
 
 
-class ShopUpdate(UpdateView):
+class ShopUpdate(PermissionRequiredMixin, UpdateView):
     model = Shop
     fields = ('name', 'shop_type', 'owner', 'address', 'city', 'sellers', 'warehouses', 'website')
     # template_name = 'shop/shop_edit.html'
 
 
-class ShopCreate(CreateView):
+class ShopCreate(PermissionRequiredMixin, CreateView):
     model = Shop
     fields = ('name', 'shop_type', 'owner', 'address', 'city', 'sellers', 'warehouses', 'website')
 
 
-class ShopDelete(DeleteView):
+class ShopDelete(PermissionRequiredMixin, DeleteView):
     model = Shop
     success_url = reverse_lazy('shop')
+    permission_required = 'shop.delete_shop'
+
+    def handle_no_permission(self):
+        if self.raise_exception:
+            raise PermissionDenied(self.get_permission_denied_message())
+        return redirect_to_login(self.request.get_full_path(), self.get_login_url(), self.get_redirect_field_name())
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -202,9 +210,15 @@ class ShopTypeEdit(TemplateView):
         return self.get(request, *args, **kwargs)
 
 
-class ShopTypeDelete(DeleteView):
+class ShopTypeDelete(PermissionRequiredMixin, DeleteView):
     model = ShopType
     success_url = reverse_lazy('shoptype')
+    permission_required = 'shoptype.delete_shoptype'
+
+    def handle_no_permission(self):
+        if self.raise_exception:
+            raise PermissionDenied(self.get_permission_denied_message())
+        return redirect_to_login(self.request.get_full_path(), self.get_login_url(), self.get_redirect_field_name())
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

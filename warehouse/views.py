@@ -1,5 +1,8 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.auth.views import redirect_to_login
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
@@ -48,9 +51,15 @@ class WarehouseDetail(DetailView):
         return context
 
 
-class WarehouseDelete(DeleteView):
+class WarehouseDelete(PermissionRequiredMixin, DeleteView):
     model = Warehouse
     success_url = reverse_lazy('warehouse')
+    permission_required = 'warehouse.delete_warehouse'
+
+    def handle_no_permission(self):
+        if self.raise_exception:
+            raise PermissionDenied(self.get_permission_denied_message())
+        return redirect_to_login(self.request.get_full_path(), self.get_login_url(), self.get_redirect_field_name())
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

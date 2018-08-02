@@ -37,6 +37,6 @@ class Shop(models.Model):
     # def get_absolute_url(self):
     #     return reverse('shop_detail', kwargs={'pk': self.pk})
 
-    @models.permalink
-    def get_absolute_url(self):
-        return 'shop', (), {'pk': self.pk}
+    # @models.permalink
+    # def get_absolute_url(self):
+    #     return 'shop', (), {'pk': self.pk}
