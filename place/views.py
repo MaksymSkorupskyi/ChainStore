@@ -53,6 +53,12 @@ class CountryEdit(PermissionRequiredMixin, UpdateView):
     form_class = CountryForm
     model = Country
     template_name = 'place/country_edit.html'
+    permission_required = 'place.add_country'
+
+    def handle_no_permission(self):
+        if self.raise_exception:
+            raise PermissionDenied(self.get_permission_denied_message())
+        return redirect_to_login(self.request.get_full_path(), self.get_login_url(), self.get_redirect_field_name())
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -71,6 +77,12 @@ class CountryCreate(PermissionRequiredMixin, CreateView):
     form_class = CountryForm
     model = Country
     template_name = 'place/country_edit.html'
+    permission_required = 'place.add_country'
+
+    def handle_no_permission(self):
+        if self.raise_exception:
+            raise PermissionDenied(self.get_permission_denied_message())
+        return redirect_to_login(self.request.get_full_path(), self.get_login_url(), self.get_redirect_field_name())
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -146,6 +158,12 @@ class CityEdit(PermissionRequiredMixin, UpdateView):
     form_class = CityForm
     model = City
     template_name = 'place/city_edit.html'
+    permission_required = 'place.add_city'
+
+    def handle_no_permission(self):
+        if self.raise_exception:
+            raise PermissionDenied(self.get_permission_denied_message())
+        return redirect_to_login(self.request.get_full_path(), self.get_login_url(), self.get_redirect_field_name())
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -164,6 +182,12 @@ class CityCreate(PermissionRequiredMixin, CreateView):
     form_class = CityForm
     model = City
     template_name = 'place/city_edit.html'
+    permission_required = 'place.add_city'
+
+    def handle_no_permission(self):
+        if self.raise_exception:
+            raise PermissionDenied(self.get_permission_denied_message())
+        return redirect_to_login(self.request.get_full_path(), self.get_login_url(), self.get_redirect_field_name())
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
