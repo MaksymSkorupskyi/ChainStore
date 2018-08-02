@@ -1,6 +1,6 @@
 # ChainStore by Maksym Skorupskyi for SECL Group
-Python 3.7.0,
-Django 2.1
+    Python 3.7.0,
+    Django 2.1
 _________________________________________________________________________________________________________
 
 Users ang groups permissions:
