@@ -10,7 +10,7 @@ Users ang groups permissions:
     moderators          +         +         +
     operators           +         +         -
     guests              +         -         -
-    anonymous users*    +/-       -         -
+    anonymous users*   +/-        -         -
 
     * You shoud sign-in to view Shops, Person and Warehouses pages.
 
