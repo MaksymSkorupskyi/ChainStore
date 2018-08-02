@@ -1,5 +1,5 @@
 # ChainStore by Maksym Skorupskyi for SECL Group
-    Python 3.7.0,
+    Python 3.7.0
     Django 2.1
 _________________________________________________________________________________________________________
 
@@ -12,7 +12,7 @@ Users ang groups permissions:
     guests              +         -         -
     anonymous users*   +/-        -         -
 
-    * You shoud sign-in to view Shops, Person and Warehouses pages.
+    * You shoud sign-in to view Shops, Persons and Warehouses pages.
 
 Test users: passwords
 
