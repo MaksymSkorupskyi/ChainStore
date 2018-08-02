@@ -94,15 +94,17 @@
             </div>
         </div>
 
-        <p>
-            {% if perms.shop.add_shop %}
-                {% include 'chainstore/button_edit.html' %}
-            {% endif %}
-            {% if perms.shop.delete_shop %}
-                {% include 'chainstore/button_delete.html' %}
-            {% endif %}
-            {% include 'chainstore/button_goback.html' %}
-        </p>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-6">
+                {% if perms.shop.add_shop %}
+                    {% include 'chainstore/button_edit.html' %}
+                {% endif %}
+                {% if perms.shop.delete_shop %}
+                    {% include 'chainstore/button_delete.html' %}
+                {% endif %}
+                {% include 'chainstore/button_goback.html' %}
+            </div>
+        </div>
 
     </form>
 
