@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 08:34+0300\n"
+"POT-Creation-Date: 2018-08-02 15:24+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,72 +63,75 @@ msgstr "Міста"
 msgid "Countries"
 msgstr "Країни"
 
-#: chainstore/settings.py:123
+#: chainstore/settings.py:128
 msgid "English"
 msgstr ""
 
-#: chainstore/settings.py:124
+#: chainstore/settings.py:129
 msgid "Русский"
 msgstr "Російська"
 
-#: chainstore/settings.py:125
+#: chainstore/settings.py:130
 msgid "Українська"
 msgstr ""
 
-#: chainstore/templates/chainstore/_confirm_delete.html:6
-#: chainstore/templates/chainstore/_confirm_delete.html:11
-#: chainstore/templates/chainstore/buttons_edit_delete_goback.html:9
+#: chainstore/templates/chainstore/_confirm_delete.html:8
+#: chainstore/templates/chainstore/_confirm_delete.html:13
+#: chainstore/templates/chainstore/button_delete.html:6
+#: chainstore/templates/chainstore/buttons_edit_delete_goback.html:11
 msgid "Delete"
 msgstr "Видалити"
 
-#: chainstore/templates/chainstore/_confirm_delete.html:14
+#: chainstore/templates/chainstore/_confirm_delete.html:16
 msgid "Warning"
 msgstr "Увага"
 
-#: chainstore/templates/chainstore/_confirm_delete.html:14
+#: chainstore/templates/chainstore/_confirm_delete.html:16
 msgid "This operation cannot be undone. Are you sure to delete this item?"
 msgstr ""
 "Цю операцію не можна скасувати. Ви впевнені, що ви видалите цей елемент?"
 
-#: chainstore/templates/chainstore/_confirm_delete.html:23
+#: chainstore/templates/chainstore/_confirm_delete.html:25
 msgid "Confirm delete"
 msgstr "Підтвердити видалення"
 
-#: chainstore/templates/chainstore/_confirm_delete.html:24
+#: chainstore/templates/chainstore/_confirm_delete.html:26
 #: chainstore/templates/chainstore/buttons_save_cancel.html:6
 msgid "Cancel"
 msgstr "Відмінити"
 
-#: chainstore/templates/chainstore/_edit.html:6
-#: chainstore/templates/chainstore/_edit.html:15
-#: chainstore/templates/chainstore/buttons_edit_delete_goback.html:5
-#: person/templates/person/person_list.html:47
-#: place/templates/place/city_list.html:37
-#: place/templates/place/country_list.html:35
-#: shop/templates/shop/shop_list.html:49
-#: shop/templates/shop/shoptype_list.html:35
-#: warehouse/templates/warehouse/warehouse_list.html:42
+#: chainstore/templates/chainstore/_edit.html:8
+#: chainstore/templates/chainstore/_edit.html:19
+#: chainstore/templates/chainstore/button_edit.html:6
+#: chainstore/templates/chainstore/buttons_edit_delete_goback.html:7
+#: person/templates/person/person_list.html:49
+#: place/templates/place/city_list.html:41
+#: place/templates/place/country_list.html:39
+#: shop/templates/shop/shop_list.html:54
+#: shop/templates/shop/shoptype_list.html:41
+#: warehouse/templates/warehouse/warehouse_list.html:47
 msgid "Edit"
 msgstr "Редагувати"
 
-#: chainstore/templates/chainstore/_edit.html:6
-#: chainstore/templates/chainstore/_edit.html:17
-#: chainstore/templates/chainstore/button_add.html:5
+#: chainstore/templates/chainstore/_edit.html:8
+#: chainstore/templates/chainstore/_edit.html:21
+#: chainstore/templates/chainstore/button_add.html:6
 msgid "Add New"
 msgstr "Додати"
 
-#: chainstore/templates/chainstore/_edit.html:69
+#: chainstore/templates/chainstore/_edit.html:74
 #: chainstore/templates/chainstore/buttons_save_cancel.html:5
 msgid "Save"
 msgstr "Зберегти"
 
-#: chainstore/templates/chainstore/_edit.html:70
-#: chainstore/templates/chainstore/buttons_edit_delete_goback.html:12
+#: chainstore/templates/chainstore/_edit.html:80
+#: chainstore/templates/chainstore/button_goback.html:5
+#: chainstore/templates/chainstore/buttons_edit_delete_goback.html:14
 msgid "Go back"
 msgstr "Повернутися до списку"
 
 #: person/forms.py:23 person/templates/person/person_detail.html:30
-#: person/templates/person/person_list.html:24
+#: person/templates/person/person_list.html:26
 msgid "Birthdate"
 msgstr "Дата народження"
 
@@ -145,12 +148,12 @@ msgid "Not Sure"
 msgstr "не визначена"
 
 #: person/models.py:18 person/templates/person/person_detail.html:16
-#: person/templates/person/person_list.html:22
+#: person/templates/person/person_list.html:24
 msgid "First Name"
 msgstr "Ім'я"
 
 #: person/models.py:19 person/templates/person/person_detail.html:23
-#: person/templates/person/person_list.html:23
+#: person/templates/person/person_list.html:25
 msgid "Last Name"
 msgstr "Прізвище"
 
@@ -159,7 +162,7 @@ msgid "birthdate"
 msgstr "дата народження"
 
 #: person/models.py:21 person/templates/person/person_detail.html:37
-#: person/templates/person/person_list.html:25
+#: person/templates/person/person_list.html:27
 msgid "gender"
 msgstr "стать"
 
@@ -167,78 +170,82 @@ msgstr "стать"
 msgid "Person"
 msgstr "Контактна особа"
 
-#: place/models.py:6 shop/models.py:9 shop/models.py:20
+#: place/models.py:6 shop/models.py:12 shop/models.py:23
 #: shop/templates/shop/shop_detail.html:16 warehouse/models.py:7
 msgid "name"
 msgstr "назва"
 
 #: place/models.py:9 place/models.py:19
 #: place/templates/place/city_detail.html:23
-#: place/templates/place/city_list.html:22
-#: shop/templates/shop/shop_list.html:25
+#: place/templates/place/city_list.html:24
+#: shop/templates/shop/shop_list.html:27
 #: warehouse/templates/warehouse/warehouse_detail.html:37
-#: warehouse/templates/warehouse/warehouse_list.html:21
+#: warehouse/templates/warehouse/warehouse_list.html:23
 msgid "Country"
 msgstr "Країна"
 
 #: place/models.py:18 place/templates/place/city_detail.html:16
-#: place/templates/place/city_list.html:21
+#: place/templates/place/city_list.html:23
 #: place/templates/place/country_detail.html:16
-#: place/templates/place/country_list.html:21
-#: shop/templates/shop/shop_list.html:22
+#: place/templates/place/country_list.html:23
+#: shop/templates/shop/shop_list.html:24
 #: shop/templates/shop/shoptype_detail.html:16
-#: shop/templates/shop/shoptype_list.html:21
+#: shop/templates/shop/shoptype_list.html:24
 #: warehouse/templates/warehouse/warehouse_detail.html:16
-#: warehouse/templates/warehouse/warehouse_list.html:20
+#: warehouse/templates/warehouse/warehouse_list.html:22
 msgid "Name"
 msgstr "Назва"
 
-#: place/models.py:22 shop/templates/shop/shop_list.html:26
+#: place/models.py:22 shop/templates/shop/shop_list.html:28
 #: warehouse/templates/warehouse/warehouse_detail.html:30
-#: warehouse/templates/warehouse/warehouse_list.html:22
+#: warehouse/templates/warehouse/warehouse_list.html:24
 msgid "City"
 msgstr "Місто"
 
-#: shop/models.py:10 shop/templates/shop/shoptype_detail.html:30
+#: shop/models.py:13 shop/templates/shop/shoptype_detail.html:30
 msgid "description"
 msgstr "опис"
 
-#: shop/models.py:21 shop/templates/shop/shop_detail.html:23
+#: shop/models.py:24 shop/templates/shop/shop_detail.html:23
 msgid "type"
 msgstr "тип"
 
-#: shop/models.py:22 shop/templates/shop/shop_detail.html:30
+#: shop/models.py:25 shop/templates/shop/shop_detail.html:30
 msgid "owner"
 msgstr "власник"
 
-#: shop/models.py:23 shop/templates/shop/shop_detail.html:37
+#: shop/models.py:26 shop/templates/shop/shop_detail.html:37
 #: warehouse/models.py:8
 msgid "address"
 msgstr "адреса"
 
-#: shop/models.py:24 shop/templates/shop/shop_detail.html:44
+#: shop/models.py:27 shop/templates/shop/shop_detail.html:44
 #: warehouse/models.py:9
 msgid "city"
 msgstr "місто"
 
-#: shop/models.py:25 shop/templates/shop/shop_detail.html:59
+#: shop/models.py:28 shop/templates/shop/shop_detail.html:59
 msgid "website"
 msgstr "веб-сайт"
 
-#: shop/models.py:26 shop/templates/shop/shop_detail.html:68
+#: shop/models.py:29 shop/templates/shop/shop_detail.html:68
 msgid "sellers"
 msgstr "продавці"
 
-#: shop/models.py:27 shop/templates/shop/shop_detail.html:80
+#: shop/models.py:30 shop/templates/shop/shop_detail.html:80
 #: warehouse/models.py:13
 msgid "warehouses"
 msgstr "cклади"
 
-#: shop/models.py:30
+#: shop/models.py:31
+msgid "version"
+msgstr "версія"
+
+#: shop/models.py:34
 msgid "shop"
 msgstr "магазин"
 
-#: shop/models.py:31 shop/templates/shop/shop_detail.html:6
+#: shop/models.py:35 shop/templates/shop/shop_detail.html:6
 #: shop/templates/shop/shop_detail.html:11 shop/templates/shop/shop_list.html:6
 #: shop/templates/shop/shop_list.html:11
 msgid "shops"
@@ -248,25 +255,25 @@ msgstr "магазини"
 msgid "country"
 msgstr "країна"
 
-#: shop/templates/shop/shop_list.html:23
+#: shop/templates/shop/shop_list.html:25
 msgid "Type"
 msgstr "Тип"
 
-#: shop/templates/shop/shop_list.html:24
+#: shop/templates/shop/shop_list.html:26
 msgid "Onwer"
 msgstr "Власник"
 
-#: shop/templates/shop/shop_list.html:27
+#: shop/templates/shop/shop_list.html:29
 #: warehouse/templates/warehouse/warehouse_detail.html:23
-#: warehouse/templates/warehouse/warehouse_list.html:23
+#: warehouse/templates/warehouse/warehouse_list.html:25
 msgid "Address"
 msgstr "Адреса"
 
-#: shop/templates/shop/shop_list.html:28
+#: shop/templates/shop/shop_list.html:30
 msgid "Website"
 msgstr "Веб-сайт"
 
-#: templates/base.html:35
+#: templates/base.html:37
 msgid "Main page"
 msgstr "На головну сторінку"
 

@@ -29,6 +29,7 @@
                 <th>{% trans 'Address'|capfirst %}</th>
                 <th>{% trans 'Website'|capfirst %}</th>
                 <th>id</th>
+                <th>{% trans 'version'|capfirst %}</th>
                 {% if perms.shop.add_shop %}
                     <th></th>
                 {% endif %}
@@ -49,12 +50,12 @@
                     <td>{{ shop.address }}</td>
                     <td>{{ shop.website|urlize }}</td>
                     <td><a href="{% url 'shop' pk=shop.pk %}">{{ shop.pk }}</a></td>
+                    <td><a href="{% url 'shop' pk=shop.pk %}">{{ shop.version }}</a></td>
                     {% if perms.shop.add_shop %}
                         <td><a href="{% url 'shop' pk=shop.pk %}edit">
                             <button type="button" class="btn btn-outline-secondary">{% trans 'Edit' %}</button></a>
                         </td>
                     {% endif %}
-
                 </tr>
             {% endfor %}
 

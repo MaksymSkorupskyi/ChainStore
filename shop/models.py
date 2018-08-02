@@ -1,4 +1,7 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.db.models import F
 from person.models import Person
 from warehouse.models import Warehouse
 from place.models import City
@@ -25,6 +28,7 @@ class Shop(models.Model):
     website = models.URLField(verbose_name=_('website'), blank=True)
     sellers = models.ManyToManyField(Person, verbose_name=_('sellers'), related_name='sellers')
     warehouses = models.ManyToManyField(Warehouse, verbose_name=_('warehouses'))
+    version = models.PositiveIntegerField(verbose_name=_('version'), default=0, editable=False)
 
     class Meta:
         verbose_name = _('shop')
@@ -34,9 +38,17 @@ class Shop(models.Model):
     def __str__(self):
         return f'{self.name} | {self.shop_type} | {self.city}'
 
-    # def get_absolute_url(self):
-    #     return reverse('shop_detail', kwargs={'pk': self.pk})
 
-    # @models.permalink
-    # def get_absolute_url(self):
-    #     return 'shop', (), {'pk': self.pk}
+"""
+    def get_absolute_url(self):
+        return reverse('shop_detail', kwargs={'pk': self.pk})
+
+    @models.permalink
+    def get_absolute_url(self):
+        return 'shop', (), {'pk': self.pk}
+"""
+
+
+@receiver(post_save, sender=Shop)
+def inc_shop_version(sender, instance, **kwargs):
+    Shop.objects.filter(pk=instance.pk).update(version=F('version') + 1)
