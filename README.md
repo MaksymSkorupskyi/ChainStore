@@ -5,25 +5,20 @@ ________________________________________________________________________________
 
 Users ang groups permissions:
 
-                   view    add/edit    delete    
-                
-admin               +         +           +
+                      view    add/edit    delete              
+    admin               +         +         +
+    moderators          +         +         +
+    operators           +         +         -
+    guests              +         -         -
+    anonymous users*    +/-       -         -
 
-moderators          +         +           +
-
-operators           +         +           -
-
-guests              +         -           -
-
-anonymous users*    +/-       -           -
-
-* You shoud sign-in to view Shops, Person and Warehouses pages.
+    * You shoud sign-in to view Shops, Person and Warehouses pages.
 
 Test users: passwords
 
-moderator: moderator
-operator: operator
-guest: guest
+    moderator: moderator
+    operator: operator
+    guest: guest
 
 _________________________________________________________________________________________________________
 
