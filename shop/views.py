@@ -2,6 +2,7 @@ from datetime import datetime
 
 from django.contrib import messages
 from django.db.models import Prefetch
+from django.urls import reverse_lazy
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView, TemplateView
@@ -114,7 +115,7 @@ class ShopCreate(CreateView):
 
 class ShopDelete(DeleteView):
     model = Shop
-    success_url = "/shop"
+    success_url = reverse_lazy('shop')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -203,7 +204,7 @@ class ShopTypeEdit(TemplateView):
 
 class ShopTypeDelete(DeleteView):
     model = ShopType
-    success_url = "/shoptype"
+    success_url = reverse_lazy('shoptype')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

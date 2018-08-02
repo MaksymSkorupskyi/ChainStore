@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, permission_required
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from warehouse.forms import WarehouseForm
 from warehouse.models import Warehouse
@@ -49,7 +50,7 @@ class WarehouseDetail(DetailView):
 
 class WarehouseDelete(DeleteView):
     model = Warehouse
-    success_url = "/warehouse"
+    success_url = reverse_lazy('warehouse')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

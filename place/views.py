@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from place.forms import CountryForm, CityForm
@@ -45,6 +45,7 @@ class CountryDetail(DetailView):
         context['main_menu_key'] = 'countries'
         return context
 
+
 # @method_decorator(login_required, name='dispatch')
 class CountryEdit(UpdateView):
     form_class = CountryForm
@@ -84,13 +85,12 @@ class CountryCreate(CreateView):
 
 class CountryDelete(DeleteView):
     model = Country
-    success_url = "/country"
+    success_url = reverse_lazy('country')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['main_menu_key'] = 'countries'
         return context
-
 
 
 # ___ City views _________________________________________________________________
@@ -172,10 +172,9 @@ class CityCreate(CreateView):
 
 class CityDelete(DeleteView):
     model = City
-    success_url = "/city"
+    success_url = reverse_lazy('city')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['main_menu_key'] = 'cities'
         return context
-
