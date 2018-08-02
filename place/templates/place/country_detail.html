@@ -3,17 +3,17 @@
 {% load i18n %}
 
 {% block title %}
-    {{ country.name }} | {%  trans 'Countries' %} | {{ WEBSITE }}
+    {{ country.name }} | {% trans 'Countries' %} | {{ WEBSITE }}
 {% endblock %}
 
 {% block content %}
 
-    <h1>{%  trans 'Countries' %}: {{ country }}</h1>
+    <h1>{% trans 'Countries' %}: {{ country }}</h1>
 
     <form>
 
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">{%  trans 'Name' %}: </label>
+            <label class="col-sm-2 col-form-label">{% trans 'Name' %}: </label>
             <div class="col-sm-10 form-control-plaintext">
                 {{ country.name }}
             </div>
@@ -26,7 +26,15 @@
             </div>
         </div>
 
-        {% include 'chainstore/buttons_edit_delete_goback.html' %}
+        <p>
+            {% if perms.place.add_country %}
+                {% include 'chainstore/button_edit.html' %}
+            {% endif %}
+            {% if perms.place.delete_country %}
+                {% include 'chainstore/button_delete.html' %}
+            {% endif %}
+            {% include 'chainstore/button_goback.html' %}
+        </p>
 
     </form>
 

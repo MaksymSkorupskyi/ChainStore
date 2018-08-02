@@ -94,7 +94,15 @@
             </div>
         </div>
 
-        {% include 'chainstore/buttons_edit_delete_goback.html' %}
+        <p>
+            {% if perms.shop.add_shop %}
+                {% include 'chainstore/button_edit.html' %}
+            {% endif %}
+            {% if perms.shop.delete_shop %}
+                {% include 'chainstore/button_delete.html' %}
+            {% endif %}
+            {% include 'chainstore/button_goback.html' %}
+        </p>
 
     </form>
 

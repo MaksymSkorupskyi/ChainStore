@@ -33,7 +33,15 @@
             </div>
         </div>
 
-        {% include 'chainstore/buttons_edit_delete_goback.html' %}
+        <p>
+            {% if perms.place.add_city %}
+                {% include 'chainstore/button_edit.html' %}
+            {% endif %}
+            {% if perms.place.delete_city %}
+                {% include 'chainstore/button_delete.html' %}
+            {% endif %}
+            {% include 'chainstore/button_goback.html' %}
+        </p>
 
     </form>
 
