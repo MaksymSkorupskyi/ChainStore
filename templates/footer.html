@@ -8,8 +8,8 @@
 
         {% get_flatpages as flatpages %}
 
-        {% for page in flatpages %}
-            <a href="{% url 'flatpage' url=page.url %}" class="ml-3">{{ page.title }}</a>
+        {% for flatpage in flatpages %}
+            <a href="{% url 'flatpage' url=flatpage.url %}" class="ml-3">{{ flatpage.title }}</a>
         {% endfor %}
 
 </div>
