@@ -43,7 +43,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
 
     # flatpages
-    re_path('/(?P<url>.*)$', flatpage, name='flatpage'),
+    re_path('(?P<url>.*)$', flatpage, name='flatpage'),
     # path('about/', flatpage, {'url': '/about/'}, name='about'),
     # path('terms/', flatpage, {'url': '/terms/'}, name='terms'),
     # path('pages/', include('django.contrib.flatpages.urls')),

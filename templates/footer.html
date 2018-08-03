@@ -4,6 +4,8 @@
 
 <div class="container text-muted margin" role="contentinfo">
 
+        {% cache 10800 footer LANGUAGE_CODE %}
+
         {{ COPYRIGHT_YEAR }} &copy; {{ WEBSITE }}, created by {{ AUTHOR }}.
 
         {% get_flatpages as flatpages %}
@@ -11,5 +13,7 @@
         {% for flatpage in flatpages %}
             <a href="{% url 'flatpage' url=flatpage.url %}" class="ml-3">{{ flatpage.title }}</a>
         {% endfor %}
+
+        {% endcache %}
 
 </div>
