@@ -44,6 +44,7 @@
         <option value="$MODULE_DIR$/chainstore/templatetags" />
         <option value="$MODULE_DIR$/shop/templatetags" />
         <option value="$MODULE_DIR$/templates/registration" />
+        <option value="$MODULE_DIR$/templates/flatpages" />
       </list>
     </option>
   </component>

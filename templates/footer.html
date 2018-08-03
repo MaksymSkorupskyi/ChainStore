@@ -1,0 +1,15 @@
+<!-- templates/footer.html -->
+
+{% load i18n cache flatpages %}
+
+<div class="container text-muted margin" role="contentinfo">
+
+        {{ COPYRIGHT_YEAR }} &copy; {{ WEBSITE }}, created by {{ AUTHOR }}.
+
+        {% get_flatpages as flatpages %}
+
+        {% for page in flatpages %}
+            <a href="{% url 'flatpage' url=page.url %}" class="ml-3">{{ page.title }}</a>
+        {% endfor %}
+
+</div>

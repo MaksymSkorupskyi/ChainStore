@@ -16,8 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path, include
 from chainstore import views
+from django.contrib.flatpages.views import flatpage
 
 urlpatterns = [
+
+    path('admin/', admin.site.urls),
+
     path('', views.main, name='main'),
     path('main/', views.main, name='main'),
     path('', include('person.urls')),
@@ -38,7 +42,11 @@ urlpatterns = [
     # authentication
     path('accounts/', include('django.contrib.auth.urls')),
 
-    path('admin/', admin.site.urls),
+    # flatpages
+    re_path('/(?P<url>.*)$', flatpage, name='flatpage'),
+    # path('about/', flatpage, {'url': '/about/'}, name='about'),
+    # path('terms/', flatpage, {'url': '/terms/'}, name='terms'),
+    # path('pages/', include('django.contrib.flatpages.urls')),
 ]
 
 """
