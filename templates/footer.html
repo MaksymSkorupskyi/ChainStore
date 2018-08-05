@@ -2,9 +2,10 @@
 
 {% load i18n cache flatpages %}
 
-<div class="container text-muted margin" role="contentinfo">
+{% cache 10800 footer LANGUAGE_CODE %}
 
-        {% cache 10800 footer LANGUAGE_CODE %}
+    <div class="container text-muted margin" role="contentinfo">
+
 
         {{ COPYRIGHT_YEAR }} &copy; {{ WEBSITE }}, created by {{ AUTHOR }}.
 
@@ -14,6 +15,6 @@
             <a href="{% url 'flatpage' url=flatpage.url %}" class="ml-3">{{ flatpage.title }}</a>
         {% endfor %}
 
-        {% endcache %}
+    </div>
 
-</div>
+{% endcache footer %}

@@ -3,7 +3,7 @@
 {% extends 'base.html' %}
 
 {% load cache %}
-{% cache 15 footer LANGUAGE_CODE %}
+{% cache 900 main LANGUAGE_CODE %}
 
 {% block title %}
     ChainStore - The best chain store in the world
@@ -53,4 +53,4 @@
 
 {% endblock %}
 
-{% endcache %}
+{% endcache main %}
