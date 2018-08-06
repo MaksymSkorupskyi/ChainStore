@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-02 15:24+0300\n"
+"POT-Creation-Date: 2018-08-06 13:39+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,15 +64,15 @@ msgstr "Города"
 msgid "Countries"
 msgstr "Страны"
 
-#: chainstore/settings.py:128
+#: chainstore/settings.py:132
 msgid "English"
 msgstr ""
 
-#: chainstore/settings.py:129
+#: chainstore/settings.py:133
 msgid "Русский"
 msgstr ""
 
-#: chainstore/settings.py:130
+#: chainstore/settings.py:134
 msgid "Українська"
 msgstr "Украинский"
 
@@ -109,8 +109,9 @@ msgstr "Отменить"
 #: person/templates/person/person_list.html:49
 #: place/templates/place/city_list.html:41
 #: place/templates/place/country_list.html:39
-#: shop/templates/shop/shop_list.html:54
+#: shop/templates/shop/shop_list.html:60
 #: shop/templates/shop/shoptype_list.html:41
+#: shop/templates/shop/test/shop_list.html:56
 #: warehouse/templates/warehouse/warehouse_list.html:47
 msgid "Edit"
 msgstr "Редактировать"
@@ -131,6 +132,26 @@ msgstr "Сохранить"
 #: chainstore/templates/chainstore/buttons_edit_delete_goback.html:14
 msgid "Go back"
 msgstr "Назад к списку"
+
+#: chainstore/templates/chainstore/pagination.html:23
+msgid "page"
+msgstr "страница"
+
+#: chainstore/templates/chainstore/pagination.html:25
+msgid "of"
+msgstr "из"
+
+#: chainstore/templates/chainstore/pagination.html:27
+msgid "showing"
+msgstr "Отображается"
+
+#: chainstore/templates/chainstore/pagination.html:29
+msgid "of total"
+msgstr "из"
+
+#: chainstore/templates/chainstore/pagination.html:31
+msgid "items"
+msgstr "объектов"
 
 #: person/forms.py:23 person/templates/person/person_detail.html:30
 #: person/templates/person/person_list.html:26
@@ -180,7 +201,8 @@ msgstr "название"
 #: place/models.py:9 place/models.py:19
 #: place/templates/place/city_detail.html:23
 #: place/templates/place/city_list.html:24
-#: shop/templates/shop/shop_list.html:27
+#: shop/templates/shop/shop_list.html:31
+#: shop/templates/shop/test/shop_list.html:27
 #: warehouse/templates/warehouse/warehouse_detail.html:37
 #: warehouse/templates/warehouse/warehouse_list.html:23
 msgid "Country"
@@ -190,15 +212,17 @@ msgstr "Страна"
 #: place/templates/place/city_list.html:23
 #: place/templates/place/country_detail.html:16
 #: place/templates/place/country_list.html:23
-#: shop/templates/shop/shop_list.html:24
+#: shop/templates/shop/shop_list.html:28
 #: shop/templates/shop/shoptype_detail.html:16
 #: shop/templates/shop/shoptype_list.html:24
+#: shop/templates/shop/test/shop_list.html:24
 #: warehouse/templates/warehouse/warehouse_detail.html:16
 #: warehouse/templates/warehouse/warehouse_list.html:22
 msgid "Name"
 msgstr "Название"
 
-#: place/models.py:22 shop/templates/shop/shop_list.html:28
+#: place/models.py:22 shop/templates/shop/shop_list.html:32
+#: shop/templates/shop/test/shop_list.html:28
 #: warehouse/templates/warehouse/warehouse_detail.html:30
 #: warehouse/templates/warehouse/warehouse_list.html:24
 msgid "City"
@@ -239,7 +263,9 @@ msgstr "продавцы"
 msgid "warehouses"
 msgstr "склады"
 
-#: shop/models.py:31
+#: shop/models.py:31 shop/templates/shop/shop_detail.html:98
+#: shop/templates/shop/shop_list.html:36
+#: shop/templates/shop/test/shop_list.html:32
 msgid "version"
 msgstr "версия"
 
@@ -249,7 +275,9 @@ msgstr "магазин"
 
 #: shop/models.py:35 shop/templates/shop/shop_detail.html:6
 #: shop/templates/shop/shop_detail.html:11 shop/templates/shop/shop_list.html:6
-#: shop/templates/shop/shop_list.html:11
+#: shop/templates/shop/shop_list.html:12
+#: shop/templates/shop/test/shop_list.html:6
+#: shop/templates/shop/test/shop_list.html:11
 msgid "shops"
 msgstr "магазины"
 
@@ -257,21 +285,25 @@ msgstr "магазины"
 msgid "country"
 msgstr "страна"
 
-#: shop/templates/shop/shop_list.html:25
+#: shop/templates/shop/shop_list.html:29
+#: shop/templates/shop/test/shop_list.html:25
 msgid "Type"
 msgstr "Тип"
 
-#: shop/templates/shop/shop_list.html:26
+#: shop/templates/shop/shop_list.html:30
+#: shop/templates/shop/test/shop_list.html:26
 msgid "Onwer"
 msgstr "Владелец"
 
-#: shop/templates/shop/shop_list.html:29
+#: shop/templates/shop/shop_list.html:33
+#: shop/templates/shop/test/shop_list.html:29
 #: warehouse/templates/warehouse/warehouse_detail.html:23
 #: warehouse/templates/warehouse/warehouse_list.html:25
 msgid "Address"
 msgstr "Адрес"
 
-#: shop/templates/shop/shop_list.html:30
+#: shop/templates/shop/shop_list.html:34
+#: shop/templates/shop/test/shop_list.html:30
 msgid "Website"
 msgstr "веб-сайт"
 

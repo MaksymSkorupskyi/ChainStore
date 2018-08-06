@@ -8,15 +8,11 @@
 
 {% block content %}
 
-    {#    <h1>{% trans 'shops'|capfirst %} <span class="badge badge-pill badge-primary">{{ shops|length }}</span></h1>#}
-    <h1>{% trans 'shops'|capfirst %} <span class="badge badge-pill badge-primary">{{ page_obj.paginator.count }}</span>
-    </h1>
+    <h1>{% trans 'shops'|capfirst %} <span class="badge badge-pill badge-primary">{{ shops|length }}</span></h1>
 
     {% if perms.shop.add_shop %}
         {% include "chainstore/button_add.html" %}
     {% endif %}
-
-        {% include "chainstore/pagination.html" %}
 
     {% if shops %}
 
@@ -45,7 +41,7 @@
 
             {% for shop in shops %}
                 <tr>
-                    <td><a href="{% url 'shop' pk=shop.pk %}">{{ page_obj.start_index|add:forloop.counter0 }}</a></td>
+                    <td><a href="{% url 'shop' pk=shop.pk %}">{{ forloop.counter }}</a></td>
                     <td><a href="{% url 'shop' pk=shop.pk %}">{{ shop.name }}</a></td>
                     <td><a href="{% url 'shoptype' pk=shop.shop_type.pk %}">{{ shop.shop_type }}</a></td>
                     <td><a href="{% url 'person' pk=shop.owner.pk %}">{{ shop.owner }}</a></td>
@@ -57,8 +53,7 @@
                     <td><a href="{% url 'shop' pk=shop.pk %}">{{ shop.version }}</a></td>
                     {% if perms.shop.add_shop %}
                         <td><a href="{% url 'shop' pk=shop.pk %}edit">
-                            <button type="button" class="btn btn-outline-secondary">{% trans 'Edit' %}</button>
-                        </a>
+                            <button type="button" class="btn btn-outline-secondary">{% trans 'Edit' %}</button></a>
                         </td>
                     {% endif %}
                 </tr>
@@ -67,8 +62,6 @@
             </tbody>
 
         </table>
-
-        {% include "chainstore/pagination.html" %}
 
     {% else %}
         <p class="text-muted">

@@ -32,7 +32,9 @@ class ShopList(ListView):
     # model = Shop
     queryset = Shop.objects.select_related('shop_type', 'owner', 'city', 'city__country')
     context_object_name = 'shops'
-    template_name = 'shop/shop_list.html'
+    # template_name = 'shop/shop_list.html'
+    paginate_by = 10
+    paginate_orphans = 2
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

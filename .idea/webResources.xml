@@ -8,6 +8,13 @@
             <path value="file://$PROJECT_DIR$/chainstore/static" />
             <path value="file://$PROJECT_DIR$/chainstore/static/chainstore" />
             <path value="file://$PROJECT_DIR$/chainstore/static/chainstore/favicoin.ico" />
+            <path value="file://$PROJECT_DIR$/locale" />
+            <path value="file://$PROJECT_DIR$/locale/en" />
+            <path value="file://$PROJECT_DIR$/locale/ru" />
+            <path value="file://$PROJECT_DIR$/locale/uk" />
+            <path value="file://$PROJECT_DIR$/locale/uk/LC_MESSAGES" />
+            <path value="file://$PROJECT_DIR$/locale/ru/LC_MESSAGES" />
+            <path value="file://$PROJECT_DIR$/locale/en/LC_MESSAGES" />
           </resourceRoots>
         </entryData>
       </entry>
