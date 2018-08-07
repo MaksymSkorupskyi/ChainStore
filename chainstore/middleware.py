@@ -31,6 +31,7 @@ class RequestsLogMiddleware:
         # Code to be executed for each request/response after the view is called.
         datetime_now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         response_time = round((time.perf_counter_ns() - request_time) * 1e-6, 2)
+
         # write Requests Log to file:
         with open(self.requests_log_filename, 'a') as f:
             f.write(f'{datetime_now} {request.method} {request.build_absolute_uri()} {response_time} ms\n')

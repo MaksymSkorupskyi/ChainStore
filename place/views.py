@@ -53,7 +53,7 @@ class CountryEdit(PermissionRequiredMixin, UpdateView):
     form_class = CountryForm
     model = Country
     template_name = 'place/country_edit.html'
-    permission_required = 'place.add_country'
+    permission_required = 'place.edit_country'
 
     def handle_no_permission(self):
         if self.raise_exception:
@@ -158,7 +158,7 @@ class CityEdit(PermissionRequiredMixin, UpdateView):
     form_class = CityForm
     model = City
     template_name = 'place/city_edit.html'
-    permission_required = 'place.add_city'
+    permission_required = 'place.edit_city'
 
     def handle_no_permission(self):
         if self.raise_exception:

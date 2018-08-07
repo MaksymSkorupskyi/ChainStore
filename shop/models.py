@@ -2,6 +2,8 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.db.models import F
+from django.urls import reverse
+
 from person.models import Person
 from warehouse.models import Warehouse
 from place.models import City
@@ -37,6 +39,9 @@ class Shop(models.Model):
 
     def __str__(self):
         return f'{self.name} | {self.shop_type} | {self.city}'
+
+    def get_absolute_url(self):
+        return reverse('shop', kwargs={'pk': self.pk})
 
 
 """
