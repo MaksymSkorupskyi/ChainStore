@@ -24,6 +24,11 @@ class WarehouseAdmin(admin.ModelAdmin):
     list_filter = (
         'city',
     )
+    search_fields = (
+        'name',
+        'city__name',
+        'address',
+    )
 
 
 admin.site.register(Warehouse, WarehouseAdmin)

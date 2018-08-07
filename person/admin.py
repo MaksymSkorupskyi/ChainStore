@@ -38,6 +38,12 @@ class PersonAdmin(admin.ModelAdmin):
     list_filter = (
         'gender',
     )
+    search_fields = (
+        'first_name',
+        'last_name',
+        'birthdate',
+        'email',
+    )
 
 
 admin.site.register(Person, PersonAdmin)

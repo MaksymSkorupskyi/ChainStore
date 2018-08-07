@@ -43,7 +43,33 @@ class ShopAdmin(admin.ModelAdmin):
         'warehouses',
     )
     # filter_vertical = ('warehouses',)
+    search_fields = (
+        'name',
+        'shop_type__name',
+        'owner__first_name',
+        'owner__last_name',
+        'city__name',
+        'address',
+        'website',
+    )
 
 
-admin.site.register(ShopType)
+class ShopTypeAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'id',
+    )
+    list_display_links = (
+        'name',
+        'id',
+    )
+    # list_editable = (
+    #     'country',
+    # )
+    search_fields = (
+        'name',
+    )
+
+
+admin.site.register(ShopType, ShopTypeAdmin)
 admin.site.register(Shop, ShopAdmin)
