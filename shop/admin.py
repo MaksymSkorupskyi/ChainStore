@@ -16,11 +16,23 @@ class ShopAdmin(admin.ModelAdmin):
     list_display_links = (
         'name',
         'shop_type',
-        'owner',
+        # 'owner',
         'city',
         'address',
         'website',
         'id',
+    )
+    list_editable = (
+        # 'name',
+        # 'shop_type',
+        'owner',
+        # 'city',
+        # 'address',
+        # 'website',
+    )
+    list_filter = (
+        'shop_type',
+        'owner',
     )
 
 

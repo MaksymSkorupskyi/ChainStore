@@ -23,9 +23,20 @@ class PersonAdmin(admin.ModelAdmin):
         'first_name',
         'last_name',
         'birthdate',
-        'gender',
+        # 'gender',
         'email',
         'id',
+    )
+    list_editable = (
+        # 'first_name',
+        # 'last_name',
+        # 'birthdate',
+        'gender',
+        # 'email',
+        # 'id',
+    )
+    list_filter = (
+        'gender',
     )
 
 

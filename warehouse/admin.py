@@ -15,6 +15,15 @@ class WarehouseAdmin(admin.ModelAdmin):
         'address',
         'id',
     )
+    list_editable = (
+        # 'name',
+        # 'city',
+        # 'address',
+        # 'id',
+    )
+    list_filter = (
+        'city',
+    )
 
 
 admin.site.register(Warehouse, WarehouseAdmin)
