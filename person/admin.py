@@ -1,5 +1,14 @@
 from django.contrib import admin
 from person.models import Person
+from shop.models import Shop
 
-# admin.site.register(person, admin.ModelAdmin)
-admin.site.register(Person)
+
+class OwnerShopInline(admin.TabularInline):
+    model = Shop
+
+
+class PersonAdmin(admin.ModelAdmin):
+    inlines = (OwnerShopInline, )
+
+
+admin.site.register(Person, PersonAdmin)
