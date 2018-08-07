@@ -15153,3 +15153,16 @@
 2018-08-07 11:36:22 GET http://127.0.0.1:8000/admin/jsi18n/ 9.53 ms
 2018-08-07 11:36:23 GET http://127.0.0.1:8000/admin/shop/shop/ 85.14 ms
 2018-08-07 11:36:23 GET http://127.0.0.1:8000/admin/jsi18n/ 6.35 ms
+2018-08-07 11:37:28 GET http://127.0.0.1:8000/admin/ 33.28 ms
+2018-08-07 11:37:31 GET http://127.0.0.1:8000/admin/sites/site/ 59.22 ms
+2018-08-07 11:37:31 GET http://127.0.0.1:8000/admin/jsi18n/ 8.55 ms
+2018-08-07 11:37:32 GET http://127.0.0.1:8000/admin/ 30.41 ms
+2018-08-07 11:37:33 GET http://127.0.0.1:8000/admin/warehouse/warehouse/ 106.52 ms
+2018-08-07 11:37:33 GET http://127.0.0.1:8000/admin/jsi18n/ 9.69 ms
+2018-08-07 11:37:40 GET http://127.0.0.1:8000/warehouse/ 43.28 ms
+2018-08-07 11:37:49 GET http://127.0.0.1:8000/warehouse/5/ 24.55 ms
+2018-08-07 11:39:20 GET http://127.0.0.1:8000/admin/warehouse/warehouse/ 193.92 ms
+2018-08-07 11:39:20 GET http://127.0.0.1:8000/admin/jsi18n/ 7.4 ms
+2018-08-07 11:39:25 GET http://127.0.0.1:8000/admin/warehouse/warehouse/2/change/ 72.3 ms
+2018-08-07 11:39:25 GET http://127.0.0.1:8000/admin/jsi18n/ 6.4 ms
+2018-08-07 11:39:29 GET http://127.0.0.1:8000/admin/warehouse/warehouse/ 96.97 ms
