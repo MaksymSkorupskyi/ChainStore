@@ -34,6 +34,15 @@ class ShopAdmin(admin.ModelAdmin):
         'shop_type',
         'owner',
     )
+    list_select_related = (
+        'shop_type',
+        'owner',
+    )
+    filter_horizontal = (
+        'sellers',
+        'warehouses',
+    )
+    # filter_vertical = ('warehouses',)
 
 
 admin.site.register(ShopType)
