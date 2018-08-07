@@ -12,12 +12,21 @@ class OwnerShopInline(admin.TabularInline):
 class PersonAdmin(admin.ModelAdmin):
     inlines = (OwnerShopInline,)
     list_display = (
-        # '__str__',
         'first_name',
         'last_name',
         'birthdate',
         'gender',
-        'email',)
+        'email',
+        'id',
+    )
+    list_display_links = (
+        'first_name',
+        'last_name',
+        'birthdate',
+        'gender',
+        'email',
+        'id',
+    )
 
 
 admin.site.register(Person, PersonAdmin)

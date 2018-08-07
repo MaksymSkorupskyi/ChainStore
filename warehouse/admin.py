@@ -7,6 +7,13 @@ class WarehouseAdmin(admin.ModelAdmin):
         'name',
         'city',
         'address',
+        'id',
+    )
+    list_display_links = (
+        'name',
+        'city',
+        'address',
+        'id',
     )
 
 
